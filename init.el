@@ -113,6 +113,11 @@
 (use-package electric
   :config (electric-indent-mode))
 
+(use-package autorevert
+  :diminish
+  :custom (auto-revert-verbose nil)
+  :config (global-auto-revert-mode))
+
 ;;; Version control
 
 (use-package diff-hl
