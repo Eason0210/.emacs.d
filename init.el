@@ -315,6 +315,11 @@ Call a second time to restore the original window configuration."
 (use-package git-timemachine
   :bind ("C-x v t" . git-timemachine-toggle))
 
+(use-package git-link
+  :bind (("C-c g l" . git-link)
+         ("C-c g h" . git-link-homepage)
+         ("C-c g c" . git-link-commit)))
+
 ;;; Miscellaneous config
 
 (use-package super-save
