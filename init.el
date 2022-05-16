@@ -159,6 +159,13 @@ Call a second time to restore the original window configuration."
                (if was-dedicated "no longer " "")
                (buffer-name)))))
 
+;; Navigate window layouts with "M-N" and "M-P"
+(use-package winner
+  :defer 0.5
+  :bind (("M-N" . winner-redo)
+         ("M-P" . winner-undo))
+  :config (winner-mode 1))
+
 ;;; Settings for tracking recent files
 
 (use-package recentf
