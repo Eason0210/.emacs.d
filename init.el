@@ -110,6 +110,9 @@
 (use-package elec-pair
   :config (electric-pair-mode))
 
+(use-package electric
+  :config (electric-indent-mode))
+
 ;;; Version control
 
 (use-package diff-hl
