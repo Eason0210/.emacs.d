@@ -297,6 +297,12 @@ Call a second time to restore the original window configuration."
  ;; Zap *up* to char is a handy pair for zap-to-char
  ("M-Z" . zap-up-to-char))
 
+;;; Whitespace
+
+(use-package ws-butler
+  :diminish
+  :hook (after-init . ws-butler-global-mode))
+
 ;;; Version control
 
 (use-package diff-hl
