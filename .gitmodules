@@ -7,6 +7,9 @@
 [submodule "compat"]
 	path = lib/compat
 	url = git@github.com:emacsmirror/compat.git
+[submodule "consult"]
+	path = lib/consult
+	url = git@github.com:minad/consult.git
 [submodule "dash"]
 	path = lib/dash
 	url = git@github.com:magnars/dash.el.git
