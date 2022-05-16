@@ -81,6 +81,25 @@
 
 ;;; Long tail
 
+;;; Editing utils
+
+(progn ; favorite default
+  (setq-default
+   use-short-answers t
+   blink-cursor-interval 0.4
+   bookmark-default-file (locate-user-emacs-file ".bookmarks.el")
+   column-number-mode t
+   indent-tabs-mode nil
+   create-lockfiles nil
+   auto-save-default nil
+   make-backup-files nil
+   mouse-yank-at-point t
+   save-interprogram-paste-before-kill t
+   scroll-preserve-screen-position 'always
+   set-mark-command-repeat-pop t
+   truncate-partial-width-windows nil
+   tooltip-delay 1.5))
+
 ;;; Version control
 
 (use-package diff-hl
