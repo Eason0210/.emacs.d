@@ -104,6 +104,9 @@
   (if (boundp 'pixel-scroll-precision-mode)
       (pixel-scroll-precision-mode t)))
 
+(use-package delsel
+  :config (delete-selection-mode))
+
 ;;; Version control
 
 (use-package diff-hl
