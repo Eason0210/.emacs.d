@@ -490,6 +490,9 @@ Call a second time to restore the original window configuration."
   (dolist (binding '("C-<left>" "C-<right>" "M-s" "M-?"))
     (define-key paredit-mode-map (read-kbd-macro binding) nil)))
 
+(use-package aggressive-indent
+  :hook (emacs-lisp-mode . aggressive-indent-mode))
+
 ;;; Miscellaneous config
 
 (use-package super-save
