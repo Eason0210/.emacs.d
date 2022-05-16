@@ -100,6 +100,10 @@
    truncate-partial-width-windows nil
    tooltip-delay 1.5))
 
+(progn ; `pixel-scroll'
+  (if (boundp 'pixel-scroll-precision-mode)
+      (pixel-scroll-precision-mode t)))
+
 ;;; Version control
 
 (use-package diff-hl
