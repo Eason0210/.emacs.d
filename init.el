@@ -499,6 +499,19 @@ Call a second time to restore the original window configuration."
          (haskell-mode . haskell-indentation-mode)
          (haskell-mode . haskell-auto-insert-module-template)))
 
+;;; Languages Server Protocol(LSP)
+
+(use-package eglot
+  :defer t
+  :bind (:map eglot-mode-map
+              ("C-c l a" . eglot-code-actions)
+              ("C-c l r" . eglot-rename)
+              ("C-c l f" . eglot-format)
+              ("C-c l d" . eldoc))
+  :config
+  (setq read-process-output-max (* 1024 1024))
+  (setq completion-category-defaults nil))
+
 ;;; Miscellaneous config
 
 (use-package super-save

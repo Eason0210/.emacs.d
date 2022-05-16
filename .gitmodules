@@ -28,6 +28,9 @@
 [submodule "diminish"]
 	path = lib/diminish
 	url = git@github.com:myrjola/diminish.el.git
+[submodule "eglot"]
+	path = lib/eglot
+	url = git@github.com:joaotavora/eglot.git
 [submodule "emacsql"]
 	no-byte-compile = emacsql-pg.el
 	path = lib/emacsql
