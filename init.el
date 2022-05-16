@@ -483,6 +483,13 @@ Call a second time to restore the original window configuration."
   (setq initial-scratch-message
         (concat ";; Happy hacking, " user-login-name " - Emacs ♥ you!\n\n")))
 
+(use-package paredit
+  :diminish paredit-mode " Par"
+  :hook (emacs-lisp-mode . enable-paredit-mode)
+  :config
+  (dolist (binding '("C-<left>" "C-<right>" "M-s" "M-?"))
+    (define-key paredit-mode-map (read-kbd-macro binding) nil)))
+
 ;;; Miscellaneous config
 
 (use-package super-save

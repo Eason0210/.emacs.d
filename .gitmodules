@@ -57,6 +57,9 @@
 [submodule "orderless"]
 	path = lib/orderless
 	url = git@github.com:oantolin/orderless.git
+[submodule "paredit"]
+	path = lib/paredit
+	url = https://mumble.net/~campbell/git/paredit.git
 [submodule "super-save"]
 	path = lib/super-save
 	url = git@github.com:bbatsov/super-save.git
