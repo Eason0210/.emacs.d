@@ -154,6 +154,13 @@
          (after-init . global-diff-hl-mode)
          (dired-mode . diff-hl-dired-mode)))
 
+;;; Built-in packages
+
+(use-package help
+  :defer t
+  :custom (help-window-select t)
+  :config (temp-buffer-resize-mode))
+
 ;;; Configure default locale
 
 (progn ; `charset'
