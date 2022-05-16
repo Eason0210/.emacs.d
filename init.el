@@ -101,6 +101,41 @@
 
 ;;; Minibuffer and completion
 
+(use-package minibuffer
+  :custom
+  (completion-styles '(orderless))
+  (completion-category-defaults nil)
+  (completion-category-overrides '((file (styles basic partial-completion))))
+  (enable-recursive-minibuffers t)
+  :init
+  ;; Make sure vertico commands are hidden in M-x
+  (setq read-extended-command-predicate #'command-completion-default-include-p))
+
+(use-package orderless
+  :demand t
+  :config
+  (defmacro dispatch: (regexp style)
+    (cl-flet ((symcat (a b) (intern (concat a (symbol-name b)))))
+      `(defun ,(symcat "dispatch:" style) (pattern _index _total)
+         (when (string-match ,regexp pattern)
+           (cons ',(symcat "orderless-" style) (match-string 1 pattern))))))
+  (cl-flet ((pre/post (str) (format "^%s\\(.*\\)$\\|^\\(?1:.*\\)%s$" str str)))
+    (dispatch: (pre/post "=") literal)
+    (dispatch: (pre/post "`") regexp)
+    (dispatch: (pre/post (if (or minibuffer-completing-file-name
+                                 (derived-mode-p 'eshell-mode))
+                             "%" "[%.]"))
+               initialism))
+  (dispatch: "^{\\(.*\\)}$" flex)
+  (dispatch: "^\\([^][^\\+*]*[./-][^][\\+*$]*\\)$" prefixes)
+  (dispatch: "^!\\(.+\\)$" without-literal)
+  :custom
+  (orderless-matching-styles 'orderless-regexp)
+  (orderless-style-dispatchers
+   '(dispatch:literal dispatch:regexp dispatch:without-literal
+                      dispatch:initialism dispatch:flex dispatch:prefixes))
+  (orderless-component-separator #'orderless-escapable-split-on-space))
+
 (use-package vertico
   :custom (vertico-cycle t)
   :config (vertico-mode))

@@ -39,6 +39,9 @@
 	no-byte-compile = lisp/magit-libgit.el
 	path = lib/magit
 	url = git@github.com:magit/magit.git
+[submodule "orderless"]
+	path = lib/orderless
+	url = git@github.com:oantolin/orderless.git
 [submodule "super-save"]
 	path = lib/super-save
 	url = git@github.com:bbatsov/super-save.git
