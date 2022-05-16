@@ -493,6 +493,12 @@ Call a second time to restore the original window configuration."
 (use-package aggressive-indent
   :hook (emacs-lisp-mode . aggressive-indent-mode))
 
+(use-package haskell-mode
+  :defer t
+  :hook ((haskell-mode . interactive-haskell-mode)
+         (haskell-mode . haskell-indentation-mode)
+         (haskell-mode . haskell-auto-insert-module-template)))
+
 ;;; Miscellaneous config
 
 (use-package super-save
