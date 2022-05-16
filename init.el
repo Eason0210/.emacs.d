@@ -478,7 +478,10 @@ Call a second time to restore the original window configuration."
 ;;; Programming languages support
 
 (use-package elisp-mode
-  :hook (emacs-lisp-mode . (lambda () (setq mode-name "ELisp"))))
+  :hook (emacs-lisp-mode . (lambda () (setq mode-name "ELisp")))
+  :config
+  (setq initial-scratch-message
+        (concat ";; Happy hacking, " user-login-name " - Emacs ♥ you!\n\n")))
 
 ;;; Miscellaneous config
 
