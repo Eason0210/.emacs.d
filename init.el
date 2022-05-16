@@ -118,6 +118,15 @@
   :custom (auto-revert-verbose nil)
   :config (global-auto-revert-mode))
 
+(bind-keys
+ ("C-x k" . kill-current-buffer)
+ ("C-x x p" . pop-to-mark-command)
+ ("C-x C-." . pop-global-mark)
+ ;; M-^ is inconvenient, so also bind M-j
+ ("M-j" . join-line)
+ ;; Zap *up* to char is a handy pair for zap-to-char
+ ("M-Z" . zap-up-to-char))
+
 ;;; Version control
 
 (use-package diff-hl
