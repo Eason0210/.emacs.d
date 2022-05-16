@@ -56,6 +56,9 @@
 [submodule "kind-icon"]
 	path = lib/kind-icon
 	url = https://github.com/jdtsmith/kind-icon
+[submodule "lua-mode"]
+	path = lib/lua-mode
+	url = git@github.com:immerrr/lua-mode.git
 [submodule "magit"]
 	no-byte-compile = lisp/magit-libgit.el
 	path = lib/magit
