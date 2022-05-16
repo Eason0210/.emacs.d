@@ -107,6 +107,9 @@
 (use-package delsel
   :config (delete-selection-mode))
 
+(use-package elec-pair
+  :config (electric-pair-mode))
+
 ;;; Version control
 
 (use-package diff-hl
