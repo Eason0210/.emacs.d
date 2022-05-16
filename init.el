@@ -40,11 +40,18 @@
   (require 'borg)
   (borg-initialize))
 
-(progn ; `custom'
-   (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-   (when (file-exists-p custom-file)
-     (load custom-file)))
+(progn ; `use-package'
+  (setq use-package-enable-imenu-support t)
+  (setq use-package-expand-minimally t)
+  (setq use-package-compute-statistics t)
+  (require 'use-package))
 
+(use-package custom
+  :no-require t
+  :config
+  (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+  (when (file-exists-p custom-file)
+    (load custom-file)))
 
 (progn ; `startup'
   (message "Loading early birds...done (%.3fs)"
