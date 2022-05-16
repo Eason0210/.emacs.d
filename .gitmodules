@@ -10,6 +10,9 @@
 [submodule "dash"]
 	path = lib/dash
 	url = git@github.com:magnars/dash.el.git
+[submodule "diff-hl"]
+	path = lib/diff-hl
+	url = git@github.com:dgutov/diff-hl.git
 [submodule "diminish"]
 	path = lib/diminish
 	url = git@github.com:myrjola/diminish.el.git
