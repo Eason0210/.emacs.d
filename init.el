@@ -46,6 +46,11 @@
   (setq use-package-compute-statistics t)
   (require 'use-package))
 
+(use-package epkg
+  :defer t
+  :init (setq epkg-repository
+              (expand-file-name "var/epkgs/" user-emacs-directory)))
+
 (use-package custom
   :no-require t
   :config
