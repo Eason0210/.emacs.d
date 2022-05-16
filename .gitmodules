@@ -33,6 +33,9 @@
 	no-byte-compile = lisp/magit-libgit.el
 	path = lib/magit
 	url = git@github.com:magit/magit.git
+[submodule "switch-window"]
+	path = lib/switch-window
+	url = git@github.com:dimitri/switch-window.git
 [submodule "transient"]
 	path = lib/transient
 	url = git@github.com:magit/transient.git
