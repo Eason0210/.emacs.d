@@ -140,6 +140,9 @@
   :custom (vertico-cycle t)
   :config (vertico-mode))
 
+(use-package marginalia
+  :init (marginalia-mode))
+
 ;;; Working with Windows within frames
 
 (use-package window
