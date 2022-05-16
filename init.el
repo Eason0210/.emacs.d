@@ -99,6 +99,14 @@
      (consult-file-externally (dired-get-filename))
      arg)))
 
+;;; Settings for tracking recent files
+
+(use-package recentf
+  :custom
+  (recentf-max-saved-items 1000)
+  (recentf-exclude `("/tmp/" "/ssh:" ,(concat user-emacs-directory "lib/.*-autoloads\\.el\\'")))
+  :config (recentf-mode))
+
 ;;; Editing utils
 
 (progn ; favorite default
