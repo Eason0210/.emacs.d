@@ -7,6 +7,9 @@
 [submodule "compat"]
 	path = lib/compat
 	url = git@github.com:emacsmirror/compat.git
+[submodule "dash"]
+	path = lib/dash
+	url = git@github.com:magnars/dash.el.git
 [submodule "emacsql"]
 	no-byte-compile = emacsql-pg.el
 	path = lib/emacsql
@@ -14,3 +17,13 @@
 [submodule "epkg"]
 	path = lib/epkg
 	url = git@github.com:emacscollective/epkg.git
+[submodule "magit"]
+	no-byte-compile = lisp/magit-libgit.el
+	path = lib/magit
+	url = git@github.com:magit/magit.git
+[submodule "transient"]
+	path = lib/transient
+	url = git@github.com:magit/transient.git
+[submodule "with-editor"]
+	path = lib/with-editor
+	url = git@github.com:magit/with-editor.git
