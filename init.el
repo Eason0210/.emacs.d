@@ -312,6 +312,9 @@ Call a second time to restore the original window configuration."
          (after-init . global-diff-hl-mode)
          (dired-mode . diff-hl-dired-mode)))
 
+(use-package git-timemachine
+  :bind ("C-x v t" . git-timemachine-toggle))
+
 ;;; Miscellaneous config
 
 (use-package super-save
