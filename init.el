@@ -475,6 +475,11 @@ Call a second time to restore the original window configuration."
          ("C-c g h" . git-link-homepage)
          ("C-c g c" . git-link-commit)))
 
+;;; Programming languages support
+
+(use-package elisp-mode
+  :hook (emacs-lisp-mode . (lambda () (setq mode-name "ELisp"))))
+
 ;;; Miscellaneous config
 
 (use-package super-save
