@@ -247,6 +247,13 @@
   :init
   (add-to-list 'completion-at-point-functions #'cape-file))
 
+(use-package kind-icon
+  :after corfu
+  :custom
+  (kind-icon-default-face 'corfu-default)
+  :config
+  (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
+
 ;;; Working with Windows within frames
 
 (use-package window
