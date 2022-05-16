@@ -99,6 +99,12 @@
      (consult-file-externally (dired-get-filename))
      arg)))
 
+;;; Minibuffer and completion
+
+(use-package vertico
+  :custom (vertico-cycle t)
+  :config (vertico-mode))
+
 ;;; Working with Windows within frames
 
 (use-package window
