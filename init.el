@@ -223,6 +223,16 @@
            (outline-on-heading-p))
       (outline-show-entry)))))
 
+(use-package corfu
+  :custom
+  (corfu-auto t)
+  (corfu-max-width 100)
+  (corfu-auto-delay 0.15)
+  (corfu-auto-prefix 1)
+  (corfu-preview-current nil)
+  :init
+  (global-corfu-mode))
+
 ;;; Working with Windows within frames
 
 (use-package window

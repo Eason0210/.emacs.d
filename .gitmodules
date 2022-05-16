@@ -10,6 +10,9 @@
 [submodule "consult"]
 	path = lib/consult
 	url = git@github.com:minad/consult.git
+[submodule "corfu"]
+	path = lib/corfu
+	url = git@github.com:minad/corfu.git
 [submodule "dash"]
 	path = lib/dash
 	url = git@github.com:magnars/dash.el.git
