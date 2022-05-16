@@ -81,6 +81,24 @@
 
 ;;; Long tail
 
+;;; Dired mode
+
+(use-package dired
+  :bind (:map dired-mode-map
+              ("e" . dired-open-externally))
+  :custom
+  (dired-dwim-target t)
+  (dired-listing-switches "-alGh")
+  (dired-recursive-copies 'always)
+  (dired-kill-when-opening-new-dired-buffer t)
+  :config
+  (defun dired-open-externally (&optional arg)
+    "Open marked or current file in operating system's default application."
+    (interactive "P")
+    (dired-map-over-marks
+     (consult-file-externally (dired-get-filename))
+     arg)))
+
 ;;; Editing utils
 
 (progn ; favorite default
