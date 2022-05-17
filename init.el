@@ -763,6 +763,16 @@ typical word processor."
   (setq read-process-output-max (* 1024 1024))
   (setq completion-category-defaults nil))
 
+;;; Helpers for M-x compile
+
+(use-package compile
+  :bind ([f6] . recompile)
+  :config
+  (setq-default compilation-scroll-output 'first-error)
+  (setq compilation-finish-functions
+        (lambda (buffer &optional args)
+          (select-window (get-buffer-window buffer)))))
+
 ;;; Miscellaneous config
 
 (use-package super-save
