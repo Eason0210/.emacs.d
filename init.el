@@ -825,6 +825,19 @@ typical word processor."
                               :parser (gts-google-summary-parser))
                     :render (gts-kill-ring-render)))))
 
+(use-package flyspell
+  :diminish
+  :if (and (executable-find "aspell") *spell-check-support-enabled*)
+  :hook ((prog-mode . flyspell-prog-mode)
+         (flyspell-mode . (lambda ()
+                            (dolist (key '("C-;" "C-."))
+                              (unbind-key key flyspell-mode-map)))))
+  :custom
+  (flyspell-issue-message-flag nil)
+  (ispell-program-name "aspell")
+  (ispell-extra-args '("--sug-mode=fast" "--lang=en_US" "--camel-case"))
+  (ispell-personal-dictionary (expand-file-name "en_US.personal" "~/.config/aspell/")))
+
 ;;; Built-in packages
 
 (use-package help
