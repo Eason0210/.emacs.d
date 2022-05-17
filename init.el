@@ -527,6 +527,18 @@ Call a second time to restore the original window configuration."
          ("C-c g h" . git-link-homepage)
          ("C-c g c" . git-link-commit)))
 
+(use-package magit
+  :bind ("C-x g" . magit-status)
+  :custom
+  (magit-diff-refine-hunk t)
+  (magit-module-sections-nested nil)
+  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
+  :config
+  (magit-add-section-hook 'magit-status-sections-hook
+                          'magit-insert-modules
+                          'magit-insert-stashes
+                          'append))
+
 ;;; Text editing
 
 (use-package org
