@@ -99,9 +99,15 @@
 [submodule "vertico"]
 	path = lib/vertico
 	url = git@github.com:minad/vertico.git
+[submodule "visual-fill-column"]
+	path = lib/visual-fill-column
+	url = https://codeberg.org/joostkremers/visual-fill-column.git
 [submodule "with-editor"]
 	path = lib/with-editor
 	url = git@github.com:magit/with-editor.git
+[submodule "writeroom-mode"]
+	path = lib/writeroom-mode
+	url = git@github.com:joostkremers/writeroom-mode.git
 [submodule "ws-butler"]
 	path = lib/ws-butler
 	url = git@github.com:lewang/ws-butler.git
