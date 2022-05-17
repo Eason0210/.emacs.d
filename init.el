@@ -284,6 +284,20 @@
   :config
   (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
 
+(use-package tempel
+  :bind (("M-+" . tempel-complete)
+         ("M-*" . tempel-insert)
+         :map tempel-map
+         ("M-]" . tempel-next)
+         ("M-[" . tempel-previous))
+  :hook ((prog-mode text-mode) . tempel-setup-capf)
+  :init
+  (defun tempel-setup-capf ()
+    "Setup completion at point."
+    (setq-local completion-at-point-functions
+                (cons #'tempel-expand
+                      completion-at-point-functions))))
+
 ;;; Working with Windows within frames
 
 (use-package window

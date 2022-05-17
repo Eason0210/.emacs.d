@@ -106,6 +106,9 @@
 [submodule "switch-window"]
 	path = lib/switch-window
 	url = git@github.com:dimitri/switch-window.git
+[submodule "tempel"]
+	path = lib/tempel
+	url = git@github.com:minad/tempel.git
 [submodule "transient"]
 	path = lib/transient
 	url = git@github.com:magit/transient.git
