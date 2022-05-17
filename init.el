@@ -99,6 +99,14 @@
      (consult-file-externally (dired-get-filename))
      arg)))
 
+;;; Isearch settings
+
+(use-package isearch
+  :custom
+  (isearch-lazy-count t)
+  (isearch-allow-motion t)
+  (isearch-motion-changes-direction t))
+
 ;;; Minibuffer and completion
 
 (use-package minibuffer
