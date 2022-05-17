@@ -223,6 +223,36 @@
            (outline-on-heading-p))
       (outline-show-entry)))))
 
+(use-package embark
+  :bind
+  ("C-." . embark-act)
+  ("M-." . embark-dwim)
+  ("C-h b" . embark-bindings)
+  ("C-h B" . embark-bindings-at-point)
+  ("M-n" . embark-next-symbol)
+  ("M-p" . embark-previous-symbol)
+  ("C-h E" . embark-on-last-message)
+  ("C-;" . avy-goto-char-timer)
+  :custom
+  (embark-quit-after-action nil)
+  (prefix-help-command #'embark-prefix-help-command)
+  (embark-indicators '(embark-minimal-indicator
+                       embark-highlight-indicator
+                       embark-isearch-highlight-indicator))
+  (embark-cycle-key ".")
+  (embark-help-key "?")
+  :config
+  (setq embark-candidate-collectors
+        (cl-substitute 'embark-sorted-minibuffer-candidates
+                       'embark-minibuffer-candidates
+                       embark-candidate-collectors))
+  (defun embark-on-last-message (arg)
+    "Act on the last message displayed in the echo area."
+    (interactive "P")
+    (with-current-buffer "*Messages*"
+      (goto-char (1- (point-max)))
+      (embark-act arg))))
+
 (use-package corfu
   :custom
   (corfu-auto t)

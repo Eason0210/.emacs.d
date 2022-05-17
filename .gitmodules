@@ -1,6 +1,9 @@
 [submodule "aggressive-indent"]
 	path = lib/aggressive-indent
 	url = git@github.com:Malabarba/aggressive-indent-mode.git
+[submodule "avy"]
+	path = lib/avy
+	url = git@github.com:abo-abo/avy.git
 [submodule "borg"]
 	path = lib/borg
 	url = git@github.com:emacscollective/borg.git
@@ -39,6 +42,9 @@
 	no-byte-compile = emacsql-sqlite-module.el
 	path = lib/emacsql-sqlite-builtin
 	url = git@github.com:emacscollective/emacsql-sqlite-builtin.git
+[submodule "embark"]
+	path = lib/embark
+	url = git@github.com:oantolin/embark.git
 [submodule "epkg"]
 	path = lib/epkg
 	url = git@github.com:emacscollective/epkg.git
