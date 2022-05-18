@@ -97,6 +97,9 @@
 [submodule "marginalia"]
 	path = lib/marginalia
 	url = git@github.com:minad/marginalia.git
+[submodule "move-dup"]
+	path = lib/move-dup
+	url = git@github.com:wyuenho/move-dup.git
 [submodule "orderless"]
 	path = lib/orderless
 	url = git@github.com:oantolin/orderless.git

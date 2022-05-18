@@ -546,6 +546,13 @@ Call a second time to restore the original window configuration."
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
+(use-package move-dup
+  :bind
+  ("C-c d" . move-dup-duplicate-down)
+  ("C-c u" . move-dup-duplicate-up)
+  ([M-up] . move-dup-move-lines-up)
+  ([M-down] . move-dup-move-lines-down))
+
 (progn ; `buffer'
   (defun indicate-buffer-boundaries-left ()
     (setq indicate-buffer-boundaries 'left))
