@@ -535,6 +535,12 @@ Call a second time to restore the original window configuration."
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
+(progn ; `buffer'
+  (defun indicate-buffer-boundaries-left ()
+    (setq indicate-buffer-boundaries 'left))
+  (add-hook 'prog-mode-hook 'indicate-buffer-boundaries-left)
+  (add-hook 'text-mode-hook 'indicate-buffer-boundaries-left))
+
 (bind-keys
  ("C-x k" . kill-current-buffer)
  ("C-x x p" . pop-to-mark-command)
