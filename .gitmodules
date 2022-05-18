@@ -66,6 +66,9 @@
 [submodule "haskell-mode"]
 	path = lib/haskell-mode
 	url = git@github.com:haskell/haskell-mode.git
+[submodule "highlight-quoted"]
+	path = lib/highlight-quoted
+	url = git@github.com:Fanael/highlight-quoted.git
 [submodule "json-mode"]
 	path = lib/json-mode
 	url = git@github.com:joshwnj/json-mode.git

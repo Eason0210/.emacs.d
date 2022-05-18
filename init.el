@@ -811,6 +811,9 @@ typical word processor."
 (use-package aggressive-indent
   :hook (emacs-lisp-mode . aggressive-indent-mode))
 
+(use-package highlight-quoted
+  :hook (emacs-lisp-mode . highlight-quoted-mode))
+
 (use-package haskell-mode
   :defer t
   :hook ((haskell-mode . interactive-haskell-mode)
