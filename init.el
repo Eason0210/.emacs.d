@@ -297,7 +297,6 @@
   ("M-n" . embark-next-symbol)
   ("M-p" . embark-previous-symbol)
   ("C-h E" . embark-on-last-message)
-  ("C-;" . avy-goto-char-timer)
   :custom
   (embark-quit-after-action nil)
   (prefix-help-command #'embark-prefix-help-command)
@@ -317,6 +316,12 @@
     (with-current-buffer "*Messages*"
       (goto-char (1- (point-max)))
       (embark-act arg))))
+
+(use-package avy
+  :bind ("C-;" . avy-goto-char-timer)
+  :custom
+  (avy-all-windows nil)
+  (avy-all-windows-alt t))
 
 (use-package corfu
   :custom
