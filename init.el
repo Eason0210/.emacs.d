@@ -363,6 +363,17 @@
                 (cons #'tempel-expand
                       completion-at-point-functions))))
 
+;;; Settings for hippie-expand
+
+(use-package hippie-exp
+  :bind ("M-/" . hippie-expand)
+  :custom (hippie-expand-try-functions-list
+           '(try-complete-file-name-partially
+             try-complete-file-name
+             try-expand-dabbrev
+             try-expand-dabbrev-all-buffers
+             try-expand-dabbrev-from-kill)))
+
 ;;; Working with Windows within frames
 
 (use-package window
