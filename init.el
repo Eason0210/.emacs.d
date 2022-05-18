@@ -157,6 +157,13 @@
   (uniquify-after-kill-buffer-p t)
   (uniquify-ignore-buffers-re "^\\*"))
 
+;;; A universal on-the-fly syntax checker
+
+(use-package flymake
+  :hook (emacs-lisp-mode . flymake-mode)
+  :config
+  (remove-hook 'flymake-diagnostic-functions #'flymake-proc-legacy-flymake))
+
 ;;; Minibuffer and completion
 
 (use-package minibuffer
