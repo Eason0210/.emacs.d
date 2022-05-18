@@ -920,6 +920,10 @@ typical word processor."
          (haskell-mode . haskell-indentation-mode)
          (haskell-mode . haskell-auto-insert-module-template)))
 
+(use-package python
+  :defer t
+  :custom (python-indent-guess-indent-offset-verbose nil))
+
 ;;; Languages Server Protocol(LSP)
 
 (use-package eglot
