@@ -924,6 +924,9 @@ typical word processor."
   :defer t
   :custom (python-indent-guess-indent-offset-verbose nil))
 
+(use-package pyvenv
+  :hook (python-mode . pyvenv-mode))
+
 ;;; Languages Server Protocol(LSP)
 
 (use-package eglot
