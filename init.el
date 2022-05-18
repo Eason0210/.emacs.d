@@ -495,6 +495,9 @@ Call a second time to restore the original window configuration."
   :custom (auto-revert-verbose nil)
   :config (global-auto-revert-mode))
 
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
+
 (bind-keys
  ("C-x k" . kill-current-buffer)
  ("C-x x p" . pop-to-mark-command)
