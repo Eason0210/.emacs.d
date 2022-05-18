@@ -136,6 +136,10 @@
      (consult-file-externally (dired-get-filename))
      arg)))
 
+(use-package diredfl
+  :after dired
+  :config (diredfl-global-mode))
+
 ;;; Isearch settings
 
 (use-package isearch

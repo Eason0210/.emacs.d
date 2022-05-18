@@ -37,6 +37,9 @@
 [submodule "diminish"]
 	path = lib/diminish
 	url = git@github.com:myrjola/diminish.el.git
+[submodule "diredfl"]
+	path = lib/diredfl
+	url = git@github.com:purcell/diredfl.git
 [submodule "eglot"]
 	path = lib/eglot
 	url = git@github.com:joaotavora/eglot.git
