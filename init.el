@@ -532,6 +532,13 @@ Call a second time to restore the original window configuration."
   :custom (auto-revert-verbose nil)
   :config (global-auto-revert-mode))
 
+(use-package beacon
+  :custom
+  (beacon-lighter "")
+  (beacon-size 20)
+  (beacon-blink-when-window-scrolls nil)
+  :config (beacon-mode 1))
+
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 

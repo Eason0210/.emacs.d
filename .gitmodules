@@ -4,6 +4,9 @@
 [submodule "avy"]
 	path = lib/avy
 	url = git@github.com:abo-abo/avy.git
+[submodule "beacon"]
+	path = lib/beacon
+	url = git@github.com:Malabarba/beacon.git
 [submodule "borg"]
 	path = lib/borg
 	url = git@github.com:emacscollective/borg.git
