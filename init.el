@@ -881,6 +881,10 @@ typical word processor."
                  (window-width . 0.33)
                  (window-height . fit-window-to-buffer))))
 
+(use-package markdown-mode
+  :mode (("\\.md\\.html\\'" . markdown-mode)
+         ("README\\.md\\'" . gfm-mode)))
+
 ;;; Programming languages support
 
 (use-package elisp-mode

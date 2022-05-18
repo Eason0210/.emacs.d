@@ -97,6 +97,9 @@
 [submodule "marginalia"]
 	path = lib/marginalia
 	url = git@github.com:minad/marginalia.git
+[submodule "markdown-mode"]
+	path = lib/markdown-mode
+	url = git@github.com:jrblevin/markdown-mode.git
 [submodule "move-dup"]
 	path = lib/move-dup
 	url = git@github.com:wyuenho/move-dup.git
