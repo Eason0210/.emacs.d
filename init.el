@@ -1036,6 +1036,9 @@ typical word processor."
 
 ;;; Built-in packages
 
+(use-package eldoc
+  :custom (eldoc-echo-area-use-multiline-p nil))
+
 (use-package help
   :defer t
   :custom (help-window-select t)
