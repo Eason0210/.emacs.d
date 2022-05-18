@@ -925,7 +925,15 @@ typical word processor."
   :custom (python-indent-guess-indent-offset-verbose nil))
 
 (use-package pyvenv
-  :hook (python-mode . pyvenv-mode))
+  :hook (python-mode . pyvenv-mode)
+  :config
+  (setq pyvenv-post-activate-hooks
+        (list (lambda ()
+                (setq python-shell-interpreter
+                      (concat pyvenv-virtual-env
+                              (if (eq system-type 'windows-nt)
+                                  "scripts/python"
+                                "bin/python")))))))
 
 ;;; Languages Server Protocol(LSP)
 
