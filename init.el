@@ -81,6 +81,43 @@
 
 ;;; Long tail
 
+;;; Theme
+
+(use-package color-theme-sanityinc-tomorrow
+  :hook (after-init . reapply-themes)
+  :bind ("C-c t b" . sanityinc-tomorrow-themes-toggle)
+  :custom
+  (custom-safe-themes t)
+  (custom-enabled-themes '(sanityinc-tomorrow-bright))
+  :preface
+  (defun reapply-themes ()
+    "Forcibly load the themes listed in `custom-enabled-themes'."
+    (dolist (theme custom-enabled-themes)
+      (unless (custom-theme-p theme)
+        (load-theme theme)))
+    (custom-set-variables `(custom-enabled-themes (quote ,custom-enabled-themes))))
+
+  (defun light ()
+    "Activate a light color theme."
+    (interactive)
+    (setq custom-enabled-themes '(sanityinc-tomorrow-day))
+    (reapply-themes))
+
+  (defun dark ()
+    "Activate a dark color theme."
+    (interactive)
+    (setq custom-enabled-themes '(sanityinc-tomorrow-bright))
+    (reapply-themes))
+
+  (defun sanityinc-tomorrow-themes-toggle ()
+    "Toggle between `sanityinc-tomorrow-bright' and `sanityinc-tomorrow-day'."
+    (interactive)
+    (if (eq (car custom-enabled-themes) 'sanityinc-tomorrow-bright)
+        (light)
+      (dark))
+    (if (featurep 'kind-icon)
+        (kind-icon-reset-cache))))
+
 ;;; Dired mode
 
 (use-package dired
