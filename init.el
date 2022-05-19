@@ -330,6 +330,7 @@
   (corfu-auto-delay 0.15)
   (corfu-auto-prefix 1)
   (corfu-preview-current nil)
+  :hook (eshell-mode . (lambda () (setq-local corfu-auto nil)))
   :init
   (global-corfu-mode))
 
