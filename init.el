@@ -635,6 +635,7 @@ Call a second time to restore the original window configuration."
   (magit-module-sections-nested nil)
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
   :config
+  (put 'magit-clean 'disabled nil)
   (magit-add-section-hook 'magit-status-sections-hook
                           'magit-insert-modules
                           'magit-insert-unpulled-from-upstream)
