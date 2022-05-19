@@ -1,0 +1,48 @@
+#+title:  My Emacs Configuration
+
+This is my personal Emacs configuration, it works on macOS, Linux and Windows.
+
+- Use [[https://github.com/emacscollective/borg][Borg]] to assimilate Emacs packages as Git submodules.
+- Use [[https://github.com/jwiegley/use-package][use-package]] to organize the config,  optimize the startup time.
+
+** Supported Languages
+Emacs itself comes with support for many programming languages. This config adds improved defaults and extended support for the following, listed in the approximate order of how much I use them, from most to least:
+
+- Haskell
+- C/C++
+- Python
+- Javascript / Typescript
+- HTML/Markdown
+- Rust
+
+LSP support is provided using [[https://github.com/joaotavora/eglot][Eglot]].
+
+** Supported Emacs versions
+Suggest to use Emacs 28 and higher version to get the full features. I am using Emacs 29.
+
+** Installation
+To install, clone this repo to ~$HOME/.emacs.d~, i.e. ensure that the ~init.el~ contained in this repo ends up at ~$HOME/.emacs.d/init.el~:
+
+#+begin_src bash
+cd ~/ && git clone git@github.com:Eason0210/.emacs.d.git
+make bootstrap-borg  # = bootstrap borg itself
+make bootstrap       # = bootstrap collective or new drones
+#+end_src
+After ~make bootstrap~, all the third-party packages will be automatically cloned as Git submodules , byte-compile and create autoloads.
+
+See more details on [[https://github.com/emacscollective/borg/blob/master/docs/borg.org][Borg User Manual]].
+
+**  Updates
+Update the config with ~git pull~. Update the third-party packages by running:
+#+begin_src bash
+git submodule update --init ./lib/<package-name> # Optionally
+git submodule foreach git pull # Update each submodule to latest commit
+make clean all
+#+end_src
+
+** About private configurations
+I put my private configurations in ~$Home/.emacs.d/private.el~, such as Email and variable-pitch font config, etc.
+
+** Reference configurations
+1. [[https://github.com/purcell/emacs.d][Purcell/emacs.d]]
+2. [[https://github.com/DamienCassou/emacs.d][DamienCassou/emacs.d]]
