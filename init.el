@@ -579,6 +579,9 @@ Call a second time to restore the original window configuration."
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
+(use-package highlight-escape-sequences
+  :hook (after-init . hes-mode))
+
 (use-package move-dup
   :bind
   ("C-c d" . move-dup-duplicate-down)

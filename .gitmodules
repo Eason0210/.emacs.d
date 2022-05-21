@@ -86,6 +86,9 @@
 [submodule "haskell-mode"]
 	path = lib/haskell-mode
 	url = git@github.com:haskell/haskell-mode.git
+[submodule "highlight-escape-sequences"]
+	path = lib/highlight-escape-sequences
+	url = git@github.com:dgutov/highlight-escape-sequences.git
 [submodule "highlight-quoted"]
 	path = lib/highlight-quoted
 	url = git@github.com:Fanael/highlight-quoted.git
