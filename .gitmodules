@@ -63,6 +63,14 @@
 [submodule "exec-path-from-shell"]
 	path = lib/exec-path-from-shell
 	url = git@github.com:purcell/exec-path-from-shell.git
+[submodule "flyspell-correct"]
+	no-byte-compile = flyspell-correct-avy-menu.el
+	no-byte-compile = flyspell-correct-helm.el
+	no-byte-compile = flyspell-correct-ido.el
+	no-byte-compile = flyspell-correct-ivy.el
+	no-byte-compile = flyspell-correct-popup.el
+	path = lib/flyspell-correct
+	url = git@github.com:d12frosted/flyspell-correct.git
 [submodule "git-link"]
 	path = lib/git-link
 	url = git@github.com:sshaw/git-link.git

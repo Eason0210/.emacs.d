@@ -1038,6 +1038,11 @@ typical word processor."
   (ispell-extra-args '("--sug-mode=fast" "--lang=en_US" "--camel-case"))
   (ispell-personal-dictionary (expand-file-name "en_US.personal" "~/.config/aspell/")))
 
+(use-package flyspell-correct
+  :after flyspell
+  :bind (:map flyspell-mode-map
+              ("C-," . flyspell-correct-wrapper)))
+
 (use-package sis
   :demand t
   :bind ("C-<f9>" . sis-switch)
