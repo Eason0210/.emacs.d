@@ -135,9 +135,6 @@
 [submodule "rust-mode"]
 	path = lib/rust-mode
 	url = git@github.com:rust-lang/rust-mode.git
-[submodule "sis"]
-	path = lib/sis
-	url = git@github.com:laishulu/emacs-smart-input-source.git
 [submodule "sqlite3"]
 	path = lib/sqlite3
 	url = git@github.com:pekingduck/emacs-sqlite3-api.git
@@ -153,9 +150,6 @@
 [submodule "tempel"]
 	path = lib/tempel
 	url = git@github.com:minad/tempel.git
-[submodule "terminal-focus-reporting"]
-	path = lib/terminal-focus-reporting
-	url = git@github.com:veelenga/terminal-focus-reporting.el.git
 [submodule "transient"]
 	path = lib/transient
 	url = git@github.com:magit/transient.git

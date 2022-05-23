@@ -1050,25 +1050,6 @@ typical word processor."
   :bind (:map flyspell-mode-map
               ("C-," . flyspell-correct-wrapper)))
 
-(use-package sis
-  :demand t
-  :bind ("C-<f9>" . sis-switch)
-  :config
-  (add-to-list 'sis-prefix-override-keys "M-s")
-  (add-to-list 'sis-prefix-override-keys "M-g")
-
-  (when (eq system-type 'windows-nt)
-    (sis-ism-lazyman-config "1033" "2052" 'im-select))
-  (when *is-a-mac*
-    (sis-ism-lazyman-config "com.apple.keylayout.ABC" "com.apple.inputmethod.SCIM.ITABC"))
-  (when (eq system-type 'gnu/linux)
-    (sis-ism-lazyman-config "1" "2" 'fcitx5))
-
-  (setq sis-other-cursor-color "orange")
-  (sis-global-cursor-color-mode t)
-
-  (sis-global-respect-mode t))
-
 ;;; Built-in packages
 
 (use-package eldoc
