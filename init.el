@@ -47,15 +47,11 @@
   (setq use-package-compute-statistics t)
   (require 'use-package))
 
-(use-package epkg
-  :defer t
-  :init (setq epkg-repository
-              (expand-file-name "var/epkgs/" user-emacs-directory)))
+(use-package no-littering)
 
 (use-package custom
-  :no-require t
   :config
-  (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+  (setq custom-file (no-littering-expand-etc-file-name "custom.el"))
   (when (file-exists-p custom-file)
     (load custom-file)))
 
@@ -78,7 +74,6 @@
   (dolist (var '("GPG_AGENT_INFO" "LANG" "LC_CTYPE"))
     (add-to-list 'exec-path-from-shell-variables var))
   (exec-path-from-shell-initialize))
-
 
 ;;; Long tail
 
@@ -466,14 +461,16 @@ Call a second time to restore the original window configuration."
   :custom
   (recentf-max-saved-items 1000)
   (recentf-exclude `("/tmp/" "/ssh:" ,(concat user-emacs-directory "lib/.*-autoloads\\.el\\'")))
-  :config (recentf-mode))
+  :config
+  (add-to-list 'recentf-exclude no-littering-var-directory)
+  (add-to-list 'recentf-exclude no-littering-etc-directory)
+  (recentf-mode))
 
 ;;; Save and restore editor sessions between restarts
 
 ;; Save a list of open files in ~/.emacs.d/.emacs.desktop
 (use-package desktop
   :custom
-  (desktop-path (list user-emacs-directory))
   (desktop-auto-save-timeout 600)
   (desktop-load-locked-desktop 'check-pid)
   ;; Save a bunch of variables to the desktop file
@@ -542,7 +539,6 @@ Call a second time to restore the original window configuration."
   (setq-default
    use-short-answers t
    blink-cursor-interval 0.4
-   bookmark-default-file (locate-user-emacs-file ".bookmarks.el")
    column-number-mode t
    indent-tabs-mode nil
    create-lockfiles nil
@@ -890,7 +886,6 @@ typical word processor."
   :custom
   (org-roam-database-connector 'sqlite-builtin)
   (org-roam-directory (file-truename "~/.org/org-roam"))
-  (org-roam-db-location "~/.org/org-roam.db")
   (org-roam-db-gc-threshold most-positive-fixnum)
   :config
   (unless (file-exists-p org-roam-directory)
@@ -1068,7 +1063,6 @@ typical word processor."
           "~/scoop/apps/msys2/current/mingw64/share/rime-data"))
   (when *is-a-mac*
     (setq rime-librime-root "~/lib/librime/dist"))
-  (setq rime-user-data-dir "~/lib/rime")
   :config
   (defvar rime-default-cursor-color (frame-parameter nil 'cursor-color)
     "The default cursor color.")
