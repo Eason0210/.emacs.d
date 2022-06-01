@@ -820,8 +820,7 @@ Call a second time to restore the original window configuration."
   (defun org-export-docx ()
     (interactive)
     (let ((docx-file (concat (file-name-sans-extension (buffer-file-name)) ".docx"))
-          (template-file (expand-file-name "template/template.docx"
-                                           user-emacs-directory)))
+          (template-file (expand-file-name "template.docx" no-littering-var-directory)))
       (shell-command (format "pandoc %s -o %s --reference-doc=%s"
                              (buffer-file-name)
                              docx-file
