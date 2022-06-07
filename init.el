@@ -998,9 +998,7 @@ typical word processor."
   (cl-defmethod gts-out :after ((_ gts-buffer-render) _)
     (with-current-buffer gts-buffer-name
       (read-only-mode 1)
-      (variable-pitch-mode 1)
-      (if (featurep 'sis)
-          (sis-set-english))))
+      (variable-pitch-mode 1)))
 
   (setq gts-translate-list '(("en" "zh")))
   (setq gts-default-translator
