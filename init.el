@@ -1046,7 +1046,9 @@ typical word processor."
 
 (use-package rime
   :bind (("C-`" . rime-send-keybinding)
-         ([f8] . rime-toggle-show-candidate))
+         ([f8] . rime-toggle-show-candidate)
+         :map rime-active-mode-map
+         ([tab] . rime-inline-ascii))
   :hook (post-command . rime-change-cursor-color)
   :custom
   (default-input-method "rime")
