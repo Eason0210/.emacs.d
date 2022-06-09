@@ -29,12 +29,7 @@
   (message "Loading %s..." user-init-file)
   (setq inhibit-startup-buffer-menu t)
   (setq inhibit-startup-screen t)
-  (setq ring-bell-function #'ignore)
-  (when (fboundp 'scroll-bar-mode)
-    (scroll-bar-mode 0))
-  (when (fboundp 'tool-bar-mode)
-    (tool-bar-mode 0))
-  (menu-bar-mode 0))
+  (setq ring-bell-function #'ignore))
 
 (eval-and-compile ; `borg'
   (add-to-list 'load-path (expand-file-name "lib/borg" user-emacs-directory))

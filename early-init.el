@@ -16,6 +16,11 @@
 ;; larger than the system default.
 (setq frame-inhibit-implied-resize t)
 
+;; Prevent the glimpse of un-styled Emacs by disabling these UI elements early
+(setq tool-bar-mode nil)
+(setq menu-bar-mode nil)
+(set-scroll-bar-mode nil)
+
 ;;; Font setting
 
 (defvar font-list
