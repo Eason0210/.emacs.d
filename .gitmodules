@@ -141,9 +141,6 @@
 [submodule "rust-mode"]
 	path = lib/rust-mode
 	url = git@github.com:rust-lang/rust-mode.git
-[submodule "sqlite3"]
-	path = lib/sqlite3
-	url = git@github.com:pekingduck/emacs-sqlite3-api.git
 [submodule "super-save"]
 	path = lib/super-save
 	url = git@github.com:bbatsov/super-save.git
