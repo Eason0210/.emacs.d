@@ -1057,8 +1057,7 @@ typical word processor."
                             rime-predicate-current-uppercase-letter-p))
   :init
   (when (eq system-type 'windows-nt)
-    (setq rime-share-data-dir
-          "~/scoop/apps/msys2/current/mingw64/share/rime-data"))
+    (setq rime-share-data-dir "c:/msys64/mingw64/share/rime-data"))
   (when *is-a-mac*
     (setq rime-librime-root "~/lib/librime/dist"))
   :config
