@@ -1078,6 +1078,23 @@ typical word processor."
         (setq rime-show-candidate 'minibuffer)
       (setq rime-show-candidate nil))))
 
+(use-package sis
+  :demand t
+  :bind ("<f9>" . sis-switch)
+  :config
+  (add-to-list 'sis-prefix-override-keys "M-s")
+  (add-to-list 'sis-prefix-override-keys "M-g")
+  (when *is-a-mac*
+    (sis-ism-lazyman-config "com.apple.keylayout.ABC" "im.rime.inputmethod.Squirrel.Rime"))
+  (when (eq system-type 'gnu/linux)
+    (sis-ism-lazyman-config "1" "2" 'fcitx5))
+  (setq sis-other-cursor-color "orange")
+  (sis-global-cursor-color-mode t)
+  (sis-global-respect-mode t)
+  (setq sis-inline-tighten-head-rule 0)
+  (setq sis-inline-tighten-tail-rule 0)
+  (sis-global-inline-mode t))
+
 ;;; Built-in packages
 
 (use-package eldoc

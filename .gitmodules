@@ -141,6 +141,9 @@
 [submodule "rust-mode"]
 	path = lib/rust-mode
 	url = git@github.com:rust-lang/rust-mode.git
+[submodule "sis"]
+	path = lib/sis
+	url = git@github.com:laishulu/emacs-smart-input-source.git
 [submodule "super-save"]
 	path = lib/super-save
 	url = git@github.com:bbatsov/super-save.git
