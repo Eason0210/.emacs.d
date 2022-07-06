@@ -28,7 +28,7 @@
    ((eq system-type 'darwin)
     '(("SF Mono" . 13) ("Monaco" . 13) ("Menlo" . 13)))
    ((eq system-type 'windows-nt)
-    '(("SF Mono" . 11) ("Consolas" . 12) ("Cascadia Mono" . 11)))
+    '(("Cascadia Mono" . 11) ("SF Mono" . 11) ("Consolas" . 12)))
    (t
     '(("SF Mono" . 11) ("Consolas" . 12) ("Cascadia Mono" . 11))))
   "List of fonts and sizes.  The first one available will be used.")
