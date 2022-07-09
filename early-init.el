@@ -60,7 +60,7 @@
 
 (defun change-unicode-font ()
   "Setup the Unicode font."
-  (when window-system
+  (when (display-graphic-p)
     (cl-loop for font in '("Microsoft Yahei" "PingFang SC" "Noto Sans Mono CJK SC")
              when (font-installed-p font)
              return (dolist (charset '(kana han hangul cjk-misc bopomofo))
