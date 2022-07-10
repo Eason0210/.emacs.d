@@ -961,7 +961,9 @@ typical word processor."
               ("C-c l d" . eldoc))
   :config
   (setq read-process-output-max (* 1024 1024))
-  (setq completion-category-defaults nil))
+  (setq completion-category-defaults nil)
+  (setq eglot-events-buffer-size 0)
+  (add-to-list 'eglot-ignored-server-capabilities :documentHighlightProvider))
 
 ;;; Helpers for M-x compile
 
