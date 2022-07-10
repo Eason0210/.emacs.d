@@ -936,6 +936,18 @@ typical word processor."
          (haskell-mode . haskell-indentation-mode)
          (haskell-mode . haskell-auto-insert-module-template)))
 
+(use-package reformatter
+  :after haskell-mode
+  :config
+  (reformatter-define hindent
+    :program "hindent"
+    :lighter " Hin")
+
+  (reformatter-define ormolu
+    :program "ormolu"
+    :args `("--stdin-input-file" ,buffer-file-name)
+    :lighter " Orm"))
+
 (use-package python
   :defer t
   :custom (python-indent-guess-indent-offset-verbose nil))

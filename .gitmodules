@@ -135,6 +135,9 @@
 [submodule "rainbow-delimiters"]
 	path = lib/rainbow-delimiters
 	url = git@github.com:Fanael/rainbow-delimiters.git
+[submodule "reformatter"]
+	path = lib/reformatter
+	url = git@github.com:purcell/emacs-reformatter.git
 [submodule "rime"]
 	path = lib/rime
 	url = git@github.com:DogLooksGood/emacs-rime.git
