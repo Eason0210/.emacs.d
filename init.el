@@ -344,6 +344,7 @@
          ("C-c p l" . cape-line)
          ("C-c p w" . cape-dict))
   :init
+  (add-to-list 'completion-at-point-functions #'cape-dabbrev)
   (add-to-list 'completion-at-point-functions #'cape-file))
 
 (use-package kind-icon
