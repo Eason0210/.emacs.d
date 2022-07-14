@@ -257,6 +257,7 @@
   (register-preview-delay 0.5)
   (register-preview-function #'consult-register-format)
   (consult-narrow-key "<")
+  (xref-search-program 'ripgrep)
   (xref-show-xrefs-function #'consult-xref)
   (xref-show-definitions-function #'consult-xref)
   (consult-after-jump-hook '(recenter-on-top reveal-entry))
