@@ -161,13 +161,6 @@
 
 ;;; Minibuffer and completion
 
-(use-package minibuffer
-  :custom
-  (enable-recursive-minibuffers t)
-  :init
-  ;; Make sure vertico commands are hidden in M-x
-  (setq read-extended-command-predicate #'command-completion-default-include-p))
-
 (use-package orderless
   :config
   (defmacro dispatch: (regexp style)
@@ -202,7 +195,9 @@
   (orderless-component-separator #'orderless-escapable-split-on-space))
 
 (use-package vertico
-  :custom (vertico-cycle t)
+  :custom
+  (vertico-cycle t)
+  (read-extended-command-predicate #'command-completion-default-include-p)
   :config (vertico-mode))
 
 (use-package marginalia
