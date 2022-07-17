@@ -163,16 +163,12 @@
 
 (use-package minibuffer
   :custom
-  (completion-styles '(orderless))
-  (completion-category-defaults nil)
-  (completion-category-overrides '((file (styles basic partial-completion))))
   (enable-recursive-minibuffers t)
   :init
   ;; Make sure vertico commands are hidden in M-x
   (setq read-extended-command-predicate #'command-completion-default-include-p))
 
 (use-package orderless
-  :demand t
   :config
   (defmacro dispatch: (regexp style)
     (cl-flet ((symcat (a b) (intern (concat a (symbol-name b)))))
@@ -189,8 +185,17 @@
   (dispatch: "^{\\(.*\\)}$" flex)
   (dispatch: "^\\([^][^\\+*]*[./-][^][\\+*$]*\\)$" prefixes)
   (dispatch: "^!\\(.+\\)$" without-literal)
+
+  (orderless-define-completion-style +orderless-with-initialism
+    (orderless-matching-styles '(orderless-initialism orderless-literal orderless-regexp)))
   :custom
-  (orderless-matching-styles 'orderless-regexp)
+  (completion-styles '(orderless basic))
+  (completion-category-defaults nil)
+  (completion-category-overrides '((file (styles partial-completion))
+                                   (command (styles +orderless-with-initialism))
+                                   (variable (styles +orderless-with-initialism))
+                                   (symbol (styles +orderless-with-initialism))
+                                   (eglot (styles +orderless-with-initialism))))
   (orderless-style-dispatchers
    '(dispatch:literal dispatch:regexp dispatch:without-literal
                       dispatch:initialism dispatch:flex dispatch:prefixes))
@@ -975,7 +980,6 @@ typical word processor."
               ("C-c l d" . eldoc))
   :config
   (setq read-process-output-max (* 1024 1024))
-  (setq completion-category-defaults nil)
   (setq eglot-events-buffer-size 0)
   (add-to-list 'eglot-ignored-server-capabilities :documentHighlightProvider)
   (add-to-list 'eglot-server-programs '(rust-mode . ("rust-analyzer"))))
