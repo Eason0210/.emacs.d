@@ -82,7 +82,7 @@
 	url = git@github.com:magit/git-modes.git
 [submodule "git-timemachine"]
 	path = lib/git-timemachine
-	url = git@gitlab.com:pidu/git-timemachine.git
+	url = git@codeberg.org:pidu/git-timemachine.git
 [submodule "go-translate"]
 	path = lib/go-translate
 	url = git@github.com:lorniu/go-translate.git
