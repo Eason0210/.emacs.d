@@ -197,6 +197,7 @@
 (use-package vertico
   :custom
   (vertico-cycle t)
+  (enable-recursive-minibuffers t)
   (read-extended-command-predicate #'command-completion-default-include-p)
   :config (vertico-mode))
 
