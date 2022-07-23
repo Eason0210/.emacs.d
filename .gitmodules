@@ -29,6 +29,8 @@
 	path = lib/compat
 	url = git@github.com:emacsmirror/compat.git
 [submodule "consult"]
+	no-byte-compile	= consult-icomplete.el
+	no-byte-compile	= consult-selectrum.el
 	path = lib/consult
 	url = git@github.com:minad/consult.git
 [submodule "corfu"]
