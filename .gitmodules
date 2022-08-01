@@ -27,7 +27,7 @@
 	url = git@github.com:purcell/color-theme-sanityinc-tomorrow.git
 [submodule "compat"]
 	path = lib/compat
-	url = git@github.com:emacsmirror/compat.git
+	url = git@git.sr.ht:~pkal/compat
 [submodule "consult"]
 	no-byte-compile	= consult-icomplete.el
 	no-byte-compile	= consult-selectrum.el
