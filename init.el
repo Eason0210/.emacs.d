@@ -1050,43 +1050,6 @@ typical word processor."
   :bind (:map flyspell-mode-map
               ("C-," . flyspell-correct-wrapper)))
 
-(use-package rime
-  :bind (("C-`" . rime-send-keybinding)
-         ([f8] . rime-toggle-show-candidate)
-         :map rime-active-mode-map
-         ([tab] . rime-inline-ascii))
-  :hook (post-command . rime-change-cursor-color)
-  :custom
-  (default-input-method "rime")
-  (rime-title "")
-  (rime-show-candidate nil)
-  (rime-inline-ascii-trigger 'shift-r)
-  (rime-inline-ascii-holder ?a)
-  (rime-inline-predicates '(rime-predicate-space-after-cc-p
-                            rime-predicate-current-uppercase-letter-p))
-  :init
-  (when (eq system-type 'windows-nt)
-    (setq rime-share-data-dir "c:/msys64/mingw64/share/rime-data"))
-  (when *is-a-mac*
-    (setq rime-librime-root "~/lib/librime/dist"))
-  :config
-  (defvar rime-default-cursor-color (frame-parameter nil 'cursor-color)
-    "The default cursor color.")
-  (defun rime-change-cursor-color ()
-    "Set cursor color depending on input method."
-    (set-cursor-color (if (and (rime--should-enable-p)
-                               (not (rime--should-inline-ascii-p))
-                               current-input-method)
-                          "Orange"
-                        rime-default-cursor-color)))
-
-  (defun rime-toggle-show-candidate ()
-    "Toggle to use minibuffer for display candidate or not."
-    (interactive)
-    (if (equal rime-show-candidate nil)
-        (setq rime-show-candidate 'minibuffer)
-      (setq rime-show-candidate nil))))
-
 (use-package sis
   :demand t
   :bind ("<f9>" . sis-switch)
