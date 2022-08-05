@@ -1062,10 +1062,7 @@ typical word processor."
     (sis-ism-lazyman-config "1" "2" 'fcitx5))
   (setq sis-other-cursor-color "orange")
   (sis-global-cursor-color-mode t)
-  (sis-global-respect-mode t)
-  (setq sis-inline-tighten-head-rule 0)
-  (setq sis-inline-tighten-tail-rule 0)
-  (sis-global-inline-mode t))
+  (sis-global-respect-mode t))
 
 ;;; Built-in packages
 
