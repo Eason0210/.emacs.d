@@ -372,7 +372,7 @@
 ;;; Settings for hippie-expand
 
 (use-package hippie-exp
-  :bind ("M-/" . hippie-expand)
+  :bind ([remap dabbrev-expand] . hippie-expand)
   :custom (hippie-expand-try-functions-list
            '(try-complete-file-name-partially
              try-complete-file-name
