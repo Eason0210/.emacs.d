@@ -198,7 +198,6 @@
   :custom
   (vertico-cycle t)
   (enable-recursive-minibuffers t)
-  (read-extended-command-predicate #'command-completion-default-include-p)
   :config (vertico-mode))
 
 (use-package marginalia
@@ -520,25 +519,35 @@ Call a second time to restore the original window configuration."
 
 ;;; Editing utils
 
-(progn ; favorite default
-  (setq-default
-   use-short-answers t
-   blink-cursor-interval 0.4
-   column-number-mode t
-   indent-tabs-mode nil
-   create-lockfiles nil
-   auto-save-default nil
-   make-backup-files nil
-   mouse-yank-at-point t
-   save-interprogram-paste-before-kill t
-   scroll-preserve-screen-position 'always
-   set-mark-command-repeat-pop t
-   truncate-partial-width-windows nil
-   tooltip-delay 1.5))
+(use-package emacs
+  :custom
+  (blink-cursor-interval 0.4)
+  (indent-tabs-mode nil)
+  (mouse-yank-at-point t)
+  (scroll-preserve-screen-position 'always)
+  (truncate-partial-width-windows nil)
+  (tooltip-delay 1.5)
+  (use-short-answers t)
+  :hook ((prog-mode text-mode) . indicate-buffer-boundaries-left)
+  :config
+  (defun indicate-buffer-boundaries-left ()
+    (setq indicate-buffer-boundaries 'left)))
 
-(progn ; `pixel-scroll'
-  (if (boundp 'pixel-scroll-precision-mode)
-      (pixel-scroll-precision-mode t)))
+(use-package simple
+  :bind
+  ("M-j" . join-line) ; M-^ is inconvenient, so also bind M-j
+  ("C-x k" . kill-current-buffer)
+  ("C-x x p" . pop-to-mark-command)
+  ("C-x C-." . pop-global-mark)
+  :custom
+  (save-interprogram-paste-before-kill t)
+  (set-mark-command-repeat-pop t)
+  (read-extended-command-predicate #'command-completion-default-include-p)
+  :config
+  (column-number-mode t))
+
+(use-package pixel-scroll
+  :config (pixel-scroll-precision-mode t))
 
 (use-package delsel
   :config (delete-selection-mode))
@@ -577,21 +586,6 @@ Call a second time to restore the original window configuration."
 (use-package display-line-numbers
   :hook (prog-mode . display-line-numbers-mode)
   :custom (display-line-numbers-width 3))
-
-(progn ; `buffer'
-  (defun indicate-buffer-boundaries-left ()
-    (setq indicate-buffer-boundaries 'left))
-  (add-hook 'prog-mode-hook 'indicate-buffer-boundaries-left)
-  (add-hook 'text-mode-hook 'indicate-buffer-boundaries-left))
-
-(bind-keys
- ("C-x k" . kill-current-buffer)
- ("C-x x p" . pop-to-mark-command)
- ("C-x C-." . pop-global-mark)
- ;; M-^ is inconvenient, so also bind M-j
- ("M-j" . join-line)
- ;; Zap *up* to char is a handy pair for zap-to-char
- ("M-Z" . zap-up-to-char))
 
 ;;; Whitespace
 
