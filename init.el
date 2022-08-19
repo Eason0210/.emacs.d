@@ -36,11 +36,11 @@
   (require 'borg)
   (borg-initialize))
 
-(progn ; `use-package'
+(eval-and-compile ; `use-package'
+  (require  'use-package)
   (setq use-package-enable-imenu-support t)
   (setq use-package-expand-minimally t)
-  (setq use-package-compute-statistics t)
-  (require 'use-package))
+  (setq use-package-compute-statistics t))
 
 (use-package no-littering)
 
