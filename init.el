@@ -972,34 +972,19 @@ typical word processor."
   :config (auto-save-enable))
 
 (use-package go-translate
-  :commands (gts-buffer-render)
-  :bind (("C-c t g" . gts-do-translate)
-         ("C-c t p" . go-translate-at-point)
+  :bind (("C-c t p" . go-translate-at-point)
          ("C-c t s" . go-translate-save-kill-ring))
+  :custom (gts-translate-list '(("en" "zh")))
   :config
-  ;; HACK: https://github.com/lorniu/go-translate/issues/31
-  (cl-defmethod gts-out :after ((_ gts-buffer-render) _)
-    (with-current-buffer gts-buffer-name
-      (read-only-mode 1)
-      (variable-pitch-mode 1)))
-
-  (setq gts-translate-list '(("en" "zh")))
-  (setq gts-default-translator
-        (gts-translator
-         :picker (gts-prompt-picker)
-         :engines (list (gts-bing-engine) (gts-google-engine))
-         :render (gts-buffer-render)))
-
-  ;; Pick directly and use Google RPC API to translate
   (defun go-translate-at-point ()
+    "Pick directly and use Google RPC API to translate."
     (interactive)
     (gts-translate (gts-translator
                     :picker (gts-noprompt-picker)
                     :engines (gts-google-rpc-engine)
                     :render (gts-buffer-render))))
-
-  ;; Pick directly and add the results into kill-ring
   (defun go-translate-save-kill-ring ()
+    "Pick directly and add the results into kill-ring."
     (interactive)
     (gts-translate (gts-translator
                     :picker (gts-noprompt-picker)
