@@ -859,8 +859,6 @@ typical word processor."
   (org-roam-directory (file-truename "~/.org/org-roam"))
   (org-roam-db-gc-threshold most-positive-fixnum)
   :config
-  (unless (file-exists-p org-roam-directory)
-    (make-directory org-roam-directory t))
   (org-roam-db-autosync-enable)
   (add-to-list 'display-buffer-alist
                '("\\*org-roam\\*"
