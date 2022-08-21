@@ -335,14 +335,7 @@
          ("M-*" . tempel-insert)
          :map tempel-map
          ("M-]" . tempel-next)
-         ("M-[" . tempel-previous))
-  :hook ((prog-mode text-mode) . tempel-setup-capf)
-  :init
-  (defun tempel-setup-capf ()
-    "Setup completion at point."
-    (setq-local completion-at-point-functions
-                (cons #'tempel-expand
-                      completion-at-point-functions))))
+         ("M-[" . tempel-previous)))
 
 ;;; Settings for hippie-expand
 
