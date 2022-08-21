@@ -954,11 +954,7 @@ typical word processor."
 
 (use-package compile
   :bind ([f6] . recompile)
-  :config
-  (setq-default compilation-scroll-output 'first-error)
-  (setq compilation-finish-functions
-        (lambda (buffer &optional args)
-          (select-window (get-buffer-window buffer)))))
+  :custom (compilation-scroll-output 'first-error))
 
 ;;; Miscellaneous config
 
