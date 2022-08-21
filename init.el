@@ -351,10 +351,12 @@
 ;;; Working with Windows within frames
 
 (use-package window
-  :bind (([f7] . sanityinc/split-window)
+  :bind (("M-o" . other-window)
+         ([f7] . sanityinc/split-window)
          ("C-c <down>". sanityinc/toggle-current-window-dedication)
          :map ctl-x-4-map
-         ("s" . toggle-window-split))
+         ("s" . toggle-window-split)
+         ("t" . transpose-windows))
   :config
   (bind-key "C-x 2" (split-window-func-with-other-buffer 'split-window-vertically))
   (bind-key "C-x 3" (split-window-func-with-other-buffer 'split-window-horizontally))
@@ -385,6 +387,15 @@
           (other-window 1)
           (switch-to-buffer (other-buffer))))))
 
+  (defun transpose-windows ()
+    "Swap the buffers shown in current and next window."
+    (interactive)
+    (let ((this-buffer (window-buffer))
+          (next-window (next-window nil :no-minibuf nil)))
+      (set-window-buffer nil (window-buffer next-window))
+      (set-window-buffer next-window this-buffer)
+      (select-window next-window)))
+
   ;; Borrowed from http://postmomentum.ch/blog/201304/blog-on-emacs
   (defun sanityinc/split-window()
     "Split the window to see the most recent buffer in the other window.
@@ -414,15 +425,6 @@ Call a second time to restore the original window configuration."
   :bind (("M-N" . winner-redo)
          ("M-P" . winner-undo))
   :config (winner-mode 1))
-
-;; Make "C-x o" prompt for a target window when there are more than 2
-(use-package switch-window
-  :bind (("C-x o" . switch-window)
-         :map ctl-x-4-map
-         ("t" . switch-window-then-swap-buffer))
-  :custom
-  (switch-window-shortcut-style 'alphabet)
-  (switch-window-timeout nil))
 
 ;;; Settings for tracking recent files
 
