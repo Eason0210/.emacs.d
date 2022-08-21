@@ -719,7 +719,7 @@ Call a second time to restore the original window configuration."
       (org-agenda-refile goto rfloc no-update))))
 
 (use-package org-agenda
-  :bind (("C-c a" . org-agenda))
+  :bind ("C-c a" . org-agenda)
   :hook (org-agenda-mode . (lambda ()
                              (add-hook
                               'window-configuration-change-hook 'org-agenda-align-tags nil t)))
