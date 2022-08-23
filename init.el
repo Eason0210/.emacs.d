@@ -431,31 +431,7 @@ Call a second time to restore the original window configuration."
      (shell-command-history    . 50)
      tags-file-name
      tags-table-list))
-  :config
-  (advice-add 'desktop-read :around 'sanityinc/desktop-time-restore)
-  (advice-add 'desktop-create-buffer :around 'sanityinc/desktop-time-buffer-create)
-  (desktop-save-mode 1)
-  :preface
-  (defun sanityinc/time-subtract-millis (b a)
-    (* 1000.0 (float-time (time-subtract b a))))
-
-  (defun sanityinc/desktop-time-restore (orig &rest args)
-    (let ((start-time (current-time)))
-      (prog1
-          (apply orig args)
-        (message "Desktop restored in %.2fms"
-                 (sanityinc/time-subtract-millis (current-time)
-                                                 start-time)))))
-
-  (defun sanityinc/desktop-time-buffer-create (orig ver filename &rest args)
-    (let ((start-time (current-time)))
-      (prog1
-          (apply orig ver filename args)
-        (message "Desktop: %.2fms to restore %s"
-                 (sanityinc/time-subtract-millis (current-time)
-                                                 start-time)
-                 (when filename
-                   (abbreviate-file-name filename)))))))
+  :config (desktop-save-mode 1))
 
 (use-package savehist
   :config (savehist-mode))
