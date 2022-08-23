@@ -7,7 +7,6 @@
 ;; Produce backtraces when errors occur: can be helpful to diagnose startup issues
 ;; (setq debug-on-error t)
 
-(defconst *spell-check-support-enabled* t) ;; Enable with t if you prefer
 (defconst *is-a-mac* (eq system-type 'darwin))
 
 ;; Adjust garbage collection thresholds during startup, and thereafter
@@ -918,7 +917,6 @@ typical word processor."
 
 (use-package flyspell
   :diminish
-  :if (and (executable-find "aspell") *spell-check-support-enabled*)
   :hook ((prog-mode . flyspell-prog-mode)
          (flyspell-mode . (lambda ()
                             (dolist (key '("C-;" "C-."))
