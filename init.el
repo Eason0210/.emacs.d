@@ -11,7 +11,6 @@
 (defconst *is-a-mac* (eq system-type 'darwin))
 
 ;; Adjust garbage collection thresholds during startup, and thereafter
-
 (let ((normal-gc-cons-threshold (* 20 1024 1024))
       (init-gc-cons-threshold (* 128 1024 1024)))
   (setq gc-cons-threshold init-gc-cons-threshold)
@@ -63,7 +62,6 @@
     (setq mac-command-modifier 'meta)
     (setq mac-option-modifier 'none)))
 
-;; Set up exec-path to help Emacs find programs
 (use-package exec-path-from-shell
   :when (or (memq window-system '(mac ns x))
             (unless (memq system-type '(ms-dos windows-nt))
@@ -361,7 +359,6 @@
   (bind-key "C-x 2" (split-window-func-with-other-buffer 'split-window-vertically))
   (bind-key "C-x 3" (split-window-func-with-other-buffer 'split-window-horizontally))
   :preface
-  ;; When splitting window, show (other-buffer) in the new window
   (defun split-window-func-with-other-buffer (split-function)
     "Use SPLIT-FUNCTION to split window."
     (lambda (&optional arg)
@@ -396,7 +393,6 @@
       (set-window-buffer next-window this-buffer)
       (select-window next-window)))
 
-  ;; Borrowed from http://postmomentum.ch/blog/201304/blog-on-emacs
   (defun sanityinc/split-window()
     "Split the window to see the most recent buffer in the other window.
 Call a second time to restore the original window configuration."
@@ -408,7 +404,6 @@ Call a second time to restore the original window configuration."
       (window-configuration-to-register :sanityinc/split-window)
       (switch-to-buffer-other-window nil)))
 
-  ;; Toggle to dedicated window
   (defun sanityinc/toggle-current-window-dedication ()
     "Toggle whether the current window is dedicated to its current buffer."
     (interactive)
@@ -419,7 +414,6 @@ Call a second time to restore the original window configuration."
                (if was-dedicated "no longer " "")
                (buffer-name)))))
 
-;; Navigate window layouts with "M-N" and "M-P"
 (use-package winner
   :defer 0.5
   :bind (("M-N" . winner-redo)
@@ -439,13 +433,10 @@ Call a second time to restore the original window configuration."
 
 ;;; Save and restore editor sessions between restarts
 
-;; Save a list of open files in ~/.emacs.d/.emacs.desktop
 (use-package desktop
   :custom
   (desktop-auto-save-timeout 600)
   (desktop-load-locked-desktop 'check-pid)
-  ;; Save a bunch of variables to the desktop file
-  ;; for lists specify the len of the maximal saved data also
   (desktop-globals-to-save
    '((comint-input-ring        . 50)
      (compile-history          . 30)
@@ -497,7 +488,6 @@ Call a second time to restore the original window configuration."
                  (when filename
                    (abbreviate-file-name filename)))))))
 
-;; Restore histories and registers after saving
 (use-package savehist
   :config (savehist-mode))
 
@@ -801,7 +791,7 @@ Call a second time to restore the original window configuration."
                    (org-agenda-sorting-strategy
                     '(category-keep)))))))))
 
-;; Writing mode similar to the famous Writeroom editor for OS X
+;; Writing mode similar to the famous Writeroom editor for macOS
 (use-package writeroom-mode
   :hook (org-mode . prose-mode)
   :custom
