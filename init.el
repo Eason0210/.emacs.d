@@ -47,6 +47,7 @@
   :custom (epkg-database-connector 'sqlite-builtin))
 
 (use-package custom
+  :no-require t
   :config
   (setq custom-file (no-littering-expand-etc-file-name "custom.el"))
   (when (file-exists-p custom-file)
