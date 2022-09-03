@@ -129,8 +129,13 @@
 	path = lib/orderless
 	url = git@github.com:oantolin/orderless.git
 [submodule "org-roam"]
+	load-path = .
+	load-path = extensions
 	path = lib/org-roam
 	url = git@github.com:org-roam/org-roam.git
+[submodule "org-roam-ui"]
+	path = lib/org-roam-ui
+	url = git@github.com:org-roam/org-roam-ui.git
 [submodule "paredit"]
 	path = lib/paredit
 	url = https://mumble.net/~campbell/git/paredit.git
@@ -146,6 +151,9 @@
 [submodule "rust-mode"]
 	path = lib/rust-mode
 	url = git@github.com:rust-lang/rust-mode.git
+[submodule "simple-httpd"]
+	path = lib/simple-httpd
+	url = git@github.com:skeeto/emacs-web-server.git
 [submodule "sis"]
 	path = lib/sis
 	url = git@github.com:laishulu/emacs-smart-input-source.git
@@ -170,6 +178,9 @@
 [submodule "visual-fill-column"]
 	path = lib/visual-fill-column
 	url = https://codeberg.org/joostkremers/visual-fill-column.git
+[submodule "websocket"]
+	path = lib/websocket
+	url = git@github.com:ahyatt/emacs-websocket.git
 [submodule "with-editor"]
 	path = lib/with-editor
 	url = git@github.com:magit/with-editor.git
