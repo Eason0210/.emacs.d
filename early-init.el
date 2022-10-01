@@ -67,7 +67,7 @@
                       (set-fontset-font t charset font)))
     (cl-loop for font in '("Segoe UI Emoji" "Apple Color Emoji" "Noto Color Emoji")
              when (font-installed-p font)
-             return (set-fontset-font t 'unicode font nil 'append))
+             return (set-fontset-font t 'emoji font))
     (dolist (font '("HanaMinA" "HanaMinB"))
       (when (font-installed-p font)
         (set-fontset-font t 'unicode font nil 'append)))))
