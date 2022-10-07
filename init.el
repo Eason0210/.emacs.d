@@ -901,11 +901,11 @@ typical word processor."
   :custom (gts-translate-list '(("en" "zh")))
   :config
   (defun go-translate-at-point ()
-    "Pick directly and use Google RPC API to translate."
+    "Pick directly and use Google API to translate."
     (interactive)
     (gts-translate (gts-translator
                     :picker (gts-noprompt-picker)
-                    :engines (gts-google-rpc-engine)
+                    :engines (gts-google-engine)
                     :render (gts-buffer-render))))
   (defun go-translate-save-kill-ring ()
     "Pick directly and add the results into kill-ring."
