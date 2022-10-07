@@ -450,6 +450,7 @@ Call a second time to restore the original window configuration."
   (truncate-partial-width-windows nil)
   (tooltip-delay 1.5)
   (use-short-answers t)
+  (frame-resize-pixelwise t)
   :hook ((prog-mode text-mode) . indicate-buffer-boundaries-left)
   :config
   (defun indicate-buffer-boundaries-left ()
