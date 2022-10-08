@@ -36,16 +36,12 @@
 ;; Set default font before frame creation to make sure the first frame have the correct size
 (add-to-list 'default-frame-alist (cons 'font (format "%s-%d" (caar font-list) (cdar font-list))))
 
-(defun font-installed-p (font)
-  "Check if the FONT is available."
-  (find-font (font-spec :name font)))
-
 (defun change-font ()
   "Change the font of frame from an available `font-list'."
   (interactive)
   (let* (available-fonts font-name font-size font-set)
     (dolist (font font-list (setq available-fonts (nreverse available-fonts)))
-      (when (font-installed-p (car font))
+      (when (x-list-fonts (car font))
         (push font available-fonts)))
     (if (not available-fonts)
         (message "No fonts from the chosen set are available")
@@ -62,14 +58,14 @@
   "Setup the Unicode font."
   (when (display-graphic-p)
     (cl-loop for font in '("Microsoft Yahei" "PingFang SC" "Noto Sans Mono CJK SC")
-             when (font-installed-p font)
+             when (x-list-fonts font)
              return (dolist (charset '(kana han hangul cjk-misc bopomofo))
                       (set-fontset-font t charset font)))
     (cl-loop for font in '("Segoe UI Emoji" "Apple Color Emoji" "Noto Color Emoji")
-             when (font-installed-p font)
+             when (x-list-fonts font)
              return (set-fontset-font t 'emoji font))
     (dolist (font '("HanaMinA" "HanaMinB"))
-      (when (font-installed-p font)
+      (when (x-list-fonts font)
         (set-fontset-font t 'unicode font nil 'append)))))
 
 ;; Run after startup
