@@ -58,7 +58,7 @@
 [submodule "emacsql-sqlite-builtin"]
 	no-byte-compile = emacsql-sqlite-module.el
 	path = lib/emacsql-sqlite-builtin
-	url = git@github.com:emacscollective/emacsql-sqlite-builtin.git
+	url = git@github.com:emacsmirror/emacsql-sqlite-builtin.git
 [submodule "embark"]
 	path = lib/embark
 	url = git@github.com:oantolin/embark.git
