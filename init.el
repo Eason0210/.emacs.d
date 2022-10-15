@@ -842,18 +842,6 @@ typical word processor."
          (haskell-mode . haskell-indentation-mode)
          (haskell-mode . haskell-auto-insert-module-template)))
 
-(use-package reformatter
-  :after haskell-mode
-  :config
-  (reformatter-define hindent
-    :program "hindent"
-    :lighter " Hin")
-
-  (reformatter-define ormolu
-    :program "ormolu"
-    :args `("--stdin-input-file" ,buffer-file-name)
-    :lighter " Orm"))
-
 (use-package python
   :defer t
   :custom (python-indent-guess-indent-offset-verbose nil))
@@ -868,6 +856,13 @@ typical word processor."
                               (if (eq system-type 'windows-nt)
                                   "scripts/python"
                                 "bin/python")))))))
+
+(use-package reformatter
+  :config
+  (reformatter-define black :program "black" :args '("-"))
+  (reformatter-define hindent :program "hindent" :lighter " Hin")
+  (reformatter-define ormolu :program "ormolu" :lighter " Orm"
+    :args `("--stdin-input-file" ,buffer-file-name)))
 
 ;;; Languages Server Protocol(LSP)
 
