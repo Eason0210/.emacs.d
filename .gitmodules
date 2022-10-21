@@ -48,9 +48,6 @@
 [submodule "diredfl"]
 	path = lib/diredfl
 	url = git@github.com:purcell/diredfl.git
-[submodule "eglot"]
-	path = lib/eglot
-	url = git@github.com:joaotavora/eglot.git
 [submodule "emacsql"]
 	no-byte-compile = emacsql-pg.el
 	path = lib/emacsql
