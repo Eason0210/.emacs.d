@@ -33,6 +33,9 @@
 	no-byte-compile	= consult-selectrum.el
 	path = lib/consult
 	url = git@github.com:minad/consult.git
+[submodule "consult-eglot"]
+	path = lib/consult-eglot
+	url = git@github.com:mohkale/consult-eglot.git
 [submodule "corfu"]
 	path = lib/corfu
 	url = git@github.com:minad/corfu.git
