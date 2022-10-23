@@ -267,11 +267,16 @@
 
 (use-package corfu
   :custom
+  (corfu-cycle t)
   (corfu-auto t)
-  (corfu-max-width 100)
-  (corfu-auto-delay 0.15)
   (corfu-auto-prefix 1)
-  (corfu-preview-current nil)
+  (corfu-auto-delay 0.1)
+  (corfu-preselect-first nil)
+  :bind (:map corfu-map
+              ([tab] . corfu-next)
+              ([backtab] . corfu-previous)
+              ("S-<return>" . corfu-insert)
+              ("RET" . nil))
   :hook (eshell-mode . (lambda () (setq-local corfu-auto nil)))
   :init
   (global-corfu-mode))
