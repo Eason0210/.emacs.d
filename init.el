@@ -162,6 +162,10 @@
   (orderless-component-separator #'orderless-escapable-split-on-space))
 
 (use-package vertico
+  :demand t
+  :bind (:map vertico-map
+              ([tab] . vertico-next)
+              ([backtab] . vertico-previous))
   :custom
   (vertico-cycle t)
   (enable-recursive-minibuffers t)
