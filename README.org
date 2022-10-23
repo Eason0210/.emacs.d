@@ -35,9 +35,11 @@ See more details on [[https://github.com/emacscollective/borg/blob/master/docs/b
 **  Updates
 Update the config with ~git pull~. Update the third-party packages by running:
 #+begin_src bash
+cd ~/.emacs.d
 git submodule update --init ./lib/<package-name> # Optionally
 git submodule foreach git pull # Update each submodule to latest commit
-make clean all
+make clean
+make build
 #+end_src
 
 ** About private configurations
