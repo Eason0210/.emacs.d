@@ -892,25 +892,8 @@ typical word processor."
   :config (auto-save-enable))
 
 (use-package go-translate
-  :bind (("C-c t p" . go-translate-at-point)
-         ("C-c t s" . go-translate-save-kill-ring))
-  :custom (gts-translate-list '(("en" "zh")))
-  :config
-  (defun go-translate-at-point ()
-    "Pick directly and use Google API to translate."
-    (interactive)
-    (gts-translate (gts-translator
-                    :picker (gts-noprompt-picker)
-                    :engines (gts-google-engine)
-                    :render (gts-buffer-render))))
-  (defun go-translate-save-kill-ring ()
-    "Pick directly and add the results into kill-ring."
-    (interactive)
-    (gts-translate (gts-translator
-                    :picker (gts-noprompt-picker)
-                    :engines (gts-google-engine
-                              :parser (gts-google-summary-parser))
-                    :render (gts-kill-ring-render)))))
+  :bind ("C-c t" . gts-do-translate)
+  :custom (gts-translate-list '(("en" "zh"))))
 
 (use-package flyspell
   :diminish
