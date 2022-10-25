@@ -53,6 +53,7 @@
 	url = git@github.com:purcell/diredfl.git
 [submodule "emacsql"]
 	no-byte-compile = emacsql-pg.el
+	no-byte-compile = emacsql-sqlite-module.el
 	path = lib/emacsql
 	url = git@github.com:skeeto/emacsql.git
 [submodule "embark"]
