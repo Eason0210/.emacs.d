@@ -869,6 +869,7 @@ typical word processor."
 (use-package reformatter
   :config
   (reformatter-define black :program "black" :args '("-"))
+  (reformatter-define blue :program "blue" :args '("-"))
   (reformatter-define hindent :program "hindent" :lighter " Hin")
   (reformatter-define ormolu :program "ormolu" :lighter " Orm"
     :args `("--stdin-input-file" ,buffer-file-name)))
