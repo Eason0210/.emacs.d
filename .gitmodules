@@ -18,7 +18,7 @@
 	url = git@github.com:minad/cape.git
 [submodule "closql"]
 	path = lib/closql
-	url = git@github.com:emacscollective/closql.git
+	url = git@github.com:magit/closql.git
 [submodule "cmake-mode"]
 	path = lib/cmake-mode
 	url = git@github.com:emacsmirror/cmake-mode.git
