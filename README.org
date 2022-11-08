@@ -1,4 +1,5 @@
 #+title:  My Emacs Configuration
+[[https://github.com/Eason0210/.emacs.d/actions][file:https://github.com/Eason0210/.emacs.d/workflows/CI/badge.svg]]
 
 This is my personal Emacs configuration, it works on macOS, Linux and Windows.
 
