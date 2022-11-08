@@ -790,6 +790,7 @@ typical word processor."
         (writeroom-mode 0)))))
 
 (use-package org-roam
+  :if (file-exists-p "~/.org/org-roam")
   :diminish
   :bind (("C-c n a" . org-id-get-create)
          ("C-c n l" . org-roam-buffer-toggle)
