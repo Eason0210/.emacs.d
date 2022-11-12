@@ -119,6 +119,9 @@
 [submodule "move-dup"]
 	path = lib/move-dup
 	url = git@github.com:wyuenho/move-dup.git
+[submodule "mscl-mode"]
+	path = lib/mscl-mode
+	url = git@github.com:Eason0210/mscl-mode.git
 [submodule "no-littering"]
 	path = lib/no-littering
 	url = git@github.com:emacscollective/no-littering.git
