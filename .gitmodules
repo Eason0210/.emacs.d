@@ -37,6 +37,8 @@
 	path = lib/consult-eglot
 	url = git@github.com:mohkale/consult-eglot.git
 [submodule "corfu"]
+	load-path = .
+	load-path = extensions
 	path = lib/corfu
 	url = git@github.com:minad/corfu.git
 [submodule "dash"]
