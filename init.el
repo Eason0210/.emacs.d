@@ -800,10 +800,13 @@ typical word processor."
          ("C-c n r" . org-roam-ref-find)
          ("C-c n R" . org-roam-ref-add)
          ("C-c n s" . org-roam-db-sync))
+  :hook (org-roam-capture-new-node . (lambda () (org-roam-tag-add '("draft"))))
   :custom
   (org-roam-database-connector 'sqlite-builtin)
   (org-roam-directory (file-truename "~/.org/org-roam"))
   (org-roam-db-gc-threshold most-positive-fixnum)
+  (org-roam-node-display-template
+   (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
   :config
   (org-roam-db-autosync-enable)
   (add-to-list 'display-buffer-alist
