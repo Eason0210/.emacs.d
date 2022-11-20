@@ -26,8 +26,9 @@ To install, clone this repo to ~$HOME/.emacs.d~, i.e. ensure that the ~init.el~ 
 
 #+begin_src bash
 cd ~/ && git clone https://github.com/Eason0210/.emacs.d.git
-make bootstrap-borg  # = bootstrap borg itself
-make bootstrap       # = bootstrap collective or new drones
+cd .emacs.d
+make bootstrap-borg  # bootstrap borg itself
+make bootstrap       # bootstrap collective or new drones
 #+end_src
 After ~make bootstrap~, all the third-party packages will be automatically cloned as Git submodules , byte-compile and create autoloads.
 
@@ -39,8 +40,11 @@ Update the config with ~git pull~. Update the third-party packages by running:
 cd ~/.emacs.d
 git submodule update --init ./lib/<package-name> # Optionally
 git submodule foreach git pull # Update each submodule to latest commit
-make clean
-make build
+
+make clean # remove all byte-code and native files
+make build # byte-compile all drones and init files
+
+make help # show brief help
 #+end_src
 
 ** About private configurations
