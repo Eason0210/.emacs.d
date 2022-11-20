@@ -25,7 +25,7 @@ Suggest to use Emacs 29 and higher version to get the full features.
 To install, clone this repo to ~$HOME/.emacs.d~, i.e. ensure that the ~init.el~ contained in this repo ends up at ~$HOME/.emacs.d/init.el~:
 
 #+begin_src bash
-cd ~/ && git clone git@github.com:Eason0210/.emacs.d.git
+cd ~/ && git clone https://github.com/Eason0210/.emacs.d.git
 make bootstrap-borg  # = bootstrap borg itself
 make bootstrap       # = bootstrap collective or new drones
 #+end_src

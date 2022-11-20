@@ -1,72 +1,72 @@
 [submodule "aggressive-indent"]
 	path = lib/aggressive-indent
-	url = git@github.com:Malabarba/aggressive-indent-mode.git
+	url = https://github.com/Malabarba/aggressive-indent-mode
 [submodule "auto-save"]
 	path = lib/auto-save
-	url = git@github.com:manateelazycat/auto-save.git
+	url = https://github.com/manateelazycat/auto-save
 [submodule "avy"]
 	path = lib/avy
-	url = git@github.com:abo-abo/avy.git
+	url = https://github.com/abo-abo/avy
 [submodule "beacon"]
 	path = lib/beacon
-	url = git@github.com:Malabarba/beacon.git
+	url = https://github.com/Malabarba/beacon
 [submodule "borg"]
 	path = lib/borg
-	url = git@github.com:emacscollective/borg.git
+	url = https://github.com/emacscollective/borg
 [submodule "cape"]
 	path = lib/cape
-	url = git@github.com:minad/cape.git
+	url = https://github.com/minad/cape
 [submodule "closql"]
 	path = lib/closql
-	url = git@github.com:magit/closql.git
+	url = https://github.com/magit/closql
 [submodule "cmake-mode"]
 	path = lib/cmake-mode
-	url = git@github.com:emacsmirror/cmake-mode.git
+	url = https://github.com/emacsmirror/cmake-mode
 [submodule "color-theme-sanityinc-tomorrow"]
 	path = lib/color-theme-sanityinc-tomorrow
-	url = git@github.com:purcell/color-theme-sanityinc-tomorrow.git
+	url = https://github.com/purcell/color-theme-sanityinc-tomorrow
 [submodule "compat"]
 	path = lib/compat
-	url = git@git.sr.ht:~pkal/compat
+	url = https://git.sr.ht/~pkal/compat
 [submodule "consult"]
 	no-byte-compile	= consult-icomplete.el
 	no-byte-compile	= consult-selectrum.el
 	path = lib/consult
-	url = git@github.com:minad/consult.git
+	url = https://github.com/minad/consult
 [submodule "consult-eglot"]
 	path = lib/consult-eglot
-	url = git@github.com:mohkale/consult-eglot.git
+	url = https://github.com/mohkale/consult-eglot
 [submodule "corfu"]
 	load-path = .
 	load-path = extensions
 	path = lib/corfu
-	url = git@github.com:minad/corfu.git
+	url = https://github.com/minad/corfu
 [submodule "dash"]
 	path = lib/dash
-	url = git@github.com:magnars/dash.el.git
+	url = https://github.com/magnars/dash.el
 [submodule "diff-hl"]
 	path = lib/diff-hl
-	url = git@github.com:dgutov/diff-hl.git
+	url = https://github.com/dgutov/diff-hl
 [submodule "diminish"]
 	path = lib/diminish
-	url = git@github.com:myrjola/diminish.el.git
+	url = https://github.com/myrjola/diminish.el
 [submodule "diredfl"]
 	path = lib/diredfl
-	url = git@github.com:purcell/diredfl.git
+	url = https://github.com/purcell/diredfl
 [submodule "emacsql"]
 	no-byte-compile = emacsql-pg.el
 	no-byte-compile = emacsql-sqlite-module.el
 	path = lib/emacsql
-	url = git@github.com:magit/emacsql.git
+	url = https://github.com/magit/emacsql
 [submodule "embark"]
 	path = lib/embark
-	url = git@github.com:oantolin/embark.git
+	url = https://github.com/oantolin/embark
 [submodule "epkg"]
 	path = lib/epkg
-	url = git@github.com:emacscollective/epkg.git
+	url = https://github.com/emacscollective/epkg
 [submodule "exec-path-from-shell"]
 	path = lib/exec-path-from-shell
-	url = git@github.com:purcell/exec-path-from-shell.git
+	url = https://github.com/purcell/exec-path-from-shell
 [submodule "flyspell-correct"]
 	no-byte-compile = flyspell-correct-avy-menu.el
 	no-byte-compile = flyspell-correct-helm.el
@@ -74,130 +74,130 @@
 	no-byte-compile = flyspell-correct-ivy.el
 	no-byte-compile = flyspell-correct-popup.el
 	path = lib/flyspell-correct
-	url = git@github.com:d12frosted/flyspell-correct.git
+	url = https://github.com/d12frosted/flyspell-correct
 [submodule "git-link"]
 	path = lib/git-link
-	url = git@github.com:sshaw/git-link.git
+	url = https://github.com/sshaw/git-link
 [submodule "git-modes"]
 	path = lib/git-modes
-	url = git@github.com:magit/git-modes.git
+	url = https://github.com/magit/git-modes
 [submodule "git-timemachine"]
 	path = lib/git-timemachine
-	url = git@codeberg.org:pidu/git-timemachine.git
+	url = https://codeberg.org/pidu/git-timemachine
 [submodule "go-translate"]
 	path = lib/go-translate
-	url = git@github.com:lorniu/go-translate.git
+	url = https://github.com/lorniu/go-translate
 [submodule "haskell-mode"]
 	path = lib/haskell-mode
-	url = git@github.com:haskell/haskell-mode.git
+	url = https://github.com/haskell/haskell-mode
 [submodule "highlight-escape-sequences"]
 	path = lib/highlight-escape-sequences
-	url = git@github.com:dgutov/highlight-escape-sequences.git
+	url = https://github.com/dgutov/highlight-escape-sequences
 [submodule "highlight-quoted"]
 	path = lib/highlight-quoted
-	url = git@github.com:Fanael/highlight-quoted.git
+	url = https://github.com/Fanael/highlight-quoted
 [submodule "json-mode"]
 	path = lib/json-mode
-	url = git@github.com:joshwnj/json-mode.git
+	url = https://github.com/joshwnj/json-mode
 [submodule "json-snatcher"]
 	path = lib/json-snatcher
-	url = git@github.com:Sterlingg/json-snatcher.git
+	url = https://github.com/Sterlingg/json-snatcher
 [submodule "kind-icon"]
 	path = lib/kind-icon
 	url = https://github.com/jdtsmith/kind-icon
 [submodule "lua-mode"]
 	path = lib/lua-mode
-	url = git@github.com:immerrr/lua-mode.git
+	url = https://github.com/immerrr/lua-mode
 [submodule "magit"]
 	no-byte-compile = lisp/magit-libgit.el
 	path = lib/magit
-	url = git@github.com:magit/magit.git
+	url = https://github.com/magit/magit
 [submodule "marginalia"]
 	path = lib/marginalia
-	url = git@github.com:minad/marginalia.git
+	url = https://github.com/minad/marginalia
 [submodule "markdown-mode"]
 	path = lib/markdown-mode
-	url = git@github.com:jrblevin/markdown-mode.git
+	url = https://github.com/jrblevin/markdown-mode
 [submodule "move-dup"]
 	path = lib/move-dup
-	url = git@github.com:wyuenho/move-dup.git
+	url = https://github.com/wyuenho/move-dup
 [submodule "mscl-mode"]
 	path = lib/mscl-mode
-	url = git@github.com:Eason0210/mscl-mode.git
+	url = https://github.com/Eason0210/mscl-mode
 [submodule "no-littering"]
 	path = lib/no-littering
-	url = git@github.com:emacscollective/no-littering.git
+	url = https://github.com/emacscollective/no-littering
 [submodule "orderless"]
 	path = lib/orderless
-	url = git@github.com:oantolin/orderless.git
+	url = https://github.com/oantolin/orderless
 [submodule "org-roam"]
 	load-path = .
 	load-path = extensions
 	path = lib/org-roam
-	url = git@github.com:org-roam/org-roam.git
+	url = https://github.com/org-roam/org-roam
 [submodule "org-roam-ui"]
 	path = lib/org-roam-ui
-	url = git@github.com:org-roam/org-roam-ui.git
+	url = https://github.com/org-roam/org-roam-ui
 [submodule "paredit"]
 	path = lib/paredit
 	url = https://mumble.net/~campbell/git/paredit.git
 [submodule "pyvenv"]
 	path = lib/pyvenv
-	url = git@github.com:jorgenschaefer/pyvenv.git
+	url = https://github.com/jorgenschaefer/pyvenv
 [submodule "racket-mode"]
 	path = lib/racket-mode
-	url = git@github.com:greghendershott/racket-mode.git
+	url = https://github.com/greghendershott/racket-mode
 [submodule "rainbow-delimiters"]
 	path = lib/rainbow-delimiters
-	url = git@github.com:Fanael/rainbow-delimiters.git
+	url = https://github.com/Fanael/rainbow-delimiters
 [submodule "reformatter"]
 	path = lib/reformatter
-	url = git@github.com:purcell/emacs-reformatter.git
+	url = https://github.com/purcell/emacs-reformatter
 [submodule "rust-mode"]
 	path = lib/rust-mode
-	url = git@github.com:rust-lang/rust-mode.git
+	url = https://github.com/rust-lang/rust-mode
 [submodule "simple-httpd"]
 	path = lib/simple-httpd
-	url = git@github.com:skeeto/emacs-web-server.git
+	url = https://github.com/skeeto/emacs-web-server
 [submodule "sis"]
 	path = lib/sis
-	url = git@github.com:laishulu/emacs-smart-input-source.git
+	url = https://github.com/laishulu/emacs-smart-input-source
 [submodule "svg-lib"]
 	path = lib/svg-lib
-	url = git@github.com:rougier/svg-lib.git
+	url = https://github.com/rougier/svg-lib
 [submodule "tempel"]
 	path = lib/tempel
-	url = git@github.com:minad/tempel.git
+	url = https://github.com/minad/tempel
 [submodule "terminal-focus-reporting"]
 	path = lib/terminal-focus-reporting
-	url = git@github.com:veelenga/terminal-focus-reporting.el.git
+	url = https://github.com/veelenga/terminal-focus-reporting.el
 [submodule "transient"]
 	path = lib/transient
-	url = git@github.com:magit/transient.git
+	url = https://github.com/magit/transient
 [submodule "typescript-mode"]
 	path = lib/typescript-mode
-	url = git@github.com:emacs-typescript/typescript.el.git
+	url = https://github.com/emacs-typescript/typescript.el
 [submodule "use-package"]
 	path = lib/use-package
-	url = git@github.com:jwiegley/use-package.git
+	url = https://github.com/jwiegley/use-package
 [submodule "vertico"]
 	path = lib/vertico
-	url = git@github.com:minad/vertico.git
+	url = https://github.com/minad/vertico
 [submodule "visual-fill-column"]
 	path = lib/visual-fill-column
-	url = https://codeberg.org/joostkremers/visual-fill-column.git
+	url = https://codeberg.org/joostkremers/visual-fill-column
 [submodule "websocket"]
 	path = lib/websocket
-	url = git@github.com:ahyatt/emacs-websocket.git
+	url = https://github.com/ahyatt/emacs-websocket
 [submodule "with-editor"]
 	path = lib/with-editor
-	url = git@github.com:magit/with-editor.git
+	url = https://github.com/magit/with-editor
 [submodule "writeroom-mode"]
 	path = lib/writeroom-mode
-	url = git@github.com:joostkremers/writeroom-mode.git
+	url = https://github.com/joostkremers/writeroom-mode
 [submodule "ws-butler"]
 	path = lib/ws-butler
-	url = git@github.com:lewang/ws-butler.git
+	url = https://github.com/lewang/ws-butler
 [submodule "yaml-mode"]
 	path = lib/yaml-mode
-	url = git@github.com:yoshiki/yaml-mode.git
+	url = https://github.com/yoshiki/yaml-mode

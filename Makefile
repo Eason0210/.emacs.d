@@ -2,6 +2,6 @@
 
 bootstrap-borg:
 	@git submodule--helper clone --name borg --path lib/borg \
-	--url git@github.com:emacscollective/borg.git
+	--url https://github.com/emacscollective/borg.git
 	@cd lib/borg; git symbolic-ref HEAD refs/heads/master
 	@cd lib/borg; git reset --hard HEAD
