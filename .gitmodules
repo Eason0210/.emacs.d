@@ -174,9 +174,6 @@
 [submodule "transient"]
 	path = lib/transient
 	url = https://github.com/magit/transient
-[submodule "typescript-mode"]
-	path = lib/typescript-mode
-	url = https://github.com/emacs-typescript/typescript.el
 [submodule "use-package"]
 	path = lib/use-package
 	url = https://github.com/jwiegley/use-package
