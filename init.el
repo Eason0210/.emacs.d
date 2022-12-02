@@ -189,7 +189,6 @@
          ("M-'" . consult-register-store)
          ("C-M-#" . consult-register)
          ("M-y" . consult-yank-pop)
-         ("<help> a" . consult-apropos)
          ("M-g e" . consult-compile-error)
          ("M-g f" . consult-flymake)
          ("M-g g" . consult-goto-line)
