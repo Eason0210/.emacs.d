@@ -177,9 +177,6 @@
 [submodule "transient"]
 	path = lib/transient
 	url = https://github.com/magit/transient
-[submodule "use-package"]
-	path = lib/use-package
-	url = https://github.com/jwiegley/use-package
 [submodule "vertico"]
 	path = lib/vertico
 	url = https://github.com/minad/vertico
