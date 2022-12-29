@@ -273,7 +273,7 @@
   (corfu-auto t)
   (corfu-auto-prefix 1)
   (corfu-auto-delay 0.1)
-  (corfu-preselect-first nil)
+  (corfu-preselect 'prompt)
   :bind (:map corfu-map
               ([tab] . corfu-next)
               ([backtab] . corfu-previous)
