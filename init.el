@@ -748,6 +748,7 @@ Call a second time to restore the original window configuration."
   :hook (org-mode . prose-mode)
   :custom
   (writeroom-fullscreen-effect 'maximized)
+  (writeroom-mode-line-toggle-position 'mode-line-format)
   :preface
   (define-minor-mode prose-mode
     "Set up a buffer for prose editing.
