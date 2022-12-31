@@ -451,7 +451,6 @@ Call a second time to restore the original window configuration."
 (use-package emacs
   :custom
   (blink-cursor-interval 0.4)
-  (indent-tabs-mode nil)
   (mouse-yank-at-point t)
   (scroll-preserve-screen-position 'always)
   (truncate-partial-width-windows nil)
@@ -470,6 +469,7 @@ Call a second time to restore the original window configuration."
   ("C-x x p" . pop-to-mark-command)
   ("C-x C-." . pop-global-mark)
   :custom
+  (indent-tabs-mode nil)
   (save-interprogram-paste-before-kill t)
   (set-mark-command-repeat-pop t)
   (read-extended-command-predicate #'command-completion-default-include-p)
