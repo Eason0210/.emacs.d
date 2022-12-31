@@ -325,8 +325,7 @@
 ;;; Working with Windows within frames
 
 (use-package window
-  :bind (("M-o" . other-window)
-         ([f7] . sanityinc/split-window)
+  :bind (([f7] . sanityinc/split-window)
          ("C-c <down>". sanityinc/toggle-current-window-dedication)
          :map ctl-x-4-map
          ("s" . toggle-window-split)
