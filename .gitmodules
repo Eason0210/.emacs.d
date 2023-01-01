@@ -93,12 +93,6 @@
 [submodule "highlight-quoted"]
 	path = lib/highlight-quoted
 	url = https://github.com/Fanael/highlight-quoted
-[submodule "json-mode"]
-	path = lib/json-mode
-	url = https://github.com/joshwnj/json-mode
-[submodule "json-snatcher"]
-	path = lib/json-snatcher
-	url = https://github.com/Sterlingg/json-snatcher
 [submodule "kind-icon"]
 	path = lib/kind-icon
 	url = https://github.com/jdtsmith/kind-icon
