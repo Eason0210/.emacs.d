@@ -586,7 +586,6 @@ Call a second time to restore the original window configuration."
   (org-confirm-babel-evaluate nil)
   (org-link-elisp-confirm-function nil)
   (org-src-preserve-indentation t)
-  (org-src-tab-acts-natively t)
   (org-directory "~/org/agenda/")
   (org-default-notes-file (concat org-directory "inbox.org"))
   (org-agenda-files '("~/org/agenda"))
