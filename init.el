@@ -876,6 +876,23 @@ typical word processor."
   (reformatter-define ormolu :program "ormolu" :lighter " Orm"
     :args `("--stdin-input-file" ,buffer-file-name)))
 
+;;; Tree-sitter support
+;; https://git.savannah.gnu.org/cgit/emacs.git/tree/admin/notes/tree-sitter/starter-guide?h=emacs-29
+(use-package treesit
+  :when (and (fboundp 'treesit-available-p)
+             (treesit-available-p))
+  :custom (major-mode-remap-alist
+           '((c-mode          . c-ts-mode)
+             (c++-mode        . c++-ts-mode)
+             (cmake-mode      . cmake-ts-mode)
+             (conf-toml-mode  . toml-ts-mode)
+             (css-mode        . css-ts-mode)
+             (js-mode         . js-ts-mode)
+             (js-json-mode    . json-ts-mode)
+             (python-mode     . python-ts-mode)
+             (sh-mode         . bash-ts-mode)
+             (typescript-mode . typescript-ts-mode))))
+
 ;;; Languages Server Protocol(LSP)
 
 (use-package eglot
