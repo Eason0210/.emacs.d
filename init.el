@@ -82,20 +82,11 @@
 ;;; Dired mode
 
 (use-package dired
-  :bind (:map dired-mode-map
-              ("e" . dired-open-externally))
   :custom
   (dired-dwim-target t)
   (dired-listing-switches "-alGh")
   (dired-recursive-copies 'always)
-  (dired-kill-when-opening-new-dired-buffer t)
-  :config
-  (defun dired-open-externally (&optional arg)
-    "Open marked or current file in operating system's default application."
-    (interactive "P")
-    (dired-map-over-marks
-     (consult-file-externally (dired-get-filename))
-     arg)))
+  (dired-kill-when-opening-new-dired-buffer t))
 
 (use-package diredfl
   :after dired
@@ -241,6 +232,7 @@
   ("M-n" . embark-next-symbol)
   ("M-p" . embark-previous-symbol)
   ("C-h E" . embark-on-last-message)
+  (:map dired-mode-map ("e" . dired-open-externally))
   :custom
   (embark-quit-after-action nil)
   (prefix-help-command #'embark-prefix-help-command)
@@ -249,6 +241,7 @@
                        embark-isearch-highlight-indicator))
   (embark-cycle-key ".")
   (embark-help-key "?")
+  :commands embark-open-externally
   :config
   (setq embark-candidate-collectors
         (cl-substitute 'embark-sorted-minibuffer-candidates
@@ -259,7 +252,11 @@
     (interactive "P")
     (with-current-buffer "*Messages*"
       (goto-char (1- (point-max)))
-      (embark-act arg))))
+      (embark-act arg)))
+  (defun dired-open-externally (&optional arg)
+    "Open marked or current file in operating system's default application."
+    (interactive "P")
+    (dired-map-over-marks (embark-open-externally (dired-get-filename)) arg)))
 
 (use-package avy
   :bind ("C-;" . avy-goto-char-timer)
