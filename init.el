@@ -635,7 +635,6 @@ Call a second time to restore the original window configuration."
 (use-package org-refile
   :after org
   :custom
-  (org-refile-use-cache nil)
   (org-refile-targets '((nil :maxlevel . 5) (org-agenda-files :maxlevel . 5)))
   (org-refile-use-outline-path t)
   (org-outline-path-complete-in-steps nil)
