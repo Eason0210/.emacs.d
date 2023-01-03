@@ -585,7 +585,6 @@ Call a second time to restore the original window configuration."
   (org-hide-emphasis-markers t)
   (org-confirm-babel-evaluate nil)
   (org-link-elisp-confirm-function nil)
-  (org-src-fontify-natively t)
   (org-src-preserve-indentation t)
   (org-src-tab-acts-natively t)
   (org-directory "~/org/agenda/")
