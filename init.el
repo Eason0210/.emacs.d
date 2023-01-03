@@ -649,7 +649,6 @@ Call a second time to restore the original window configuration."
   (org-agenda-sticky t)
   (org-agenda-start-on-weekday nil)
   (org-agenda-span 'day)
-  (org-agenda-include-diary nil)
   (org-agenda-window-setup 'current-window)
   (org-stuck-projects '("-INBOX/PROJECT" ("NEXT")))
   (org-agenda-sorting-strategy
