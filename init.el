@@ -775,7 +775,6 @@ typical word processor."
          ("C-c n R" . org-roam-ref-add)
          ("C-c n s" . org-roam-db-sync))
   :custom
-  (org-roam-database-connector 'sqlite-builtin)
   (org-roam-directory (file-truename "~/.org/org-roam"))
   (org-roam-db-gc-threshold most-positive-fixnum)
   :config
