@@ -113,8 +113,8 @@
 
 (use-package flymake
   :hook (emacs-lisp-mode . flymake-mode)
-  :config
-  (remove-hook 'flymake-diagnostic-functions #'flymake-proc-legacy-flymake))
+  :commands flymake-proc-legacy-flymake
+  :config (remove-hook 'flymake-diagnostic-functions #'flymake-proc-legacy-flymake))
 
 ;;; Minibuffer and completion
 
@@ -212,6 +212,7 @@
   (xref-search-program 'ripgrep)
   (xref-show-xrefs-function #'consult-xref)
   (xref-show-definitions-function #'consult-xref)
+  :commands consult--customize-put
   :config
   (consult-customize
    consult-theme
@@ -542,6 +543,7 @@ Call a second time to restore the original window configuration."
   (magit-diff-refine-hunk t)
   (magit-module-sections-nested nil)
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
+  :commands magit-add-section-hook
   :config
   (put 'magit-clean 'disabled nil)
   (magit-add-section-hook 'magit-status-sections-hook
@@ -867,11 +869,11 @@ typical word processor."
 
 (use-package reformatter
   :config
-  (reformatter-define black :program "black" :args '("-"))
-  (reformatter-define blue :program "blue" :args '("-"))
-  (reformatter-define hindent :program "hindent" :lighter " Hin")
+  (reformatter-define black :program "black" :args '("-") :group 'reformatter)
+  (reformatter-define blue :program "blue" :args '("-") :group 'reformatter)
+  (reformatter-define hindent :program "hindent" :lighter " Hin" :group 'reformatter)
   (reformatter-define ormolu :program "ormolu" :lighter " Orm"
-    :args `("--stdin-input-file" ,buffer-file-name)))
+    :args `("--stdin-input-file" ,buffer-file-name) :group 'reformatter))
 
 ;;; Tree-sitter support
 ;; https://git.savannah.gnu.org/cgit/emacs.git/tree/admin/notes/tree-sitter/starter-guide?h=emacs-29
@@ -995,6 +997,6 @@ typical word processor."
 
 ;; Local Variables:
 ;; indent-tabs-mode: nil
-;; no-byte-compile: t
+;; no-byte-compile: nil
 ;; End:
 ;;; init.el ends here
