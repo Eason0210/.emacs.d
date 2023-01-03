@@ -638,26 +638,7 @@ Call a second time to restore the original window configuration."
   (org-refile-targets '((nil :maxlevel . 5) (org-agenda-files :maxlevel . 5)))
   (org-refile-use-outline-path t)
   (org-outline-path-complete-in-steps nil)
-  (org-refile-allow-creating-parent-nodes 'confirm)
-  (org-refile-target-verify-function 'sanityinc/verify-refile-target)
-  :config
-  (advice-add 'org-refile :after (lambda (&rest _) (org-save-all-org-buffers)))
-  :preface
-  (defun sanityinc/verify-refile-target ()
-    "Exclude todo keywords with a done state from refile targets."
-    (not (member (nth 2 (org-heading-components)) org-done-keywords)))
-
-  (defun sanityinc/org-refile-anywhere (&optional goto default-buffer rfloc msg)
-    "A version of `org-refile' which allows refiling to any subtree."
-    (interactive "P")
-    (let ((org-refile-target-verify-function))
-      (org-refile goto default-buffer rfloc msg)))
-
-  (defun sanityinc/org-agenda-refile-anywhere (&optional goto rfloc no-update)
-    "A version of `org-agenda-refile' which allows refiling to any subtree."
-    (interactive "P")
-    (let ((org-refile-target-verify-function))
-      (org-agenda-refile goto rfloc no-update))))
+  (org-refile-allow-creating-parent-nodes 'confirm))
 
 (use-package org-agenda
   :bind ("C-c a" . org-agenda)
