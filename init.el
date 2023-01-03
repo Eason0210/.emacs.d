@@ -604,6 +604,11 @@ Call a second time to restore the original window configuration."
                             ("PROJECT" :inherit font-lock-string-face)))
   (org-archive-location "%s_archive::* Archive")
   :config
+  (advice-add 'org-babel-execute-src-block :before #'my/org-babel-execute-src-block)
+  :preface
+  (defvar sanityinc/org-global-prefix-map (make-sparse-keymap)
+    "A keymap for handy global access to org helpers, particularly clocking.")
+
   (defun my/org-babel-execute-src-block (&optional _arg info _params)
     "Load language when needed"
     (let* ((lang (nth 0 info))
@@ -617,10 +622,6 @@ Call a second time to restore the original window configuration."
           (file-missing
            (setq-default org-babel-load-languages backup-languages)
            err)))))
-  (advice-add 'org-babel-execute-src-block :before #'my/org-babel-execute-src-block)
-  :preface
-  (defvar sanityinc/org-global-prefix-map (make-sparse-keymap)
-    "A keymap for handy global access to org helpers, particularly clocking.")
 
   (defun org-export-docx ()
     "Export current buffer to docx file with the template.docx."
