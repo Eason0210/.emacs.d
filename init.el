@@ -577,7 +577,6 @@ Call a second time to restore the original window configuration."
   (org-log-done 'time)
   (org-fontify-done-headline nil)
   (org-edit-timestamp-down-means-later t)
-  (org-catch-invisible-edits 'show)
   (org-export-coding-system 'utf-8)
   (org-fast-tag-selection-single-key 'expert)
   (org-html-validation-link nil)
