@@ -37,7 +37,8 @@
 (eval-and-compile ; `use-package'
   (setq use-package-enable-imenu-support t)
   (setq use-package-expand-minimally t)
-  (setq use-package-compute-statistics t))
+  (setq use-package-compute-statistics t)
+  (require  'use-package))
 
 (use-package no-littering)
 
