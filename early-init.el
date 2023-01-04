@@ -20,6 +20,8 @@
 (setq tool-bar-mode nil)
 (setq menu-bar-mode nil)
 (set-scroll-bar-mode nil)
+(when (featurep 'ns)
+  (push '(ns-transparent-titlebar . t) default-frame-alist))
 
 ;;; Font setting
 
