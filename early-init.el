@@ -28,6 +28,11 @@
                    (abbreviate-file-name (buffer-file-name))
                  "%b"))))
 
+;; Configure keys specific to macOS
+(when (featurep 'ns)
+  (setq ns-command-modifier 'meta)
+  (setq ns-alternate-modifier 'super))
+
 ;;; Font setting
 
 (defvar font-list

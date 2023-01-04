@@ -57,10 +57,6 @@
   (message "Loading early birds...done (%.3fs)"
            (float-time (time-subtract (current-time)
                                       before-user-init-time))))
-(progn ; `ns-win'
-  (when *is-a-mac*
-    (setq mac-command-modifier 'meta)
-    (setq mac-option-modifier 'super)))
 
 (use-package exec-path-from-shell
   :when (or (memq window-system '(mac ns x))
