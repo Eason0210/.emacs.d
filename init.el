@@ -229,7 +229,6 @@
   ("C-h B" . embark-bindings-at-point)
   ("M-n" . embark-next-symbol)
   ("M-p" . embark-previous-symbol)
-  ("C-h E" . embark-on-last-message)
   (:map dired-mode-map ("e" . dired-open-externally))
   :custom
   (embark-quit-after-action nil)
@@ -245,12 +244,6 @@
         (cl-substitute 'embark-sorted-minibuffer-candidates
                        'embark-minibuffer-candidates
                        embark-candidate-collectors))
-  (defun embark-on-last-message (arg)
-    "Act on the last message displayed in the echo area."
-    (interactive "P")
-    (with-current-buffer "*Messages*"
-      (goto-char (1- (point-max)))
-      (embark-act arg)))
   (defun dired-open-externally (&optional arg)
     "Open marked or current file in operating system's default application."
     (interactive "P")
