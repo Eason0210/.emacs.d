@@ -610,14 +610,16 @@ Call a second time to restore the original window configuration."
            (setq-default org-babel-load-languages backup-languages)
            err)))))
 
-  (defun org-export-docx ()
-    "Export current buffer to docx file with the template.docx."
+  (defun org-pandoc-convert-to-docx ()
+    "Convert current buffer file to .docx format by Pandoc."
     (interactive)
-    (let ((docx-file (concat (file-name-sans-extension (buffer-file-name)) ".docx"))
-          (template-file (expand-file-name "template.docx" no-littering-var-directory)))
-      (shell-command (format "pandoc %s -o %s --reference-doc=%s"
-                             (buffer-file-name) docx-file template-file))
-      (message "Convert finish: %s" docx-file))))
+    (let* ((filename (buffer-file-name))
+           (refdoc (expand-file-name "reference.docx" no-littering-var-directory))
+           (outdoc (concat (file-name-sans-extension filename) ".docx")))
+      (if (eq 0 (shell-command (format "pandoc --reference-doc \"%s\" -o \"%s\" \"%s\""
+                                       refdoc outdoc filename)))
+          (message "Convert succeeded: %s" outdoc)
+        (error "Convert failed: %s" outdoc)))))
 
 (use-package org-refile
   :after org
