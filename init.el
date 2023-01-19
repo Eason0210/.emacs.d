@@ -552,7 +552,7 @@ Call a second time to restore the original window configuration."
          ("C-c c" . org-capture)
          :map org-mode-map
          ("C-c i a" . org-id-get-create)
-         ("C-c e d" . org-export-docx)
+         ("C-c e d" . org-pandoc-convert-to-docx)
          :map sanityinc/org-global-prefix-map
          ("j" . org-clock-goto)
          ("l" . org-clock-in-last)
@@ -611,15 +611,26 @@ Call a second time to restore the original window configuration."
            err)))))
 
   (defun org-pandoc-convert-to-docx ()
-    "Convert current buffer file to .docx format by Pandoc."
+    "Convert current buffer file to docx format by Pandoc."
     (interactive)
-    (let* ((filename (buffer-file-name))
-           (refdoc (expand-file-name "reference.docx" no-littering-var-directory))
-           (outdoc (concat (file-name-sans-extension filename) ".docx")))
-      (if (eq 0 (shell-command (format "pandoc --reference-doc \"%s\" -o \"%s\" \"%s\""
-                                       refdoc outdoc filename)))
-          (message "Convert succeeded: %s" outdoc)
-        (error "Convert failed: %s" outdoc)))))
+    (let* ((cmd (executable-find "pandoc"))
+           (filename (list (buffer-file-name)))
+           (refdoc (list "--reference-doc"
+                         (expand-file-name "reference.docx" no-littering-var-directory)))
+           (output (list "-o" (concat (file-name-sans-extension (buffer-file-name)) ".docx")))
+           (arguments (nconc filename refdoc output)))
+      (cond ((not cmd) (user-error "Could not find pandoc program"))
+            ((not (file-exists-p (cadr refdoc))) (user-error "%s not exist" (cadr refdoc)))
+            ((not filename) (user-error "Must be visiting a file"))
+            (t (let ((log (get-buffer-create "*Pandoc*")))
+                 (with-current-buffer log
+                   (let ((exit-code (apply #'call-process cmd nil t nil arguments)))
+                     (goto-char (point-max))
+                     (insert (mapconcat #'identity (cons cmd arguments) " ") "\n")
+                     (if (eql 0 exit-code)
+                         (message "Convert finished: %s" (cadr output))
+                       (user-error "Process finished with exit code %s (see details in %s)"
+                                   exit-code log))))))))))
 
 (use-package org-refile
   :after org
