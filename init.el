@@ -613,24 +613,24 @@ Call a second time to restore the original window configuration."
   (defun org-pandoc-convert-to-docx ()
     "Convert current buffer file to docx format by Pandoc."
     (interactive)
-    (let* ((cmd (executable-find "pandoc"))
-           (filename (list (buffer-file-name)))
-           (refdoc (list "--reference-doc"
-                         (expand-file-name "reference.docx" no-littering-var-directory)))
-           (output (list "-o" (concat (file-name-sans-extension (buffer-file-name)) ".docx")))
-           (arguments (nconc filename refdoc output)))
+    (let ((cmd (executable-find "pandoc"))
+          (refdoc (list "--reference-doc"
+                        (expand-file-name "var/reference.docx" user-emacs-directory))))
       (cond ((not cmd) (user-error "Could not find pandoc program"))
+            ((not buffer-file-name) (user-error "Must be visiting a file"))
             ((not (file-exists-p (cadr refdoc))) (user-error "%s not exist" (cadr refdoc)))
-            ((not filename) (user-error "Must be visiting a file"))
-            (t (let ((log (get-buffer-create "*Pandoc*")))
+            (t (let* ((log (get-buffer-create "*Pandoc*"))
+                      (filename (list buffer-file-name))
+                      (output (list "-o" (concat (file-name-sans-extension (buffer-file-name)) ".docx")))
+                      (arguments (nconc filename refdoc output)))
                  (with-current-buffer log
                    (let ((exit-code (apply #'call-process cmd nil t nil arguments)))
                      (goto-char (point-max))
                      (insert (mapconcat #'identity (cons cmd arguments) " ") "\n")
                      (if (eql 0 exit-code)
                          (message "Convert finished: %s" (cadr output))
-                       (user-error "Process finished with exit code %s (see details in %s)"
-                                   exit-code log))))))))))
+                       (error "Convert failed with exit code %s (see details in %s)"
+                              exit-code log))))))))))
 
 (use-package org-refile
   :after org
