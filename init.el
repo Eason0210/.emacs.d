@@ -576,9 +576,8 @@ Call a second time to restore the original window configuration."
   (org-confirm-babel-evaluate nil)
   (org-link-elisp-confirm-function nil)
   (org-src-preserve-indentation t)
-  (org-directory "~/org/agenda/")
-  (org-default-notes-file (concat org-directory "inbox.org"))
-  (org-agenda-files '("~/org/agenda"))
+  (org-default-notes-file "~/agenda/inbox.org")
+  (org-agenda-files '("~/agenda"))
   (org-capture-templates `(("t" "todo" entry (file "") ; "" => `org-default-notes-file'
                             "* NEXT %?\n%U\n" :clock-resume t)
                            ("n" "note" entry (file "")
