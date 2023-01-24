@@ -567,6 +567,7 @@ Call a second time to restore the original window configuration."
          :map org-src-mode-map
          ("C-c C-c" . org-edit-src-exit))
   :bind-keymap ("C-c o" . sanityinc/org-global-prefix-map)
+  :hook (org-mode . variable-pitch-mode)
   :custom
   (org-modules nil) ; Faster loading
   (org-log-done 'time)
@@ -594,6 +595,17 @@ Call a second time to restore the original window configuration."
   (org-todo-keyword-faces '(("NEXT" :inherit warning)
                             ("PROJECT" :inherit font-lock-string-face)))
   (org-archive-location "%s_archive::* Archive")
+  :custom-face
+  (org-block ((t (:inherit fixed-pitch))))
+  (org-code ((t (:inherit (shadow fixed-pitch)))))
+  (org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
+  (org-indent ((t (:inherit (org-hide fixed-pitch)))))
+  (org-meta-line ((t (:inherit (font-lock-comment-face fixed-pitch)))))
+  (org-property-value ((t (:inherit fixed-pitch))) t)
+  (org-special-keyword ((t (:inherit (font-lock-comment-face fixed-pitch)))))
+  (org-table ((t (:inherit fixed-pitch))))
+  (org-tag ((t (:inherit (shadow fixed-pitch) :weight bold :height 1.0))))
+  (org-verbatim ((t (:inherit (shadow fixed-pitch)))))
   :config
   (advice-add 'org-babel-execute-src-block :before #'my/org-babel-execute-src-block)
   :preface
