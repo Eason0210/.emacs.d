@@ -958,6 +958,11 @@ typical word processor."
   :custom (help-window-select t)
   :config (temp-buffer-resize-mode))
 
+(use-package info
+  :hook ((Info-mode . variable-pitch-mode)
+         (Info-mode . writeroom-mode))
+  :custom-face (Info-quoted ((t (:inherit fixed-pitch)))))
+
 ;;; Configure default locale
 
 (progn ; `charset'
