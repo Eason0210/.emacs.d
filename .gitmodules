@@ -134,7 +134,7 @@
 	url = https://github.com/org-roam/org-roam-ui
 [submodule "paredit"]
 	path = lib/paredit
-	url = https://mumble.net/~campbell/git/paredit.git
+	url = https://paredit.org/cgit/paredit
 [submodule "pyvenv"]
 	path = lib/pyvenv
 	url = https://github.com/jorgenschaefer/pyvenv
