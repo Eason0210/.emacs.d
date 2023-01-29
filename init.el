@@ -396,38 +396,15 @@ Call a second time to restore the original window configuration."
 
 ;;; Save and restore editor sessions between restarts
 
-(use-package desktop
-  :custom
-  (desktop-auto-save-timeout 600)
-  (desktop-load-locked-desktop 'check-pid)
-  (desktop-globals-to-save
-   '((comint-input-ring        . 50)
-     (compile-history          . 30)
-     desktop-missing-file-warning
-     (dired-regexp-history     . 20)
-     (extended-command-history . 30)
-     (face-name-history        . 20)
-     (file-name-history        . 100)
-     (grep-find-history        . 30)
-     (grep-history             . 30)
-     (magit-revision-history   . 50)
-     (minibuffer-history       . 50)
-     (org-clock-history        . 50)
-     (org-refile-history       . 50)
-     (org-tags-history         . 50)
-     (query-replace-history    . 60)
-     (read-expression-history  . 60)
-     (regexp-history           . 60)
-     (regexp-search-ring       . 20)
-     register-alist
-     (search-ring              . 20)
-     (kill-ring                . 20)
-     (shell-command-history    . 50)
-     tags-file-name
-     tags-table-list))
-  :config (desktop-save-mode 1))
-
 (use-package savehist
+  :custom (savehist-additional-variables
+           '(register-alist
+             (comint-input-ring        . 50)
+             (dired-regexp-history     . 20)
+             (face-name-history        . 20)
+             (kill-ring                . 20)
+             (regexp-search-ring       . 20)
+             (search-ring              . 20)))
   :config (savehist-mode))
 
 (use-package saveplace
