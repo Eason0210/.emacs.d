@@ -73,8 +73,9 @@
 ;;; Theme
 
 (use-package color-theme-sanityinc-tomorrow
-  :custom (custom-safe-themes t)
-  :config (color-theme-sanityinc-tomorrow-bright))
+  :custom
+  (custom-safe-themes t)
+  (custom-enabled-themes '(sanityinc-tomorrow-bright)))
 
 ;;; Dired mode
 
