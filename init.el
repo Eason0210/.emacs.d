@@ -79,6 +79,8 @@
 ;;; Dired mode
 
 (use-package dired
+  :demand t
+  :hook (dired-mode . dired-hide-details-mode)
   :custom
   (dired-dwim-target t)
   (dired-listing-switches "-alGh")
