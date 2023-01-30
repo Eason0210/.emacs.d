@@ -89,8 +89,7 @@
   (dired-kill-when-opening-new-dired-buffer t))
 
 (use-package diredfl
-  :after dired
-  :config (diredfl-global-mode))
+  :hook (dired-mode . diredfl-global-mode))
 
 ;;; Isearch settings
 
