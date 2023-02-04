@@ -856,14 +856,21 @@ typical word processor."
   :custom (major-mode-remap-alist
            '((c-mode          . c-ts-mode)
              (c++-mode        . c++-ts-mode)
-             (cmake-mode      . cmake-ts-mode)
+             (csharp-mode     . csharp-ts-mode)
              (conf-toml-mode  . toml-ts-mode)
              (css-mode        . css-ts-mode)
+             (java-mode       . java-ts-mode)
              (js-mode         . js-ts-mode)
              (js-json-mode    . json-ts-mode)
              (python-mode     . python-ts-mode)
-             (sh-mode         . bash-ts-mode)
-             (typescript-mode . typescript-ts-mode))))
+             (ruby-mode       . ruby-ts-mode)
+             (sh-mode         . bash-ts-mode)))
+  :config
+  (add-to-list 'auto-mode-alist '("\\(?:CMakeLists\\.txt\\|\\.cmake\\)\\'" . cmake-ts-mode))
+  (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-ts-mode))
+  (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
+  (add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
+  (add-to-list 'auto-mode-alist '("\\.ya?ml\\'" . yaml-ts-mode)))
 
 ;;; Languages Server Protocol(LSP)
 
