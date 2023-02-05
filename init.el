@@ -215,16 +215,16 @@
   (xref-show-xrefs-function #'consult-xref)
   (xref-show-definitions-function #'consult-xref)
   :commands consult--customize-put
+  :init
+  (advice-add #'register-preview :override #'consult-register-window)
   :config
   (consult-customize
-   consult-theme
-   :preview-key '(:debounce 0.2 any)
+   consult-theme :preview-key '(:debounce 0.2 any)
    consult-ripgrep consult-git-grep consult-grep
    consult-bookmark consult-recent-file consult-xref
    consult--source-bookmark consult--source-recent-file
    consult--source-project-recent-file
-   :preview-key "M-.")
-  (advice-add #'register-preview :override #'consult-register-window))
+   :preview-key "M-."))
 
 (use-package embark
   :bind
