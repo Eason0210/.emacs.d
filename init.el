@@ -165,9 +165,12 @@
 
 (use-package consult
   :defer 0.5
-  :bind (("C-c h" . consult-history)
-         ("C-c m" . consult-mode-command)
+  :bind (("C-c M-x" . consult-mode-command)
+         ("C-c h" . consult-history)
          ("C-c k" . consult-kmacro)
+         ("C-c m" . consult-man)
+         ("C-c i" . consult-info)
+         ([remap Info-search] . consult-info)
          ("C-x M-:" . consult-complex-command)
          ("C-x b" . consult-buffer)
          ("C-x 4 b" . consult-buffer-other-window)
