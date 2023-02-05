@@ -220,7 +220,7 @@
    consult-bookmark consult-recent-file consult-xref
    consult--source-bookmark consult--source-recent-file
    consult--source-project-recent-file
-   :preview-key (kbd "M-."))
+   :preview-key "M-.")
   (advice-add #'register-preview :override #'consult-register-window))
 
 (use-package embark
