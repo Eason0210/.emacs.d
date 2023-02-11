@@ -793,6 +793,13 @@ typical word processor."
   :mode (("\\.md\\.html\\'" . markdown-mode)
          ("README\\.md\\'" . gfm-mode)))
 
+(use-package verb
+  :after org
+  :bind (:map verb-response-body-mode-map
+              ("q" . kill-buffer-and-window))
+  :bind-keymap ("C-c C-r" . verb-command-map)
+  :init (unbind-key "C-c C-r" org-mode-map))
+
 ;;; Programming languages support
 
 (use-package elisp-mode
