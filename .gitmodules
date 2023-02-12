@@ -132,6 +132,9 @@
 [submodule "org-roam-ui"]
 	path = lib/org-roam-ui
 	url = https://github.com/org-roam/org-roam-ui
+[submodule "ox-gfm"]
+	path = lib/ox-gfm
+	url = https://github.com/larstvei/ox-gfm
 [submodule "paredit"]
 	path = lib/paredit
 	url = https://paredit.org/cgit/paredit
