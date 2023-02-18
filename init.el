@@ -117,6 +117,12 @@
 
 ;;; Minibuffer and completion
 
+(use-package minibuffer
+  :custom
+  (read-file-name-completion-ignore-case t)
+  (read-buffer-completion-ignore-case t)
+  (completion-ignore-case t))
+
 (use-package orderless
   :custom
   (completion-styles '(orderless basic))
