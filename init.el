@@ -118,36 +118,10 @@
 ;;; Minibuffer and completion
 
 (use-package orderless
-  :config
-  (defmacro dispatch: (regexp style)
-    (cl-flet ((symcat (a b) (intern (concat a (symbol-name b)))))
-      `(defun ,(symcat "dispatch:" style) (pattern _index _total)
-         (when (string-match ,regexp pattern)
-           (cons ',(symcat "orderless-" style) (match-string 1 pattern))))))
-  (cl-flet ((pre/post (str) (format "^%s\\(.*\\)$\\|^\\(?1:.*\\)%s$" str str)))
-    (dispatch: (pre/post "=") literal)
-    (dispatch: (pre/post "`") regexp)
-    (dispatch: (pre/post (if (or minibuffer-completing-file-name
-                                 (derived-mode-p 'eshell-mode))
-                             "%" "[%.]"))
-               initialism))
-  (dispatch: "^{\\(.*\\)}$" flex)
-  (dispatch: "^\\([^][^\\+*]*[./-][^][\\+*$]*\\)$" prefixes)
-  (dispatch: "^!\\(.+\\)$" without-literal)
-
-  (orderless-define-completion-style +orderless-with-initialism
-    (orderless-matching-styles '(orderless-initialism orderless-literal orderless-regexp)))
   :custom
   (completion-styles '(orderless basic))
   (completion-category-defaults nil)
-  (completion-category-overrides '((file (styles partial-completion))
-                                   (command (styles +orderless-with-initialism))
-                                   (variable (styles +orderless-with-initialism))
-                                   (symbol (styles +orderless-with-initialism))
-                                   (eglot (styles +orderless-with-initialism))))
-  (orderless-style-dispatchers
-   '(dispatch:literal dispatch:regexp dispatch:without-literal
-                      dispatch:initialism dispatch:flex dispatch:prefixes))
+  (completion-category-overrides '((file (styles basic partial-completion))))
   (orderless-component-separator #'orderless-escapable-split-on-space))
 
 (use-package vertico
