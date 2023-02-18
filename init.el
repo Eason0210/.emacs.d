@@ -121,7 +121,9 @@
   :custom
   (read-file-name-completion-ignore-case t)
   (read-buffer-completion-ignore-case t)
-  (completion-ignore-case t))
+  (completion-ignore-case t)
+  (enable-recursive-minibuffers t)
+  :init (minibuffer-depth-indicate-mode))
 
 (use-package orderless
   :custom
@@ -135,9 +137,7 @@
   :bind (:map vertico-map
               ([tab] . vertico-next)
               ([backtab] . vertico-previous))
-  :custom
-  (vertico-cycle t)
-  (enable-recursive-minibuffers t)
+  :custom (vertico-cycle t)
   :config (vertico-mode))
 
 (use-package marginalia
