@@ -880,6 +880,9 @@ typical word processor."
               ("C-c l r" . eglot-rename)
               ("C-c l f" . eglot-format)
               ("C-c l d" . eldoc))
+  :hook ((eglot-managed-mode . (lambda ()
+                                 (setq eldoc-documentation-strategy
+                                       'eldoc-documentation-compose))))
   :config
   (setq read-process-output-max (* 1024 1024))
   (setq eglot-events-buffer-size 0)
