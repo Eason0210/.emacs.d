@@ -1,6 +1,9 @@
 [submodule "aggressive-indent"]
 	path = lib/aggressive-indent
 	url = https://github.com/Malabarba/aggressive-indent-mode
+[submodule "apheleia"]
+	path = lib/apheleia
+	url = https://github.com/radian-software/apheleia
 [submodule "auto-save"]
 	path = lib/auto-save
 	url = https://github.com/manateelazycat/auto-save

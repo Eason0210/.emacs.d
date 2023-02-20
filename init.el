@@ -847,6 +847,9 @@ typical word processor."
   (reformatter-define ormolu :program "ormolu" :lighter " Orm"
     :args `("--stdin-input-file" ,buffer-file-name) :group 'reformatter))
 
+(use-package apheleia
+  :bind ("C-c f" . apheleia-format-buffer))
+
 ;;; Tree-sitter support
 ;; https://git.savannah.gnu.org/cgit/emacs.git/tree/admin/notes/tree-sitter/starter-guide?h=emacs-29
 (use-package treesit
