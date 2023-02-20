@@ -931,7 +931,7 @@ typical word processor."
 ;;; Built-in packages
 
 (use-package eldoc
-  :custom (eldoc-echo-area-use-multiline-p nil))
+  :custom (eldoc-documentation-strategy #'eldoc-documentation-compose))
 
 (use-package help
   :defer t
