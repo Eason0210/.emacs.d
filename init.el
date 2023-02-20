@@ -886,7 +886,6 @@ typical word processor."
   :config
   (setq read-process-output-max (* 1024 1024))
   (setq eglot-events-buffer-size 0)
-  (add-to-list 'eglot-ignored-server-capabilities :documentHighlightProvider)
   (add-to-list 'eglot-server-programs '(rust-mode . ("rust-analyzer"))))
 
 ;;; Helpers for M-x compile
