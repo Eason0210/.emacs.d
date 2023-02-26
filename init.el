@@ -843,6 +843,9 @@ typical word processor."
   :config
   (reformatter-define black :program "black" :args '("-") :group 'reformatter)
   (reformatter-define blue :program "blue" :args '("-") :group 'reformatter)
+  (reformatter-define js-beautify :program "js-beautify" :group 'reformatter)
+  (reformatter-define html-beautify :program "html-beautify" :group 'reformatter)
+  (reformatter-define css-beautify :program "css-beautify" :group 'reformatter)
   (reformatter-define hindent :program "hindent" :lighter " Hin" :group 'reformatter)
   (reformatter-define ormolu :program "ormolu" :lighter " Orm"
     :args `("--stdin-input-file" ,buffer-file-name) :group 'reformatter))
