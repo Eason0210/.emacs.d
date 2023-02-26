@@ -289,6 +289,10 @@
          ("M-]" . tempel-next)
          ("M-[" . tempel-previous)))
 
+(use-package yasnippet
+  :diminish yas-minor-mode
+  :hook (after-init . yas-global-mode))
+
 ;;; Settings for hippie-expand
 
 (use-package hippie-exp
