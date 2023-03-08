@@ -296,6 +296,17 @@
                            (frame-visible-p corfu--frame))))
   :hook (after-init . yas-global-mode))
 
+(use-package consult-yasnippet
+  :bind ("M-*" . consult-yasnippet)
+  :config
+  (with-eval-after-load 'embark
+    (defvar-keymap embark-yasnippet-completion-actions
+      :doc "Keymap for actions for yasnippets."
+      :parent embark-general-map
+      "v" #'consult-yasnippet-visit-snippet-file)
+    (push '(yasnippet . embark-yasnippet-completion-actions)
+          embark-keymap-alist)))
+
 ;;; Settings for hippie-expand
 
 (use-package hippie-exp
