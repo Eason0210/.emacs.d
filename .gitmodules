@@ -36,6 +36,9 @@
 [submodule "consult-eglot"]
 	path = lib/consult-eglot
 	url = https://github.com/mohkale/consult-eglot
+[submodule "consult-yasnippet"]
+	path = lib/consult-yasnippet
+	url = https://github.com/mohkale/consult-yasnippet
 [submodule "corfu"]
 	load-path = .
 	load-path = extensions
