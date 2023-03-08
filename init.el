@@ -291,6 +291,9 @@
 
 (use-package yasnippet
   :diminish yas-minor-mode
+  :custom (yas-keymap-disable-hook
+           (lambda () (and (frame-live-p corfu--frame)
+                           (frame-visible-p corfu--frame))))
   :hook (after-init . yas-global-mode))
 
 ;;; Settings for hippie-expand
