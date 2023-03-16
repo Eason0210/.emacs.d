@@ -256,7 +256,8 @@
               ([tab] . corfu-next)
               ([backtab] . corfu-previous)
               ("S-<return>" . corfu-insert)
-              ("RET" . nil))
+              ("RET" . nil)
+              ([remap move-end-of-line] . nil))
   :hook (eshell-mode . (lambda () (setq-local corfu-auto nil)))
   :init
   (global-corfu-mode))
