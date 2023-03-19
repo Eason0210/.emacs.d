@@ -90,6 +90,9 @@
 [submodule "go-translate"]
 	path = lib/go-translate
 	url = https://github.com/lorniu/go-translate
+[submodule "gptel"]
+	path = lib/gptel
+	url = https://github.com/karthink/gptel
 [submodule "haskell-mode"]
 	path = lib/haskell-mode
 	url = https://github.com/haskell/haskell-mode
