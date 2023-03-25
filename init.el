@@ -943,9 +943,8 @@ typical word processor."
                               (unbind-key key flyspell-mode-map)))))
   :custom
   (flyspell-issue-message-flag nil)
-  (ispell-program-name "aspell")
-  (ispell-extra-args '("--sug-mode=fast" "--lang=en_US" "--camel-case"))
-  (ispell-personal-dictionary (expand-file-name "en_US.personal" "~/.config/aspell/")))
+  (ispell-program-name "enchant-2")
+  (ispell-dictionary "english"))
 
 (use-package flyspell-correct
   :after flyspell
