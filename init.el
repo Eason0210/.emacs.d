@@ -407,7 +407,8 @@ Call a second time to restore the original window configuration."
 
 (use-package savehist
   :custom (savehist-additional-variables
-           '(register-alist
+           '(last-kbd-macro
+             register-alist
              (comint-input-ring        . 50)
              (dired-regexp-history     . 20)
              (face-name-history        . 20)
