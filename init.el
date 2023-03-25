@@ -922,6 +922,10 @@ typical word processor."
   :custom (auto-save-silent t)
   :config (auto-save-enable))
 
+(use-package vundo
+  :bind ("C-x u" . vundo)
+  :custom (vundo-roll-back-on-quit nil))
+
 (use-package go-translate
   :bind ("C-c t" . gts-do-translate)
   :custom (gts-translate-list '(("en" "zh"))))
