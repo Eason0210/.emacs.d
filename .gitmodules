@@ -4,9 +4,6 @@
 [submodule "apheleia"]
 	path = lib/apheleia
 	url = https://github.com/radian-software/apheleia
-[submodule "auto-save"]
-	path = lib/auto-save
-	url = https://github.com/manateelazycat/auto-save
 [submodule "avy"]
 	path = lib/avy
 	url = https://github.com/abo-abo/avy

@@ -919,14 +919,6 @@ typical word processor."
 
 ;;; Miscellaneous config
 
-(use-package auto-save
-  :custom (auto-save-silent t)
-  :config
-  (setq auto-save-disable-predicates
-        '((lambda () (buffer-live-p (get-buffer " *vundo tree*")))
-          (lambda () (string-suffix-p "gpg" (file-name-extension (buffer-name)) t))))
-  (auto-save-enable))
-
 (use-package vundo
   :bind ("C-x u" . vundo)
   :custom (vundo-roll-back-on-quit nil))
