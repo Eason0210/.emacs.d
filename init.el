@@ -433,6 +433,9 @@ Call a second time to restore the original window configuration."
   (tooltip-delay 1.5)
   (use-short-answers t)
   (frame-resize-pixelwise t)
+  (create-lockfiles nil)
+  (auto-save-default nil)
+  (make-backup-files nil)
   :custom-face
   (fixed-pitch ((t (:family ,(face-attribute 'default :family) :height 1.0))))
   (variable-pitch ((t (:family "Bookerly" :height 1.0))))
