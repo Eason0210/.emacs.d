@@ -42,10 +42,6 @@
 
 (use-package no-littering)
 
-(use-package epkg
-  :defer t
-  :custom (epkg-database-connector 'sqlite-builtin))
-
 (use-package custom
   :no-require t
   :config
