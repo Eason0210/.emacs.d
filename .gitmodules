@@ -56,6 +56,7 @@
 [submodule "emacsql"]
 	no-byte-compile = emacsql-pg.el
 	no-byte-compile = emacsql-sqlite-module.el
+	no-byte-compile = emacsql-sqlite.el
 	path = lib/emacsql
 	url = https://github.com/magit/emacsql
 [submodule "embark"]
