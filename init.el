@@ -73,6 +73,10 @@
   (custom-safe-themes t)
   (custom-enabled-themes '(sanityinc-tomorrow-bright)))
 
+(use-package ns-auto-titlebar
+  :when *is-a-mac*
+  :config (ns-auto-titlebar-mode))
+
 ;;; Dired mode
 
 (use-package dired

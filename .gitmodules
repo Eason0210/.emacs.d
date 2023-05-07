@@ -128,6 +128,9 @@
 [submodule "no-littering"]
 	path = lib/no-littering
 	url = https://github.com/emacscollective/no-littering
+[submodule "ns-auto-titlebar"]
+	path = lib/ns-auto-titlebar
+	url = https://github.com/purcell/ns-auto-titlebar
 [submodule "orderless"]
 	path = lib/orderless
 	url = https://github.com/oantolin/orderless
