@@ -282,7 +282,9 @@
   :custom
   (kind-icon-default-face 'corfu-default)
   :config
-  (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
+  (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter)
+  (when (eq system-type 'windows-nt)
+    (plist-put kind-icon-default-style :height 0.8)))
 
 (use-package tempel
   :bind (("M-+" . tempel-complete)
