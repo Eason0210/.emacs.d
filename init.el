@@ -507,10 +507,6 @@ Call a second time to restore the original window configuration."
   ([M-up] . move-dup-move-lines-up)
   ([M-down] . move-dup-move-lines-down))
 
-(use-package display-line-numbers
-  :hook (prog-mode . display-line-numbers-mode)
-  :custom (display-line-numbers-width 3))
-
 ;;; Whitespace
 
 (use-package ws-butler
