@@ -922,6 +922,9 @@ typical word processor."
   (setq eglot-events-buffer-size 0)
   (add-to-list 'eglot-server-programs '(rust-mode . ("rust-analyzer"))))
 
+(use-package breadcrumb
+  :config (breadcrumb-mode))
+
 ;;; Helpers for M-x compile
 
 (use-package compile

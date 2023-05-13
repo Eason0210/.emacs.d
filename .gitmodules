@@ -13,6 +13,9 @@
 [submodule "borg"]
 	path = lib/borg
 	url = https://github.com/emacscollective/borg
+[submodule "breadcrumb"]
+	path = lib/breadcrumb
+	url = https://github.com/joaotavora/breadcrumb
 [submodule "cape"]
 	path = lib/cape
 	url = https://github.com/minad/cape
