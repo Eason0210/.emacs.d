@@ -437,7 +437,7 @@ Call a second time to restore the original window configuration."
   (create-lockfiles nil)
   (auto-save-default nil)
   (make-backup-files nil)
-  (auto-save-visited-interval 1)
+  (auto-save-visited-interval 1.1)
   (auto-save-visited-predicate
    (lambda () (and (not (buffer-live-p (get-buffer " *vundo tree*")))
                    (not (string-suffix-p "gpg" (file-name-extension (buffer-name)) t))
