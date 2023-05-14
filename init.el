@@ -262,7 +262,8 @@
               ([remap move-end-of-line] . nil))
   :hook (eshell-mode . (lambda () (setq-local corfu-auto nil)))
   :init
-  (global-corfu-mode))
+  (global-corfu-mode)
+  (corfu-popupinfo-mode))
 
 (use-package cape
   :after corfu
