@@ -287,13 +287,6 @@
   (when (eq system-type 'windows-nt)
     (plist-put kind-icon-default-style :height 0.8)))
 
-(use-package tempel
-  :bind (("M-+" . tempel-complete)
-         ("M-*" . tempel-insert)
-         :map tempel-map
-         ("M-]" . tempel-next)
-         ("M-[" . tempel-previous)))
-
 (use-package yasnippet
   :diminish yas-minor-mode
   :custom (yas-keymap-disable-hook
