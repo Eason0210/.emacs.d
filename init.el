@@ -111,7 +111,7 @@
 ;;; A universal on-the-fly syntax checker
 
 (use-package flymake
-  :hook (emacs-lisp-mode . flymake-mode)
+  :hook (prog-mode . flymake-mode)
   :hook (flymake-mode . (lambda ()
                           (setq eldoc-documentation-functions
                                 (cons 'flymake-eldoc-function
