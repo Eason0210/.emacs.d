@@ -254,6 +254,7 @@
   (corfu-auto-prefix 1)
   (corfu-auto-delay 0.1)
   (corfu-preselect 'prompt)
+  (corfu-on-exact-match nil)
   :bind (:map corfu-map
               ([tab] . corfu-next)
               ([backtab] . corfu-previous)
