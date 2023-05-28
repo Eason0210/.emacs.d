@@ -876,7 +876,9 @@ typical word processor."
     :args `("--stdin-input-file" ,buffer-file-name) :group 'reformatter))
 
 (use-package apheleia
-  :bind ("C-c f" . apheleia-format-buffer))
+  :bind ("C-c f" . apheleia-format-buffer)
+  :config
+  (setf (alist-get 'python-ts-mode apheleia-mode-alist) '(isort black)))
 
 ;;; Tree-sitter support
 ;; https://git.savannah.gnu.org/cgit/emacs.git/tree/admin/notes/tree-sitter/starter-guide?h=emacs-29
