@@ -969,7 +969,8 @@ typical word processor."
 ;;; Built-in packages
 
 (use-package eldoc
-  :custom (eldoc-documentation-strategy #'eldoc-documentation-compose))
+  :custom (eldoc-documentation-strategy #'eldoc-documentation-compose)
+  :config (eldoc-add-command-completions "paredit-"))
 
 (use-package help
   :defer t
