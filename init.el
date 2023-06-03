@@ -118,6 +118,7 @@
                                       (delq 'flymake-eldoc-function
                                             eldoc-documentation-functions)))))
   :commands flymake-proc-legacy-flymake
+  :init (setq elisp-flymake-byte-compile-load-path (cons "./" load-path))
   :config (remove-hook 'flymake-diagnostic-functions #'flymake-proc-legacy-flymake))
 
 ;;; Minibuffer and completion
