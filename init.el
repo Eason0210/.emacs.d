@@ -941,7 +941,7 @@ typical word processor."
 (use-package flyspell
   :diminish
   :hook ((prog-mode . flyspell-prog-mode)
-         (git-commit-mode . flyspell-mode)
+         ((git-commit-mode markdown-mode) . flyspell-mode)
          (flyspell-mode . (lambda ()
                             (dolist (key '("C-;" "C-."))
                               (unbind-key key flyspell-mode-map)))))
