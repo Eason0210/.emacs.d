@@ -858,6 +858,11 @@ typical word processor."
                                   "scripts/python"
                                 "bin/python")))))))
 
+(use-package envrc
+  :when (executable-find "direnv")
+  :bind-keymap ("C-c e" . envrc-command-map)
+  :hook (after-init . envrc-global-mode))
+
 (use-package reformatter
   :config
   (reformatter-define black :program "black" :args '("-") :group 'reformatter)

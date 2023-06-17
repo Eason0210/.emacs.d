@@ -65,6 +65,9 @@
 [submodule "embark"]
 	path = lib/embark
 	url = https://github.com/oantolin/embark
+[submodule "envrc"]
+	path = lib/envrc
+	url = https://github.com/purcell/envrc
 [submodule "epkg"]
 	path = lib/epkg
 	url = https://github.com/emacscollective/epkg
@@ -103,6 +106,9 @@
 [submodule "highlight-quoted"]
 	path = lib/highlight-quoted
 	url = https://github.com/Fanael/highlight-quoted
+[submodule "inheritenv"]
+	path = lib/inheritenv
+	url = https://github.com/purcell/inheritenv
 [submodule "kind-icon"]
 	path = lib/kind-icon
 	url = https://github.com/jdtsmith/kind-icon
