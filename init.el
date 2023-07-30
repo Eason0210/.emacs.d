@@ -433,11 +433,6 @@ Call a second time to restore the original window configuration."
                             (current-buffer)))
                    (or (not (boundp 'corfu--total)) (zerop corfu--total))
                    (or (not (boundp 'yas--active-snippets)) (not yas--active-snippets)))))
-  :custom-face
-  (fixed-pitch ((t (:family ,(face-attribute 'default :family) :height 1.0))))
-  (variable-pitch ((t (:family "Bookerly" :height 1.0))))
-  (mode-line ((t (:inherit variable-pitch :height 1.0))))
-  (mode-line-inactive ((t (:inherit variable-pitch :height 1.0))))
   :hook ((prog-mode text-mode) . indicate-buffer-boundaries-left)
   :hook (after-init . auto-save-visited-mode)
   :config
