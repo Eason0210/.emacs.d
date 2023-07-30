@@ -446,6 +446,7 @@ Call a second time to restore the original window configuration."
   ("C-x x p" . pop-to-mark-command)
   ("C-x C-." . pop-global-mark)
   ([remap capitalize-word] . capitalize-dwim)
+  ("<f8>" . scratch-buffer)
   :custom
   (indent-tabs-mode nil)
   (save-interprogram-paste-before-kill t)
