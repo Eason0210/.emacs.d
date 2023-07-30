@@ -137,7 +137,8 @@
   :custom
   (completion-styles '(orderless basic))
   (completion-category-defaults nil)
-  (completion-category-overrides '((file (styles basic partial-completion))))
+  (completion-category-overrides '((file (styles basic partial-completion))
+                                   (eglot (styles orderless))))
   (orderless-component-separator #'orderless-escapable-split-on-space))
 
 (use-package vertico
@@ -270,7 +271,8 @@
          ("C-c p l" . cape-line)
          ("C-c p w" . cape-dict))
   :init
-  (add-to-list 'completion-at-point-functions #'cape-file))
+  (add-to-list 'completion-at-point-functions #'cape-file)
+  (advice-add 'eglot-completion-at-point :around #'cape-wrap-buster))
 
 (use-package kind-icon
   :after corfu
