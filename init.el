@@ -49,6 +49,11 @@
   (when (file-exists-p custom-file)
     (load custom-file)))
 
+(use-package server
+  :hook (after-init . (lambda ()
+                        (unless (server-running-p)
+                          (server-start)))))
+
 (progn ; `startup'
   (message "Loading early birds...done (%.3fs)"
            (float-time (time-subtract (current-time)
