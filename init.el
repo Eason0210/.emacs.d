@@ -440,8 +440,10 @@ Call a second time to restore the original window configuration."
                             (current-buffer)))
                    (or (not (boundp 'corfu--total)) (zerop corfu--total))
                    (or (not (boundp 'yas--active-snippets)) (not yas--active-snippets)))))
-  :hook ((prog-mode text-mode) . indicate-buffer-boundaries-left)
-  :hook (after-init . auto-save-visited-mode)
+  (display-fill-column-indicator-character ?\u254e)
+  :hook ((prog-mode . display-fill-column-indicator-mode)
+         ((prog-mode text-mode) . indicate-buffer-boundaries-left)
+         (after-init . auto-save-visited-mode))
   :config
   (defun indicate-buffer-boundaries-left ()
     (setq indicate-buffer-boundaries 'left)))
