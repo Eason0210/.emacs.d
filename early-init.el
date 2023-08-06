@@ -30,6 +30,11 @@
   (setq ns-command-modifier 'meta)
   (setq ns-alternate-modifier 'super))
 
+;;; Encoding
+(set-charset-priority 'unicode)
+(prefer-coding-system 'utf-8)
+(setq system-time-locale "C")
+
 ;;; Font setting
 
 (defvar font-list

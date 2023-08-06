@@ -988,17 +988,6 @@ typical word processor."
          (Info-mode . writeroom-mode))
   :custom-face (Info-quoted ((t (:inherit fixed-pitch)))))
 
-;;; Configure default locale
-
-(progn ; `charset'
-  (when (fboundp 'set-charset-priority)
-    (set-charset-priority 'unicode))
-  (prefer-coding-system 'utf-8)
-  (setq locale-coding-system 'utf-8)
-  (setq system-time-locale "C")
-  (unless (eq system-type 'windows-nt)
-    (set-selection-coding-system 'utf-8)))
-
 ;;; Tequila worms
 
 (progn ; `startup'
