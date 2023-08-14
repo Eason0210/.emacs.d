@@ -306,7 +306,9 @@
   :config
   (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter)
   (when (eq system-type 'windows-nt)
-    (plist-put kind-icon-default-style :height 0.8)))
+    (plist-put kind-icon-default-style :height 0.8))
+  (when (fboundp 'reapply-themes)
+    (advice-add 'reapply-themes :after 'kind-icon-reset-cache)))
 
 (use-package yasnippet
   :diminish yas-minor-mode
