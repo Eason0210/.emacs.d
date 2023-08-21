@@ -291,7 +291,7 @@
          ("C-c p t" . complete-tag)
          ("C-c p d" . cape-dabbrev)
          ("C-c p f" . cape-file)
-         ("C-c p s" . cape-symbol)
+         ("C-c p s" . cape-elisp-symbol)
          ("C-c p a" . cape-abbrev)
          ("C-c p l" . cape-line)
          ("C-c p w" . cape-dict))
