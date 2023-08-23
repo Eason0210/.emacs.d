@@ -292,11 +292,13 @@
          ("C-c p d" . cape-dabbrev)
          ("C-c p f" . cape-file)
          ("C-c p s" . cape-elisp-symbol)
+         ("C-c p e" . cape-elisp-block)
          ("C-c p a" . cape-abbrev)
          ("C-c p l" . cape-line)
          ("C-c p w" . cape-dict))
   :init
   (add-to-list 'completion-at-point-functions #'cape-file)
+  (add-to-list 'completion-at-point-functions #'cape-elisp-block)
   (advice-add 'eglot-completion-at-point :around #'cape-wrap-buster))
 
 (use-package kind-icon
