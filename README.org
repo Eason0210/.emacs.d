@@ -32,7 +32,7 @@ make bootstrap       # bootstrap collective or new drones
 #+end_src
 After ~make bootstrap~, all the third-party packages will be automatically cloned as Git submodules , byte-compile and create autoloads.
 
-See more details on [[https://github.com/emacscollective/borg/blob/master/docs/borg.org][Borg User Manual]].
+See more details on [[https://github.com/emacscollective/borg/blob/main/docs/borg.org][Borg User Manual]].
 
 **  Updates
 Update the config with ~git pull~. Update the third-party packages by running:
