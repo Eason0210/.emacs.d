@@ -4,7 +4,7 @@
 This is my personal Emacs configuration, it works on macOS, Linux and Windows.
 
 - Use [[https://github.com/emacscollective/borg][Borg]] to assimilate Emacs packages as Git submodules.
-- Use [[https://github.com/jwiegley/use-package][use-package]] to organize the config,  optimize the startup time.
+- Use [[https://www.gnu.org/software/emacs/manual/html_mono/use-package.html][use-package]] to organize the config,  optimize the startup time.
 
 ** Supported Languages
 Emacs itself comes with support for many programming languages. This config adds improved defaults and extended support for the following, listed in the approximate order of how much I use them, from most to least:
