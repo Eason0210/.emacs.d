@@ -157,6 +157,9 @@
 [submodule "paredit"]
 	path = lib/paredit
 	url = https://paredit.org/cgit/paredit
+[submodule "pinyinlib"]
+	path = lib/pinyinlib
+	url = https://github.com/cute-jumper/pinyinlib.el
 [submodule "pyvenv"]
 	path = lib/pyvenv
 	url = https://github.com/jorgenschaefer/pyvenv
