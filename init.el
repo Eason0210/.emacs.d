@@ -164,6 +164,14 @@
                                    (eglot (styles orderless))))
   (orderless-component-separator #'orderless-escapable-split-on-space))
 
+(use-package pinyinlib
+  :after orderless
+  :autoload pinyinlib-build-regexp-string
+  :init
+  (defun completion--regex-pinyin (str)
+    (orderless-regexp (pinyinlib-build-regexp-string str)))
+  (add-to-list 'orderless-matching-styles 'completion--regex-pinyin))
+
 (use-package vertico
   :demand t
   :bind (:map vertico-map
