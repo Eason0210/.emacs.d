@@ -946,6 +946,10 @@ typical word processor."
   (setq read-process-output-max (* 1024 1024))
   (setq eglot-events-buffer-size 0))
 
+(use-package consult-eglot
+  :after (consult eglot)
+  :bind (:map eglot-mode-map ("M-g s" . consult-eglot-symbols)))
+
 (use-package breadcrumb
   :config (breadcrumb-mode))
 
