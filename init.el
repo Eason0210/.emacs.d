@@ -531,12 +531,6 @@ Call a second time to restore the original window configuration."
   ([M-up] . move-dup-move-lines-up)
   ([M-down] . move-dup-move-lines-down))
 
-;;; Whitespace
-
-(use-package ws-butler
-  :diminish
-  :hook (after-init . ws-butler-global-mode))
-
 ;;; Version control
 
 (use-package diff-hl
