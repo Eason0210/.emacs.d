@@ -481,7 +481,6 @@ Call a second time to restore the original window configuration."
 (use-package simple
   :bind
   ("M-j" . join-line) ; M-^ is inconvenient, so also bind M-j
-  ("C-x k" . kill-current-buffer)
   ("C-x x p" . pop-to-mark-command)
   ("C-x C-." . pop-global-mark)
   ([remap capitalize-word] . capitalize-dwim)
