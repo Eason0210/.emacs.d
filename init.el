@@ -133,6 +133,12 @@
   (uniquify-after-kill-buffer-p t)
   (uniquify-ignore-buffers-re "^\\*"))
 
+;;; Operate on buffers like dired
+
+(use-package ibuffer
+  :bind ("C-x C-b" . ibuffer)
+  :custom (ibuffer-filter-group-name-face 'font-lock-doc-face))
+
 ;;; A universal on-the-fly syntax checker
 
 (use-package flymake
