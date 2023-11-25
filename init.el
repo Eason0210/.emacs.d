@@ -156,7 +156,24 @@
   (set-message-functions '(inhibit-message))
   :init (minibuffer-depth-indicate-mode))
 
+(use-package fussy
+  :custom
+  (completion-styles '(fussy basic))
+  (completion-category-defaults nil)
+  (completion-category-overrides '((file (styles basic partial-completion))
+                                   (eglot (styles fussy basic))))
+  (fussy-filter-fn 'fussy-filter-default)
+  (fussy-use-cache t)
+  :config
+  (advice-add 'corfu--capf-wrapper :before 'fussy-wipe-cache)
+  (add-hook 'corfu-mode-hook
+            (lambda ()
+              (setq-local fussy-max-candidate-limit 5000
+                          fussy-default-regex-fn 'fussy-pattern-first-letter
+                          fussy-prefer-prefix nil))))
+
 (use-package orderless
+  :disabled
   :custom
   (completion-styles '(orderless basic))
   (completion-category-defaults nil)
@@ -165,6 +182,7 @@
   (orderless-component-separator #'orderless-escapable-split-on-space))
 
 (use-package pinyinlib
+  :disabled
   :after orderless
   :autoload pinyinlib-build-regexp-string
   :init
