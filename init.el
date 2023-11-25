@@ -602,7 +602,7 @@ Call a second time to restore the original window configuration."
   :hook (org-mode . variable-pitch-mode)
   :custom
   (org-modules nil) ; Faster loading
-  (org-log-done 'time)
+  (org-log-into-drawer t)
   (org-fontify-done-headline nil)
   (org-edit-timestamp-down-means-later t)
   (org-export-coding-system 'utf-8)
