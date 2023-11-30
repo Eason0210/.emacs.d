@@ -457,6 +457,12 @@ Call a second time to restore the original window configuration."
 
 ;;; Save and restore editor sessions between restarts
 
+(use-package desktop
+  :custom
+  (desktop-load-locked-desktop 'check-pid)
+  (desktop-globals-to-save nil)
+  :config (desktop-save-mode 1))
+
 (use-package savehist
   :custom (savehist-additional-variables
            '(last-kbd-macro
