@@ -176,6 +176,9 @@
 [submodule "rainbow-delimiters"]
 	path = lib/rainbow-delimiters
 	url = https://github.com/Fanael/rainbow-delimiters
+[submodule "rainbow-mode"]
+	path = lib/rainbow-mode
+	url = https://github.com/emacsmirror/rainbow-mode
 [submodule "reformatter"]
 	path = lib/reformatter
 	url = https://github.com/purcell/emacs-reformatter
