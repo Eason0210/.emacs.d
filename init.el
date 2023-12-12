@@ -377,8 +377,8 @@
   :bind (([f7] . sanityinc/split-window)
          ("C-c <down>". sanityinc/toggle-current-window-dedication)
          :map ctl-x-4-map
-         ("s" . toggle-window-split)
-         ("t" . window-swap-states))
+         ("s" . window-swap-states)
+         ("t" . toggle-window-split))
   :config
   (bind-key "C-x 2" (split-window-func-with-other-buffer 'split-window-vertically))
   (bind-key "C-x 3" (split-window-func-with-other-buffer 'split-window-horizontally))
