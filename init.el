@@ -378,7 +378,7 @@
          ("C-c <down>". sanityinc/toggle-current-window-dedication)
          :map ctl-x-4-map
          ("s" . toggle-window-split)
-         ("t" . transpose-windows))
+         ("t" . window-swap-states))
   :config
   (bind-key "C-x 2" (split-window-func-with-other-buffer 'split-window-vertically))
   (bind-key "C-x 3" (split-window-func-with-other-buffer 'split-window-horizontally))
@@ -407,15 +407,6 @@
         (save-selected-window
           (other-window 1)
           (switch-to-buffer (other-buffer))))))
-
-  (defun transpose-windows ()
-    "Swap the buffers shown in current and next window."
-    (interactive)
-    (let ((this-buffer (window-buffer))
-          (next-window (next-window nil :no-minibuf nil)))
-      (set-window-buffer nil (window-buffer next-window))
-      (set-window-buffer next-window this-buffer)
-      (select-window next-window)))
 
   (defun sanityinc/split-window()
     "Split the window to see the most recent buffer in the other window.
