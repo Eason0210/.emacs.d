@@ -999,7 +999,8 @@ typical word processor."
   :custom
   (flyspell-issue-message-flag nil)
   (ispell-program-name "enchant-2")
-  (ispell-dictionary "english"))
+  (ispell-dictionary "english")
+  (text-mode-ispell-word-completion nil))
 
 (use-package flyspell-correct
   :after flyspell
