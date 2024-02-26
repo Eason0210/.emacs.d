@@ -927,7 +927,7 @@ typical word processor."
 (use-package apheleia
   :bind ("C-c f" . apheleia-format-buffer)
   :config
-  (setf (alist-get 'python-ts-mode apheleia-mode-alist) '(isort black)))
+  (setf (alist-get 'python-ts-mode apheleia-mode-alist) '(ruff-isort ruff)))
 
 ;;; Tree-sitter support
 ;; https://git.savannah.gnu.org/cgit/emacs.git/tree/admin/notes/tree-sitter/starter-guide?h=emacs-29
