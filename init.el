@@ -339,6 +339,8 @@
   (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter)
   (when (eq system-type 'windows-nt)
     (plist-put kind-icon-default-style :height 0.8))
+  (when (eq system-type 'gnu/linux)
+    (plist-put kind-icon-default-style :height 0.7))
   (when (fboundp 'reapply-themes)
     (advice-add 'reapply-themes :after 'kind-icon-reset-cache)))
 
