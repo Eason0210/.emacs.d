@@ -607,6 +607,7 @@ Call a second time to restore the original window configuration."
   :hook (org-mode . variable-pitch-mode)
   :custom
   (org-modules nil) ; Faster loading
+  (org-log-done 'time)
   (org-log-into-drawer t)
   (org-fontify-done-headline nil)
   (org-edit-timestamp-down-means-later t)
@@ -621,20 +622,21 @@ Call a second time to restore the original window configuration."
   (org-src-preserve-indentation t)
   (org-directory "~/agenda")
   (org-default-notes-file (expand-file-name "inbox.org" org-directory))
-  (org-agenda-files (list "inbox.org" "agenda.org" "projects.org"))
-  (org-capture-templates `(("t" "todo" entry (file "") ; "" => `org-default-notes-file'
-                            "* NEXT %?\n%U\n" :clock-resume t)
-                           ("n" "note" entry (file "")
-                            "* %? :NOTE:\n%U\n%a\n" :clock-resume t)
-                           ("m" "meeting" entry  (file+headline "agenda.org" "Future")
-	                    ,(concat "* %? :meeting:\n" "<%<%Y-%m-%d %a %H:00>>"))
-                           ))
-  (org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!/!)")
-                       (sequence "PROJECT(p)" "|" "DONE(d!/!)" "CANCELLED(c@/!)")
-                       (sequence "WAITING(w@/!)" "DELEGATED(e!)" "HOLD(h)" "|" "CANCELLED(c@/!)")))
+  (org-agenda-files (list "inbox.org" "agenda.org" "notes.org" "projects.org"))
+  (org-capture-templates
+   `(("i" "Inbox" entry  (file "") ; "" => `org-default-notes-file'
+      ,(concat "* TODO %?\n"
+               "/Entered on/ %U"))
+     ("m" "Meeting" entry  (file+headline "agenda.org" "Future")
+      ,(concat "* %? :meeting:\n"
+               "<%<%Y-%m-%d %a %H:00>>"))
+     ("n" "Note" entry  (file "notes.org")
+      ,(concat "* Note (%a)\n"
+               "/Entered on/ %U\n" "\n" "%?"))))
+  ;; (org-capture-mode-hook 'delete-other-windows)
+  (org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "HOLD(h)" "|" "DONE(d!/!)")))
   (org-todo-repeat-to-state "NEXT")
-  (org-todo-keyword-faces '(("NEXT" :inherit warning)
-                            ("PROJECT" :inherit font-lock-string-face)))
+  (org-todo-keyword-faces '(("NEXT" :inherit warning)))
   (org-archive-location "%s_archive::* Archive")
   :custom-face
   (org-block ((t (:inherit fixed-pitch))))
@@ -647,13 +649,21 @@ Call a second time to restore the original window configuration."
   (org-table ((t (:inherit fixed-pitch))))
   (org-tag ((t (:inherit (shadow fixed-pitch) :weight bold :height 1.0))))
   (org-verbatim ((t (:inherit (shadow fixed-pitch)))))
+  :commands (org-get-todo-state org-entry-get org-entry-put)
   :config
   (advice-add 'org-babel-execute-src-block :before #'my/org-babel-execute-src-block)
+  (add-hook 'org-after-todo-state-change-hook #'log-todo-next-creation-date)
   (defun org-capture-inbox ()
     (interactive)
     (call-interactively 'org-store-link)
     (org-capture nil "i"))
   :preface
+  (defun log-todo-next-creation-date ()
+    "Log NEXT creation time in the property drawer under the key 'ACTIVATED'"
+    (when (and (string= (org-get-todo-state) "NEXT")
+               (not (org-entry-get nil "ACTIVATED")))
+      (org-entry-put nil "ACTIVATED" (format-time-string "[%Y-%m-%d]"))))
+  
   (defvar sanityinc/org-global-prefix-map (make-sparse-keymap)
     "A keymap for handy global access to org helpers, particularly clocking.")
 
@@ -716,74 +726,32 @@ Call a second time to restore the original window configuration."
   (org-agenda-start-on-weekday nil)
   (org-agenda-span 'day)
   (org-agenda-window-setup 'current-window)
-  (org-stuck-projects '("-INBOX/PROJECT" ("NEXT")))
-  (org-agenda-sorting-strategy
-   '((agenda habit-down time-up user-defined-up effort-up category-keep)
-     (todo category-up effort-up)
-     (tags category-up effort-up)
-     (search category-up)))
   (org-agenda-custom-commands
-   `(("N" "Notes" tags "NOTE"
+   '(("n" "Notes" tags "notes"
       ((org-agenda-overriding-header "Notes")
        (org-tags-match-list-sublevels t)))
-     ("g" "GTD"
-      ((agenda "" nil)
-       (tags "INBOX"
-             ((org-agenda-overriding-header "Inbox")
-              (org-tags-match-list-sublevels nil)))
-       (stuck ""
-              ((org-agenda-overriding-header "Stuck Projects")
-               (org-agenda-tags-todo-honor-ignore-options t)
-               (org-tags-match-list-sublevels t)
-               (org-agenda-todo-ignore-scheduled 'future)))
-       (tags-todo "-INBOX"
-                  ((org-agenda-overriding-header "Next Actions")
-                   (org-agenda-tags-todo-honor-ignore-options t)
-                   (org-agenda-todo-ignore-scheduled 'future)
-                   (org-agenda-skip-function
-                    '(lambda ()
-                       (or (org-agenda-skip-subtree-if 'todo '("HOLD" "WAITING"))
-                           (org-agenda-skip-entry-if 'nottodo '("NEXT")))))
-                   (org-tags-match-list-sublevels t)
-                   (org-agenda-sorting-strategy
-                    '(todo-state-down effort-up category-keep))))
-       (tags-todo "-INBOX/PROJECT"
-                  ((org-agenda-overriding-header "Projects")
-                   (org-tags-match-list-sublevels t)
-                   (org-agenda-sorting-strategy
-                    '(category-keep))))
-       (tags-todo "-INBOX/-NEXT"
-                  ((org-agenda-overriding-header "Orphaned Tasks")
-                   (org-agenda-tags-todo-honor-ignore-options t)
-                   (org-agenda-todo-ignore-scheduled 'future)
-                   (org-agenda-skip-function
-                    '(lambda ()
-                       (or (org-agenda-skip-subtree-if 'todo '("PROJECT" "HOLD" "WAITING" "DELEGATED"))
-                           (org-agenda-skip-subtree-if 'nottododo '("TODO")))))
-                   (org-tags-match-list-sublevels t)
-                   (org-agenda-sorting-strategy
-                    '(category-keep))))
-       (tags-todo "/WAITING"
-                  ((org-agenda-overriding-header "Waiting")
-                   (org-agenda-tags-todo-honor-ignore-options t)
-                   (org-agenda-todo-ignore-scheduled 'future)
-                   (org-agenda-sorting-strategy
-                    '(category-keep))))
-       (tags-todo "/DELEGATED"
-                  ((org-agenda-overriding-header "Delegated")
-                   (org-agenda-tags-todo-honor-ignore-options t)
-                   (org-agenda-todo-ignore-scheduled 'future)
-                   (org-agenda-sorting-strategy
-                    '(category-keep))))
-       (tags-todo "-INBOX"
-                  ((org-agenda-overriding-header "On Hold")
-                   (org-agenda-skip-function
-                    '(lambda ()
-                       (or (org-agenda-skip-subtree-if 'todo '("WAITING"))
-                           (org-agenda-skip-entry-if 'nottodo '("HOLD")))))
-                   (org-tags-match-list-sublevels nil)
-                   (org-agenda-sorting-strategy
-                    '(category-keep)))))))))
+     ("g" "Get Things Done (GTD)"
+      ((agenda ""
+               ((org-agenda-skip-function
+                 '(org-agenda-skip-entry-if 'deadline))
+                (org-deadline-warning-days 0)))
+       (todo "NEXT"
+             ((org-agenda-skip-function
+               '(org-agenda-skip-entry-if 'deadline))
+              (org-agenda-prefix-format "  %i %-12:c [%e] ")
+              (org-agenda-overriding-header "Tasks")))
+       (agenda nil
+               ((org-agenda-entry-types '(:deadline))
+                (org-agenda-format-date "")
+                (org-deadline-warning-days 7)
+                (org-agenda-skip-function
+                 '(org-agenda-skip-entry-if 'notregexp "\\* NEXT"))
+                (org-agenda-overriding-header "Deadlines")))
+       (tags-todo "inbox"
+                  ((org-agenda-prefix-format "  %?-12t% s")
+                   (org-agenda-overriding-header "Inbox")))
+       (tags "CLOSED>=\"<today>\""
+             ((org-agenda-overriding-header "Completed today"))))))))
 
 ;; Writing mode similar to the famous Writeroom editor for macOS
 (use-package writeroom-mode
