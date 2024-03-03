@@ -591,8 +591,9 @@ Call a second time to restore the original window configuration."
 (use-package org
   :bind (("C-c l" . org-store-link)
          ("C-c c" . org-capture)
+         ("C-c i" . org-capture-inbox)
          :map org-mode-map
-         ("C-c i a" . org-id-get-create)
+         ("C-c I" . org-id-get-create)
          ("C-c e d" . org-pandoc-convert-to-docx)
          :map sanityinc/org-global-prefix-map
          ("j" . org-clock-goto)
@@ -618,12 +619,16 @@ Call a second time to restore the original window configuration."
   (org-confirm-babel-evaluate nil)
   (org-link-elisp-confirm-function nil)
   (org-src-preserve-indentation t)
-  (org-default-notes-file "~/agenda/inbox.org")
-  (org-agenda-files '("~/agenda"))
+  (org-directory "~/agenda")
+  (org-default-notes-file (expand-file-name "inbox.org" org-directory))
+  (org-agenda-files (list "inbox.org" "agenda.org" "projects.org"))
   (org-capture-templates `(("t" "todo" entry (file "") ; "" => `org-default-notes-file'
                             "* NEXT %?\n%U\n" :clock-resume t)
                            ("n" "note" entry (file "")
-                            "* %? :NOTE:\n%U\n%a\n" :clock-resume t)))
+                            "* %? :NOTE:\n%U\n%a\n" :clock-resume t)
+                           ("m" "meeting" entry  (file+headline "agenda.org" "Future")
+	                    ,(concat "* %? :meeting:\n" "<%<%Y-%m-%d %a %H:00>>"))
+                           ))
   (org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!/!)")
                        (sequence "PROJECT(p)" "|" "DONE(d!/!)" "CANCELLED(c@/!)")
                        (sequence "WAITING(w@/!)" "DELEGATED(e!)" "HOLD(h)" "|" "CANCELLED(c@/!)")))
@@ -644,6 +649,10 @@ Call a second time to restore the original window configuration."
   (org-verbatim ((t (:inherit (shadow fixed-pitch)))))
   :config
   (advice-add 'org-babel-execute-src-block :before #'my/org-babel-execute-src-block)
+  (defun org-capture-inbox ()
+    (interactive)
+    (call-interactively 'org-store-link)
+    (org-capture nil "i"))
   :preface
   (defvar sanityinc/org-global-prefix-map (make-sparse-keymap)
     "A keymap for handy global access to org helpers, particularly clocking.")
