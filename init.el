@@ -738,7 +738,7 @@ Call a second time to restore the original window configuration."
        (todo "NEXT"
              ((org-agenda-skip-function
                '(org-agenda-skip-entry-if 'deadline))
-              (org-agenda-prefix-format "  %i %-12:c [%e] ")
+              (org-agenda-prefix-format " %i %-2:c [%e] ")
               (org-agenda-overriding-header "Tasks")))
        (agenda nil
                ((org-agenda-entry-types '(:deadline))
