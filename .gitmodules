@@ -182,6 +182,9 @@
 [submodule "reformatter"]
 	path = lib/reformatter
 	url = https://github.com/purcell/emacs-reformatter
+[submodule "rust-mode"]
+	path = lib/rust-mode
+	url = https://github.com/rust-lang/rust-mode
 [submodule "simple-httpd"]
 	path = lib/simple-httpd
 	url = https://github.com/skeeto/emacs-web-server
