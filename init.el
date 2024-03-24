@@ -887,6 +887,10 @@ typical word processor."
                                   "scripts/python"
                                 "bin/python")))))))
 
+(use-package rust-mode
+  :defer t
+  :custom (rust-mode-treesitter-derive t))
+
 (use-package envrc
   :when (executable-find "direnv")
   :bind-keymap ("C-c e" . envrc-command-map)
@@ -927,7 +931,6 @@ typical word processor."
              (sh-mode         . bash-ts-mode)))
   :config
   (add-to-list 'auto-mode-alist '("\\(?:CMakeLists\\.txt\\|\\.cmake\\)\\'" . cmake-ts-mode))
-  (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-ts-mode))
   (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
   (add-to-list 'auto-mode-alist '("\\.ya?ml\\'" . yaml-ts-mode)))
