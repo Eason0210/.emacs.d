@@ -53,3 +53,4 @@ I put my private configurations in ~$Home/.emacs.d/private.el~, such as Email an
 ** Reference configurations
 1. [[https://github.com/purcell/emacs.d][Purcell/emacs.d]]
 2. [[https://github.com/DamienCassou/emacs.d][DamienCassou/emacs.d]]
+3. Font config is inspired by [[https://github.com/DogLooksGood/meomacs/blob/master/laf.org#fonts][DogLooksGood/meomacs]]
