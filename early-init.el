@@ -39,56 +39,82 @@
 (setq system-time-locale "C")
 
 ;;; Font setting
+(defvar aquamacs-font-size (cond ((eq system-type 'darwin) 13)
+                                 ((eq system-type 'windows-nt) 12)
+                                 (t 12))
+  "Current font size.")
 
-(defvar font-list
-  (cond
-   ((eq system-type 'darwin)
-    '(("SF Mono" . 13) ("Monaco" . 13) ("Menlo" . 13)))
-   ((eq system-type 'windows-nt)
-    '(("Cascadia Mono" . 11) ("SF Mono" . 11) ("Consolas" . 12)))
-   (t
-    '(("SF Mono" . 11) ("Consolas" . 12) ("Cascadia Mono" . 11))))
-  "List of fonts and sizes.  The first one available will be used.")
+(defvar aquamacs-font-weight "medium"
+  "Current font weight.")
 
-;; Set default font before frame creation to make sure the first frame have the correct size
-(add-to-list 'default-frame-alist (cons 'font (format "%s-%d" (caar font-list) (cdar font-list))))
+(defvar aquamacs-fonts
+  `((default . ,(cond ((eq system-type 'darwin) "IBM Plex Mono")
+                      ((eq system-type 'windows-nt) "IBM Plex Mono Medm")
+                      (t "IBM Plex Mono")))
+    (fixed . ,(cond ((eq system-type 'darwin) "IBM Plex Mono")
+                    ((eq system-type 'windows-nt) "IBM Plex Mono Medm")
+                    (t "IBM Plex Mono")))
+    (fixed-serif . ,(cond ((eq system-type 'darwin) "IBM Plex Mono")
+                          ((eq system-type 'windows-nt) "IBM Plex Mono Medm")
+                          (t "IBM Plex Mono")))
+    (variable . ,(cond ((eq system-type 'darwin) "IBM Plex Sans")
+                       ((eq system-type 'windows-nt) "IBM Plex Sans Medm")
+                       (t "IBM Plex Sans")))
+    (cjk . ,(cond ((eq system-type 'darwin) "PingFang SC")
+                  ((eq system-type 'windows-nt) "Microsoft Yahei")
+                  (t "Noto Sans CJK SC")))
+    (symbol . ,(cond ((eq system-type 'darwin) "Apple Color Emoji")
+                     ((eq system-type 'windows-nt) "Segoe UI Emoji")
+                     (t "Noto Color Emoji"))))
+  "Fonts to use.")
 
-(defun change-font ()
-  "Change the font of frame from an available `font-list'."
-  (interactive)
-  (let* (available-fonts font-name font-size font-set)
-    (dolist (font font-list (setq available-fonts (nreverse available-fonts)))
-      (when (x-list-fonts (car font))
-        (push font available-fonts)))
-    (if (not available-fonts)
-        (message "No fonts from the chosen set are available")
-      (if (called-interactively-p 'interactive)
-          (let* ((chosen (assoc-string (completing-read "What font to use? " available-fonts nil t)
-                                       available-fonts)))
-            (setq font-name (car chosen) font-size (read-number "Font size: " (cdr chosen))))
-        (setq font-name (caar available-fonts) font-size (cdar available-fonts)))
-      (setq font-set (format "%s-%d" font-name font-size))
-      (set-frame-font font-set nil t)
-      (add-to-list 'default-frame-alist (cons 'font font-set)))))
+(defun aquamacs--get-font-family (key)
+  "Get font family with KEY."
+  (let ((font (alist-get key aquamacs-fonts)))
+    (if (string-empty-p font)
+        (alist-get 'default aquamacs-fonts)
+      font)))
 
-(defun change-unicode-font ()
-  "Setup the Unicode font."
-  (when (display-graphic-p)
-    (cl-loop for font in '("Microsoft Yahei" "PingFang SC" "Noto Sans Mono CJK SC")
-             when (x-list-fonts font)
-             return (dolist (charset '(kana han hangul cjk-misc bopomofo))
-                      (set-fontset-font t charset font)))
-    (cl-loop for font in '("Segoe UI Emoji" "Apple Color Emoji" "Noto Color Emoji")
-             when (x-list-fonts font)
-             return (set-fontset-font t 'emoji font))
-    (dolist (font '("HanaMinA" "HanaMinB"))
-      (when (x-list-fonts font)
-        (set-fontset-font t 'unicode font nil 'append)))))
+(defun aquamacs-load-default-font ()
+  "Load default font configuration."
+  (let ((default-font (format "%s-%s:%s"
+                              (aquamacs--get-font-family 'default)
+                              aquamacs-font-size aquamacs-font-weight)))
+    (add-to-list 'default-frame-alist (cons 'font default-font))))
+
+(defun aquamacs-load-face-font ()
+  "Load face font configuration."
+  (let ((variable-font (format "%s-%s:%s" (aquamacs--get-font-family 'variable)
+                               aquamacs-font-size aquamacs-font-weight))
+        (fixed-font (format "%s-%s:%s" (aquamacs--get-font-family 'fixed)
+                            aquamacs-font-size aquamacs-font-weight))
+        (fixed-serif-font (format "%s-%s:%s" (aquamacs--get-font-family 'fixed-serif)
+                                  aquamacs-font-size aquamacs-font-weight)))
+    (set-face-attribute 'variable-pitch nil :font variable-font )
+    (set-face-attribute 'fixed-pitch nil :font fixed-font)
+    (set-face-attribute 'fixed-pitch-serif nil :font fixed-serif-font)
+    (set-face-attribute 'mode-line-active nil :font variable-font)
+    (set-face-attribute 'mode-line-inactive nil :font variable-font)))
+
+(defun aquamacs-load-charset-font (&optional font)
+  "Load charset FONT configuration."
+  (let ((default-font (or font (format "%s-%s:%s"
+                                       (aquamacs--get-font-family 'default)
+                                       aquamacs-font-size aquamacs-font-weight)))
+        (cjk-font (aquamacs--get-font-family 'cjk))
+        (symbol-font (aquamacs--get-font-family 'symbol)))
+    (set-frame-font default-font)
+    (dolist (charset '(kana han hangul cjk-misc bopomofo))
+      (set-fontset-font t charset cjk-font))
+    (set-fontset-font t 'symbol symbol-font)))
+
+(aquamacs-load-default-font)
 
 ;; Run after startup
-(dolist (fn '(change-font change-unicode-font))
-  (add-hook 'after-init-hook fn))
-
+(add-hook 'after-init-hook (lambda ()
+                             (when window-system
+                               (aquamacs-load-face-font)
+                               (aquamacs-load-charset-font))))
 
 ;; Local Variables:
 ;; no-byte-compile: nil
