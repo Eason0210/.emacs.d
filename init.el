@@ -510,7 +510,6 @@ Call a second time to restore the original window configuration."
   ([remap capitalize-word] . capitalize-dwim)
   ("<f8>" . scratch-buffer)
   :custom
-  (indent-tabs-mode nil)
   (save-interprogram-paste-before-kill t)
   (set-mark-command-repeat-pop t)
   (read-extended-command-predicate #'command-completion-default-include-p)
@@ -917,18 +916,21 @@ typical word processor."
 (use-package treesit
   :when (and (fboundp 'treesit-available-p)
              (treesit-available-p))
-  :custom (major-mode-remap-alist
-           '((c-mode          . c-ts-mode)
-             (c++-mode        . c++-ts-mode)
-             (csharp-mode     . csharp-ts-mode)
-             (conf-toml-mode  . toml-ts-mode)
-             (css-mode        . css-ts-mode)
-             (java-mode       . java-ts-mode)
-             (javascript-mode . js-ts-mode)
-             (js-json-mode    . json-ts-mode)
-             (python-mode     . python-ts-mode)
-             (ruby-mode       . ruby-ts-mode)
-             (sh-mode         . bash-ts-mode)))
+  :custom
+  (major-mode-remap-alist
+   '((c-mode          . c-ts-mode)
+     (c++-mode        . c++-ts-mode)
+     (csharp-mode     . csharp-ts-mode)
+     (conf-toml-mode  . toml-ts-mode)
+     (css-mode        . css-ts-mode)
+     (java-mode       . java-ts-mode)
+     (javascript-mode . js-ts-mode)
+     (js-json-mode    . json-ts-mode)
+     (python-mode     . python-ts-mode)
+     (ruby-mode       . ruby-ts-mode)
+     (sh-mode         . bash-ts-mode)))
+  (c-ts-mode-indent-style 'linux)
+  (c-ts-mode-indent-offset 8)
   :config
   (add-to-list 'auto-mode-alist '("\\(?:CMakeLists\\.txt\\|\\.cmake\\)\\'" . cmake-ts-mode))
   (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
