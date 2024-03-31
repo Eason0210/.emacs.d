@@ -993,7 +993,7 @@ typical word processor."
 
 (use-package sis
   :demand t
-  :bind ("C-\\" . sis-switch)
+  :bind ("<f9>" . sis-switch)
   :config
   (add-to-list 'sis-prefix-override-keys "M-s")
   (add-to-list 'sis-prefix-override-keys "M-g")
