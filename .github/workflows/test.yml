@@ -14,12 +14,12 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         emacs_version:
-          - 29.1
+          - 29.3
           - release-snapshot
           - snapshot
         include:
           - os: macos-latest
-            emacs_version: 29.1
+            emacs_version: 29.3
     steps:
     - uses: purcell/setup-emacs@master
       with:
