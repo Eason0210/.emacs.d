@@ -44,6 +44,9 @@
 	load-path = extensions
 	path = lib/corfu
 	url = https://github.com/minad/corfu
+[submodule "dape"]
+	path = lib/dape
+	url = https://github.com/svaante/dape
 [submodule "dash"]
 	path = lib/dash
 	url = https://github.com/magnars/dash.el
