@@ -660,7 +660,7 @@ Call a second time to restore the original window configuration."
     (org-capture nil "i"))
   :preface
   (defun log-todo-next-creation-date ()
-    "Log NEXT creation time in the property drawer under the key 'ACTIVATED'"
+    "Log NEXT creation time in the property drawer under the key \\='ACTIVATED\\='"
     (when (and (string= (org-get-todo-state) "NEXT")
                (not (org-entry-get nil "ACTIVATED")))
       (org-entry-put nil "ACTIVATED" (format-time-string "[%Y-%m-%d]"))))
