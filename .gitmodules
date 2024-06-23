@@ -203,6 +203,9 @@
 [submodule "transient"]
 	path = lib/transient
 	url = https://github.com/magit/transient
+[submodule "treesit-fold"]
+	path = lib/treesit-fold
+	url = https://github.com/emacs-tree-sitter/treesit-fold
 [submodule "verb"]
 	path = lib/verb
 	url = https://github.com/federicotdn/verb
