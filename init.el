@@ -891,7 +891,6 @@ typical word processor."
   :custom (rust-mode-treesitter-derive t))
 
 (use-package envrc
-  :when (executable-find "direnv")
   :bind-keymap ("C-c e" . envrc-command-map)
   :hook (after-init . envrc-global-mode))
 
