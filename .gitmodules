@@ -144,6 +144,12 @@
 [submodule "mscl-mode"]
 	path = lib/mscl-mode
 	url = https://github.com/Eason0210/mscl-mode
+[submodule "nerd-icons"]
+	path = lib/nerd-icons
+	url = https://github.com/rainstormstudio/nerd-icons.el
+[submodule "nerd-icons-corfu"]
+	path = lib/nerd-icons-corfu
+	url = https://github.com/LuigiPiucco/nerd-icons-corfu
 [submodule "no-littering"]
 	path = lib/no-littering
 	url = https://github.com/emacscollective/no-littering
