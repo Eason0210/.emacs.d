@@ -331,18 +331,9 @@
   (add-to-list 'completion-at-point-functions #'cape-elisp-block)
   (advice-add 'eglot-completion-at-point :around #'cape-wrap-buster))
 
-(use-package kind-icon
+(use-package nerd-icons-corfu
   :after corfu
-  :custom
-  (kind-icon-default-face 'corfu-default)
-  :config
-  (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter)
-  (when (eq system-type 'windows-nt)
-    (plist-put kind-icon-default-style :height 0.8))
-  (when (eq system-type 'gnu/linux)
-    (plist-put kind-icon-default-style :height 0.7))
-  (when (fboundp 'reapply-themes)
-    (advice-add 'reapply-themes :after 'kind-icon-reset-cache)))
+  :init (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
 (use-package yasnippet
   :diminish yas-minor-mode

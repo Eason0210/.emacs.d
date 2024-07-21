@@ -119,9 +119,6 @@
 [submodule "inheritenv"]
 	path = lib/inheritenv
 	url = https://github.com/purcell/inheritenv
-[submodule "kind-icon"]
-	path = lib/kind-icon
-	url = https://github.com/jdtsmith/kind-icon
 [submodule "llama"]
 	path = lib/llama
 	url = https://git.sr.ht/~tarsius/llama
