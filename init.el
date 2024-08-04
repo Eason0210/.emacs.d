@@ -507,9 +507,6 @@ Call a second time to restore the original window configuration."
   :config
   (column-number-mode t))
 
-(use-package repeat
-  :config (repeat-mode))
-
 (use-package pixel-scroll
   :config (pixel-scroll-precision-mode t))
 
