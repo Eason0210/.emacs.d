@@ -121,7 +121,7 @@
 	url = https://github.com/purcell/inheritenv
 [submodule "llama"]
 	path = lib/llama
-	url = https://git.sr.ht/~tarsius/llama
+	url = https://github.com/tarsius/llama
 [submodule "lua-mode"]
 	path = lib/lua-mode
 	url = https://github.com/immerrr/lua-mode
