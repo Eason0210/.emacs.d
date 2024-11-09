@@ -59,6 +59,9 @@
 [submodule "diredfl"]
 	path = lib/diredfl
 	url = https://github.com/purcell/diredfl
+[submodule "eat"]
+	path = lib/eat
+	url = https://codeberg.org/akib/emacs-eat
 [submodule "emacsql"]
 	no-byte-compile = emacsql-pg.el
 	no-byte-compile = emacsql-sqlite-module.el
