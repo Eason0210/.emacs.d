@@ -290,12 +290,6 @@
     (interactive "P")
     (dired-map-over-marks (embark-open-externally (dired-get-filename)) arg)))
 
-(use-package avy
-  :bind ("C-;" . avy-goto-char-timer)
-  :custom
-  (avy-all-windows nil)
-  (avy-all-windows-alt t))
-
 (use-package corfu
   :custom
   (corfu-cycle t)

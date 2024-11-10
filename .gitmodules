@@ -4,9 +4,6 @@
 [submodule "apheleia"]
 	path = lib/apheleia
 	url = https://github.com/radian-software/apheleia
-[submodule "avy"]
-	path = lib/avy
-	url = https://github.com/abo-abo/avy
 [submodule "beacon"]
 	path = lib/beacon
 	url = https://github.com/Malabarba/beacon
