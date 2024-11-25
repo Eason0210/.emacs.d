@@ -66,6 +66,7 @@
 	path = lib/emacsql
 	url = https://github.com/magit/emacsql
 [submodule "embark"]
+	no-byte-compile = avy-embark-collect.el
 	path = lib/embark
 	url = https://github.com/oantolin/embark
 [submodule "envrc"]
