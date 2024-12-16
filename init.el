@@ -545,7 +545,8 @@ Call a second time to restore the original window configuration."
               ("<left-fringe> <mouse-1>" . diff-hl-diff-goto-hunk))
   :hook ((magit-post-refresh . diff-hl-magit-post-refresh)
          (after-init . global-diff-hl-mode)
-         (dired-mode . diff-hl-dired-mode)))
+         (dired-mode . diff-hl-dired-mode))
+  :custom (diff-hl-update-async t))
 
 (use-package git-timemachine
   :bind ("C-x v t" . git-timemachine-toggle))
