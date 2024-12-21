@@ -581,6 +581,7 @@ Call a second time to restore the original window configuration."
          ("C-c i" . org-capture-inbox)
          :map org-mode-map
          ("C-c I" . org-id-get-create)
+         ("C-c v" . visible-mode)
          ("C-c e d" . org-pandoc-convert-to-docx)
          :map sanityinc/org-global-prefix-map
          ("j" . org-clock-goto)
