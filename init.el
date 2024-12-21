@@ -906,8 +906,8 @@ typical word processor."
              (treesit-available-p))
   :custom
   (major-mode-remap-alist
-   '((c-mode          . c-ts-mode)
-     (c++-mode        . c++-ts-mode)
+   '(;;(c-mode          . c-ts-mode)
+     ;;(c++-mode        . c++-ts-mode)
      (csharp-mode     . csharp-ts-mode)
      (conf-toml-mode  . toml-ts-mode)
      (css-mode        . css-ts-mode)
