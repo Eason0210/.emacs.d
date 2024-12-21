@@ -809,6 +809,8 @@ typical word processor."
                  (window-height . fit-window-to-buffer))))
 
 (use-package markdown-mode
+  :bind (:map markdown-mode-map
+              ("C-c v" . markdown-toggle-markup-hiding))
   :mode (("\\.md\\.html\\'" . markdown-mode)
          ("README\\.md\\'" . gfm-mode)))
 
