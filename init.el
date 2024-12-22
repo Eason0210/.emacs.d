@@ -525,8 +525,8 @@ Call a second time to restore the original window configuration."
   :config (global-auto-revert-mode))
 
 (use-package beacon
+  :diminish
   :custom
-  (beacon-lighter "")
   (beacon-size 20)
   :config (beacon-mode 1))
 
