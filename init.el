@@ -855,6 +855,18 @@ typical word processor."
   (dolist (binding '("C-<left>" "C-<right>" "M-s" "M-?"))
     (define-key paredit-mode-map (read-kbd-macro binding) nil)))
 
+(use-package puni
+  :hook ((prog-mode . puni-mode)
+         (emacs-lisp-mode . (lambda () (puni-mode -1))))
+  :bind (:map puni-mode-map
+              ("M-(" . puni-wrap-round)
+              ("C-(" . puni-slurp-backward)
+              ("C-)" . puni-slurp-forward)
+              ("C-}" . puni-barf-forward)
+              ("C-{" . puni-barf-backward)
+              ("M-<up>" . puni-splice-killing-backward)
+              ("C-w" . nil)))
+
 (use-package aggressive-indent
   :hook (emacs-lisp-mode . aggressive-indent-mode))
 
