@@ -897,7 +897,8 @@ typical word processor."
 
 (use-package rust-mode
   :defer t
-  :custom (rust-mode-treesitter-derive t))
+  :custom (rust-mode-treesitter-derive (and (fboundp 'treesit-available-p)
+                                            (treesit-available-p))))
 
 (use-package envrc
   :bind-keymap ("C-c e" . envrc-command-map)
