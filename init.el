@@ -22,7 +22,12 @@
   (setq inhibit-startup-screen t)
   (setq ring-bell-function #'ignore)
   ;; Adjust garbage collection threshold for early startup (see use of gcmh below)
-  (setq gc-cons-threshold (* 128 1024 1024)))
+  (setq gc-cons-threshold (* 128 1024 1024))
+  ;; General performance tuning
+  (setq jit-lock-defer-time 0)
+  ;; Process performance tuning
+  (setq read-process-output-max (* 4 1024 1024))
+  (setq process-adaptive-read-buffering nil))
 
 (eval-and-compile ; `borg'
   (add-to-list 'load-path (expand-file-name "lib/borg" user-emacs-directory))
@@ -936,9 +941,7 @@ typical word processor."
               ("C-c l r" . eglot-rename)
               ("C-c l f" . eglot-format)
               ("C-c l d" . eldoc))
-  :custom (eglot-report-progress nil)
-  :config
-  (setq read-process-output-max (* 1024 1024)))
+  :custom (eglot-report-progress nil))
 
 (use-package consult-eglot
   :after (consult eglot)
