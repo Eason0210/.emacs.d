@@ -9,13 +9,6 @@
 
 (defconst *is-a-mac* (eq system-type 'darwin))
 
-;; Adjust garbage collection thresholds during startup, and thereafter
-(let ((normal-gc-cons-threshold (* 20 1024 1024))
-      (init-gc-cons-threshold (* 128 1024 1024)))
-  (setq gc-cons-threshold init-gc-cons-threshold)
-  (add-hook 'emacs-startup-hook
-            (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
-
 (progn ; `startup'
   (defvar before-user-init-time (current-time)
     "Value of `current-time' when Emacs begins loading `user-init-file'.")
@@ -27,7 +20,9 @@
   (message "Loading %s..." user-init-file)
   (setq inhibit-startup-buffer-menu t)
   (setq inhibit-startup-screen t)
-  (setq ring-bell-function #'ignore))
+  (setq ring-bell-function #'ignore)
+  ;; Adjust garbage collection threshold for early startup (see use of gcmh below)
+  (setq gc-cons-threshold (* 128 1024 1024)))
 
 (eval-and-compile ; `borg'
   (add-to-list 'load-path (expand-file-name "lib/borg" user-emacs-directory))
