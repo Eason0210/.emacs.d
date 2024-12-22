@@ -547,7 +547,9 @@ Call a second time to restore the original window configuration."
 
 (use-package diff-hl
   :bind (:map diff-hl-mode-map
-              ("<left-fringe> <mouse-1>" . diff-hl-diff-goto-hunk))
+              ("<left-fringe> <mouse-1>" . diff-hl-diff-goto-hunk)
+              ("M-]" . diff-hl-next-hunk)
+              ("M-[" . diff-hl-previous-hunk))
   :hook ((magit-post-refresh . diff-hl-magit-post-refresh)
          (after-init . global-diff-hl-mode)
          (dired-mode . diff-hl-dired-mode))
