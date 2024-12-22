@@ -7,8 +7,6 @@
 ;; Produce backtraces when errors occur: can be helpful to diagnose startup issues
 ;; (setq debug-on-error t)
 
-(defconst *is-a-mac* (eq system-type 'darwin))
-
 (progn ; `startup'
   (defvar before-user-init-time (current-time)
     "Value of `current-time' when Emacs begins loading `user-init-file'.")
@@ -106,7 +104,7 @@
     (reapply-themes)))
 
 (use-package ns-auto-titlebar
-  :when *is-a-mac*
+  :when (eq system-type 'darwin)
   :config (ns-auto-titlebar-mode))
 
 ;;; Dired mode
@@ -990,7 +988,7 @@ typical word processor."
   :config
   (add-to-list 'sis-prefix-override-keys "M-s")
   (add-to-list 'sis-prefix-override-keys "M-g")
-  (when *is-a-mac*
+  (when (eq system-type 'darwin)
     (sis-ism-lazyman-config "com.apple.keylayout.ABC" "im.rime.inputmethod.Squirrel.Hans"))
   (when (eq system-type 'gnu/linux)
     (sis-ism-lazyman-config "1" "2" 'fcitx5))
