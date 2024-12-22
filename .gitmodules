@@ -93,6 +93,9 @@
 [submodule "fussy"]
 	path = lib/fussy
 	url = https://github.com/jojojames/fussy
+[submodule "gcmh"]
+	path = lib/gcmh
+	url = https://gitlab.com/koral/gcmh
 [submodule "git-link"]
 	path = lib/git-link
 	url = https://github.com/sshaw/git-link

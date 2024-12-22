@@ -71,6 +71,13 @@
 
 ;;; Long tail
 
+;; General performance tuning
+(use-package gcmh
+  :diminish
+  :custom
+  (gcmh-high-cons-threshold (* 128 1024 1024))
+  :hook (after-init . gcmh-mode))
+
 ;;; Theme
 
 (use-package color-theme-sanityinc-tomorrow
