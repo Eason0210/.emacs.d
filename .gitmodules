@@ -4,6 +4,9 @@
 [submodule "apheleia"]
 	path = lib/apheleia
 	url = https://github.com/radian-software/apheleia
+[submodule "auto-dark"]
+	path = lib/auto-dark
+	url = https://github.com/LionyxML/auto-dark-emacs
 [submodule "beacon"]
 	path = lib/beacon
 	url = https://github.com/Malabarba/beacon

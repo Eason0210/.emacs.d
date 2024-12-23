@@ -104,6 +104,13 @@
     (setq custom-enabled-themes '(sanityinc-tomorrow-bright))
     (reapply-themes)))
 
+(use-package auto-dark
+  :diminish
+  :custom
+  (auto-dark-dark-theme 'sanityinc-tomorrow-bright)
+  (auto-dark-light-theme 'sanityinc-tomorrow-day)
+  :hook (after-init . auto-dark-mode))
+
 (use-package ns-auto-titlebar
   :when (eq system-type 'darwin)
   :config (ns-auto-titlebar-mode))
