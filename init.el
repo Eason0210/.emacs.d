@@ -276,7 +276,6 @@
   ("C-h B" . embark-bindings-at-point)
   ("M-n" . embark-next-symbol)
   ("M-p" . embark-previous-symbol)
-  (:map dired-mode-map ("e" . dired-open-externally))
   :custom
   (embark-quit-after-action nil)
   (prefix-help-command #'embark-prefix-help-command)
@@ -285,16 +284,11 @@
                        embark-isearch-highlight-indicator))
   (embark-cycle-key ".")
   (embark-help-key "?")
-  :commands embark-open-externally
   :config
   (setq embark-candidate-collectors
         (cl-substitute 'embark-sorted-minibuffer-candidates
                        'embark-minibuffer-candidates
-                       embark-candidate-collectors))
-  (defun dired-open-externally (&optional arg)
-    "Open marked or current file in operating system's default application."
-    (interactive "P")
-    (dired-map-over-marks (embark-open-externally (dired-get-filename)) arg)))
+                       embark-candidate-collectors)))
 
 (use-package corfu
   :custom
