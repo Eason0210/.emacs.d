@@ -105,6 +105,7 @@
     (reapply-themes)))
 
 (use-package auto-dark
+  :when (display-graphic-p)
   :diminish
   :custom
   (auto-dark-dark-theme 'sanityinc-tomorrow-bright)
