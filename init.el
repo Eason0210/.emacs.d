@@ -528,9 +528,9 @@ Call a second time to restore the original window configuration."
 
 (use-package beacon
   :diminish
-  :custom
-  (beacon-size 20)
-  :config (beacon-mode 1))
+  :custom (beacon-size 20)
+  :hook (after-init . beacon-mode)
+  :config (add-to-list 'beacon-dont-blink-commands 'pixel-scroll-precision))
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
