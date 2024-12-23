@@ -112,7 +112,7 @@
 
 ;; Run after startup
 (add-hook 'after-init-hook (lambda ()
-                             (when window-system
+                             (when (display-graphic-p)
                                (aquamacs-load-face-font)
                                (aquamacs-load-charset-font))))
 
