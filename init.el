@@ -561,9 +561,10 @@ Call a second time to restore the original window configuration."
                           'magit-insert-modules
                           'magit-insert-unpulled-from-upstream)
   (with-eval-after-load "magit-submodule"
-    (remove-hook 'magit-module-sections-hook 'magit-insert-modules-unpulled-from-pushremote)
-    (remove-hook 'magit-module-sections-hook 'magit-insert-modules-unpushed-to-upstream)
-    (remove-hook 'magit-module-sections-hook 'magit-insert-modules-unpushed-to-pushremote)))
+    (dolist (module-section '(magit-insert-modules-unpulled-from-pushremote
+                              magit-insert-modules-unpushed-to-upstream
+                              magit-insert-modules-unpushed-to-pushremote))
+      (remove-hook 'magit-module-sections-hook module-section))))
 
 ;;; Text editing
 
