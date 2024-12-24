@@ -370,7 +370,6 @@
 
 (use-package window
   :bind (([f7] . sanityinc/split-window)
-         ("C-c <down>". sanityinc/toggle-current-window-dedication)
          :map ctl-x-4-map
          ("s" . window-swap-states)
          ("t" . toggle-window-split))
@@ -412,17 +411,7 @@ Call a second time to restore the original window configuration."
           (jump-to-register :sanityinc/split-window)
           (setq this-command 'sanityinc/unsplit-window))
       (window-configuration-to-register :sanityinc/split-window)
-      (switch-to-buffer-other-window nil)))
-
-  (defun sanityinc/toggle-current-window-dedication ()
-    "Toggle whether the current window is dedicated to its current buffer."
-    (interactive)
-    (let* ((window (selected-window))
-           (was-dedicated (window-dedicated-p window)))
-      (set-window-dedicated-p window (not was-dedicated))
-      (message "Window %sdedicated to %s"
-               (if was-dedicated "no longer " "")
-               (buffer-name)))))
+      (switch-to-buffer-other-window nil))))
 
 (use-package winner
   :defer 0.5
