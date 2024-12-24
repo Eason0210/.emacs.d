@@ -373,6 +373,7 @@
          :map ctl-x-4-map
          ("s" . window-swap-states)
          ("t" . toggle-window-split))
+  :custom (split-width-threshold 140)
   :preface
   (defun toggle-window-split ()
     "Toggle window split from vertical to horizontal."
