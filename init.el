@@ -90,7 +90,8 @@
     (dolist (theme custom-enabled-themes)
       (unless (custom-theme-p theme)
         (load-theme theme)))
-    (custom-set-variables `(custom-enabled-themes (quote ,custom-enabled-themes))))
+    (custom-set-variables
+     `(custom-enabled-themes (quote ,custom-enabled-themes))))
 
   (defun light ()
     "Activate a light color theme."
@@ -411,7 +412,9 @@ Call a second time to restore the original window configuration."
 (use-package recentf
   :custom
   (recentf-max-saved-items 1000)
-  (recentf-exclude `("/tmp/" "/ssh:" ,(concat user-emacs-directory "lib/.*-autoloads\\.el\\'")))
+  (recentf-exclude
+   `("/tmp/" "/ssh:"
+     ,(concat user-emacs-directory "lib/.*-autoloads\\.el\\'")))
   :config
   (add-to-list 'recentf-exclude no-littering-var-directory)
   (add-to-list 'recentf-exclude no-littering-etc-directory)
@@ -457,12 +460,15 @@ Call a second time to restore the original window configuration."
   (make-backup-files nil)
   (auto-save-visited-interval 1.1)
   (auto-save-visited-predicate
-   (lambda () (and (not (buffer-live-p (get-buffer " *vundo tree*")))
-                   (not (string-suffix-p "gpg" (file-name-extension (buffer-name)) t))
-                   (not (eq (buffer-base-buffer (get-buffer (concat "CAPTURE-" (buffer-name))))
-                            (current-buffer)))
-                   (or (not (boundp 'corfu--total)) (zerop corfu--total))
-                   (or (not (boundp 'yas--active-snippets)) (not yas--active-snippets)))))
+   (lambda ()
+     (and (not (buffer-live-p (get-buffer " *vundo tree*")))
+          (not (string-suffix-p "gpg" (file-name-extension (buffer-name)) t))
+          (not (eq (buffer-base-buffer
+                    (get-buffer (concat "CAPTURE-" (buffer-name))))
+                   (current-buffer)))
+          (or (not (boundp 'corfu--total)) (zerop corfu--total))
+          (or (not (boundp 'yas--active-snippets))
+              (not yas--active-snippets)))))
   (display-fill-column-indicator-character ?\u254e)
   :hook ((prog-mode . display-fill-column-indicator-mode)
          ((prog-mode text-mode) . indicate-buffer-boundaries-left)
@@ -546,7 +552,8 @@ Call a second time to restore the original window configuration."
   :custom
   (magit-diff-refine-hunk t)
   (magit-module-sections-nested nil)
-  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
+  (magit-display-buffer-function
+   #'magit-display-buffer-same-window-except-diff-v1)
   :commands magit-add-section-hook
   :config
   (put 'magit-clean 'disabled nil)
@@ -607,7 +614,8 @@ Call a second time to restore the original window configuration."
       ,(concat "* Note (%a)\n"
                "/Entered on/ %U\n" "\n" "%?"))))
   ;; (org-capture-mode-hook 'delete-other-windows)
-  (org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "HOLD(h)" "|" "DONE(d!/!)")))
+  (org-todo-keywords
+   '((sequence "TODO(t)" "NEXT(n)" "HOLD(h)" "|" "DONE(d!/!)")))
   (org-todo-repeat-to-state "NEXT")
   (org-todo-keyword-faces '(("NEXT" :inherit warning)))
   (org-archive-location "%s_archive::* Archive")
@@ -624,7 +632,8 @@ Call a second time to restore the original window configuration."
   (org-verbatim ((t (:inherit (shadow fixed-pitch)))))
   :commands (org-get-todo-state org-entry-get org-entry-put)
   :config
-  (advice-add 'org-babel-execute-src-block :before #'my/org-babel-execute-src-block)
+  (advice-add 'org-babel-execute-src-block
+              :before #'my/org-babel-execute-src-block)
   (add-hook 'org-after-todo-state-change-hook #'log-todo-next-creation-date)
   (defun org-capture-inbox ()
     (interactive)
@@ -632,7 +641,7 @@ Call a second time to restore the original window configuration."
     (org-capture nil "i"))
   :preface
   (defun log-todo-next-creation-date ()
-    "Log NEXT creation time in the property drawer under the key \\='ACTIVATED\\='"
+    "Log NEXT creation time in the property drawer under key \\='ACTIVATED\\='"
     (when (and (string= (org-get-todo-state) "NEXT")
                (not (org-entry-get nil "ACTIVATED")))
       (org-entry-put nil "ACTIVATED" (format-time-string "[%Y-%m-%d]"))))
@@ -643,13 +652,16 @@ Call a second time to restore the original window configuration."
   (defun my/org-babel-execute-src-block (&optional _arg info _params)
     "Load language when needed"
     (let* ((lang (nth 0 info))
-           (sym (if (member (downcase lang) '("c" "cpp" "c++")) 'C (intern lang)))
+           (sym (if (member (downcase lang) '("c" "cpp" "c++"))
+                    'C (intern lang)))
            (backup-languages org-babel-load-languages))
       (unless (assoc sym backup-languages)
         (condition-case err
             (progn
-              (org-babel-do-load-languages 'org-babel-load-languages (list (cons sym t)))
-              (setq-default org-babel-load-languages (append (list (cons sym t)) backup-languages)))
+              (org-babel-do-load-languages 'org-babel-load-languages
+                                           (list (cons sym t)))
+              (setq-default org-babel-load-languages
+                            (append (list (cons sym t)) backup-languages)))
           (file-missing
            (setq-default org-babel-load-languages backup-languages)
            err)))))
@@ -659,24 +671,35 @@ Call a second time to restore the original window configuration."
     (interactive)
     (let ((command "pandoc")
           (refdoc (list "--reference-doc"
-                        (expand-file-name "var/reference.docx" user-emacs-directory))))
-      (cond ((not buffer-file-name) (user-error "Must be visiting a file"))
-            (t (let* ((buffer (generate-new-buffer " *Pandoc output*"))
-                      (filename (list buffer-file-name))
-                      (output (list "-o" (concat (file-name-sans-extension (buffer-file-name)) ".docx")))
-                      (arguments (nconc filename refdoc output))
-                      (exit-code (apply #'call-process command nil buffer nil arguments)))
-                 (cond ((eql 0 exit-code)
-                        (kill-buffer buffer)
-                        (message "Convert finished: %s" (cadr output)))
-                       (t (with-current-buffer buffer
-                            (goto-char (point-min))
-                            (insert (format "%s\n%s\n\n" (make-string 50 ?=) (current-time-string)))
-                            (insert (format "Calling pandoc with:\n\n%s\n\nFailed with error:\n\n"
-                                            (mapconcat #'identity (cons command arguments) " ")))
-                            (special-mode))
-                          (pop-to-buffer buffer)
-                          (error "Convert failed with exit code %s" exit-code)))))))))
+                        (expand-file-name
+                         "var/reference.docx" user-emacs-directory))))
+      (cond
+       ((not buffer-file-name) (user-error "Must be visiting a file"))
+       (t (let* ((buffer (generate-new-buffer " *Pandoc output*"))
+                 (filename (list buffer-file-name))
+                 (output (list "-o"
+                               (concat
+                                (file-name-sans-extension (buffer-file-name))
+                                ".docx")))
+                 (arguments (nconc filename refdoc output))
+                 (exit-code (apply
+                             #'call-process
+                             command nil buffer nil arguments)))
+            (cond
+             ((eql 0 exit-code)
+              (kill-buffer buffer)
+              (message "Convert finished: %s" (cadr output)))
+             (t (with-current-buffer buffer
+                  (goto-char (point-min))
+                  (insert (format "%s\n%s\n\n" (make-string 50 ?=)
+                                  (current-time-string)))
+                  (insert (format
+                           "Called pandoc with:\n\n%s\n\n Error:\n\n"
+                           (mapconcat #'identity (cons command arguments)
+                                      " ")))
+                  (special-mode))
+                (pop-to-buffer buffer)
+                (error "Convert failed with exit code %s" exit-code)))))))))
 
 (use-package org-refile
   :after org
@@ -690,7 +713,8 @@ Call a second time to restore the original window configuration."
   :bind ("C-c a" . org-agenda)
   :hook (org-agenda-mode . (lambda ()
                              (add-hook
-                              'window-configuration-change-hook 'org-agenda-align-tags nil t)))
+                              'window-configuration-change-hook
+                              'org-agenda-align-tags nil t)))
   :hook (org-agenda-mode . hl-line-mode)
   :custom
   (org-agenda-clockreport-parameter-plist '(:link t :maxlevel 3))
@@ -898,7 +922,6 @@ typical word processor."
   (setf (alist-get 'python-ts-mode apheleia-mode-alist) '(ruff-isort ruff)))
 
 ;;; Tree-sitter support
-;; https://git.savannah.gnu.org/cgit/emacs.git/tree/admin/notes/tree-sitter/starter-guide?h=emacs-29
 (use-package treesit
   :when (and (fboundp 'treesit-available-p)
              (treesit-available-p))
@@ -918,7 +941,8 @@ typical word processor."
   (c-ts-mode-indent-style 'linux)
   (c-ts-mode-indent-offset 8)
   :config
-  (add-to-list 'auto-mode-alist '("\\(?:CMakeLists\\.txt\\|\\.cmake\\)\\'" . cmake-ts-mode))
+  (add-to-list 'auto-mode-alist
+               '("\\(?:CMakeLists\\.txt\\|\\.cmake\\)\\'" . cmake-ts-mode))
   (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
   (add-to-list 'auto-mode-alist '("\\.ya?ml\\'" . yaml-ts-mode)))
@@ -982,7 +1006,9 @@ typical word processor."
   (add-to-list 'sis-prefix-override-keys "M-s")
   (add-to-list 'sis-prefix-override-keys "M-g")
   (when (eq system-type 'darwin)
-    (sis-ism-lazyman-config "com.apple.keylayout.ABC" "im.rime.inputmethod.Squirrel.Hans"))
+    (sis-ism-lazyman-config
+     "com.apple.keylayout.ABC"
+     "im.rime.inputmethod.Squirrel.Hans"))
   (when (eq system-type 'gnu/linux)
     (sis-ism-lazyman-config "1" "2" 'fcitx5))
   (setq sis-other-cursor-color "orange")
