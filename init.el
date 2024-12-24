@@ -373,21 +373,7 @@
          :map ctl-x-4-map
          ("s" . window-swap-states)
          ("t" . toggle-window-split))
-  :config
-  (bind-key "C-x 2" (split-window-func-with-other-buffer 'split-window-vertically))
-  (bind-key "C-x 3" (split-window-func-with-other-buffer 'split-window-horizontally))
   :preface
-  (defun split-window-func-with-other-buffer (split-function)
-    "Use SPLIT-FUNCTION to split window."
-    (lambda (&optional arg)
-      "Split this window and switch to the new window unless ARG is provided."
-      (interactive "P")
-      (funcall split-function)
-      (let ((target-window (next-window)))
-        (set-window-buffer target-window (other-buffer))
-        (unless arg
-          (select-window target-window)))))
-
   (defun toggle-window-split ()
     "Toggle window split from vertical to horizontal."
     (interactive)
