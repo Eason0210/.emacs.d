@@ -346,7 +346,7 @@
   :hook (after-init . yas-global-mode))
 
 (use-package consult-yasnippet
-  :bind ("M-*" . consult-yasnippet)
+  :bind ("M-g y" . consult-yasnippet)
   :config
   (with-eval-after-load 'embark
     (defvar-keymap embark-yasnippet-completion-actions
