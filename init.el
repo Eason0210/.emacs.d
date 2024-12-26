@@ -937,8 +937,7 @@ typical word processor."
      (javascript-mode . js-ts-mode)
      (js-json-mode    . json-ts-mode)
      (python-mode     . python-ts-mode)
-     (ruby-mode       . ruby-ts-mode)
-     (sh-mode         . bash-ts-mode)))
+     (ruby-mode       . ruby-ts-mode)))
   (c-ts-mode-indent-style 'linux)
   (c-ts-mode-indent-offset 8)
   :config
