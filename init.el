@@ -433,6 +433,7 @@ Call a second time to restore the original window configuration."
            '(last-kbd-macro
              register-alist
              (comint-input-ring        . 50)
+             (compile-command          . 20)
              (dired-regexp-history     . 20)
              (face-name-history        . 20)
              (kill-ring                . 20)
