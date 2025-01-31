@@ -62,6 +62,9 @@
 [submodule "eat"]
 	path = lib/eat
 	url = https://codeberg.org/akib/emacs-eat
+[submodule "eldoc-box"]
+	path = lib/eldoc-box
+	url = https://github.com/casouri/eldoc-box
 [submodule "emacsql"]
 	no-byte-compile = emacsql-pg.el
 	no-byte-compile = emacsql-sqlite-module.el
