@@ -966,6 +966,15 @@ typical word processor."
 (use-package breadcrumb
   :config (breadcrumb-mode))
 
+(use-package eldoc-box
+  :bind ("C-;" . eldoc-box-help-at-point)
+  :custom-face
+  (eldoc-box-border
+   ((((class color) (min-colors 88) (background dark)) :background "#323232")
+    (((class color) (min-colors 88) (background light)) :background "#d7d7d7")
+    (t :background "gray")))
+  (eldoc-box-markdown-separator ((t (:inherit (fringe))))))
+
 ;;; Helpers for M-x compile
 
 (use-package compile
