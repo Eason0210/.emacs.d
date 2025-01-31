@@ -973,6 +973,7 @@ typical word processor."
    ((((class color) (min-colors 88) (background dark)) :background "#323232")
     (((class color) (min-colors 88) (background light)) :background "#d7d7d7")
     (t :background "gray")))
+  (eldoc-box-body ((t (:inherit (variable-pitch)))))
   (eldoc-box-markdown-separator ((t (:inherit (fringe))))))
 
 ;;; Helpers for M-x compile
