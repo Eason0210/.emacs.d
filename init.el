@@ -957,7 +957,9 @@ typical word processor."
               ("C-c l r" . eglot-rename)
               ("C-c l f" . eglot-format)
               ("C-c l d" . eldoc))
-  :custom (eglot-report-progress nil))
+  :custom
+  (eglot-report-progress nil)
+  (eglot-autoshutdown t)
 
 (use-package consult-eglot
   :after (consult eglot)
