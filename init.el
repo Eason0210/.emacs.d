@@ -960,6 +960,13 @@ typical word processor."
   :custom
   (eglot-report-progress nil)
   (eglot-autoshutdown t)
+  :config
+  (add-to-list 'eglot-ignored-server-capabilities
+               :documentHighlightProvider)
+  (add-to-list 'eglot-ignored-server-capabilities
+               :inlayHintProvider)
+  (add-to-list 'eglot-ignored-server-capabilities
+               :textDocument/hover))
 
 (use-package consult-eglot
   :after (consult eglot)
