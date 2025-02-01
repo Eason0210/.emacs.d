@@ -979,7 +979,9 @@ typical word processor."
 ;;; Helpers for M-x compile
 
 (use-package compile
-  :bind ([f6] . recompile)
+  :bind
+  ([f5] . compile)
+  ([f6] . recompile)
   :custom (compilation-scroll-output 'first-error))
 
 ;;; Miscellaneous config
