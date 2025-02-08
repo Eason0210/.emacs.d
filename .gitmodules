@@ -145,6 +145,9 @@
 [submodule "markdown-mode"]
 	path = lib/markdown-mode
 	url = https://github.com/jrblevin/markdown-mode
+[submodule "meson-mode"]
+	path = lib/meson-mode
+	url = https://github.com/wentasah/meson-mode
 [submodule "move-dup"]
 	path = lib/move-dup
 	url = https://github.com/wyuenho/move-dup
