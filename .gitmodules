@@ -183,6 +183,9 @@
 [submodule "pinyinlib"]
 	path = lib/pinyinlib
 	url = https://github.com/cute-jumper/pinyinlib.el
+[submodule "powershell"]
+	path = lib/powershell
+	url = https://github.com/jschaf/powershell.el
 [submodule "puni"]
 	path = lib/puni
 	url = https://github.com/AmaiKinono/puni
