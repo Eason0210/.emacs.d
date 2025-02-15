@@ -555,6 +555,7 @@ Call a second time to restore the original window configuration."
   (magit-module-sections-nested nil)
   (magit-display-buffer-function
    #'magit-display-buffer-same-window-except-diff-v1)
+  (magit-bury-buffer-function 'magit-restore-window-configuration)
   :commands magit-add-section-hook
   :config
   (put 'magit-clean 'disabled nil)
@@ -565,7 +566,13 @@ Call a second time to restore the original window configuration."
     (dolist (module-section '(magit-insert-modules-unpulled-from-pushremote
                               magit-insert-modules-unpushed-to-upstream
                               magit-insert-modules-unpushed-to-pushremote))
-      (remove-hook 'magit-module-sections-hook module-section))))
+      (remove-hook 'magit-module-sections-hook module-section)))
+  (defmacro aquamacs/fullframe-mode (mode)
+    "Configure buffers that open in MODE to start out full-frame."
+    `(add-to-list 'display-buffer-alist
+                  (cons (cons 'major-mode ,mode)
+                        (list 'display-buffer-full-frame))))
+  (aquamacs/fullframe-mode 'magit-status-mode))
 
 ;;; Text editing
 
