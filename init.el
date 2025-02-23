@@ -537,8 +537,7 @@ Call a second time to restore the original window configuration."
               ("M-[" . diff-hl-previous-hunk))
   :hook ((magit-post-refresh . diff-hl-magit-post-refresh)
          (after-init . global-diff-hl-mode)
-         (dired-mode . diff-hl-dired-mode))
-  :custom (diff-hl-update-async t))
+         (dired-mode . diff-hl-dired-mode)))
 
 (use-package git-timemachine
   :bind ("C-x v t" . git-timemachine-toggle))
