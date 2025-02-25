@@ -15,7 +15,6 @@ jobs:
         os: [ubuntu-latest]
         emacs_version:
           - 30.1
-          - release-snapshot
           - snapshot
         include:
           - os: macos-latest
