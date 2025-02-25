@@ -535,9 +535,12 @@ Call a second time to restore the original window configuration."
               ("<left-fringe> <mouse-1>" . diff-hl-diff-goto-hunk)
               ("M-]" . diff-hl-next-hunk)
               ("M-[" . diff-hl-previous-hunk))
-  :hook ((magit-post-refresh . diff-hl-magit-post-refresh)
-         (after-init . global-diff-hl-mode)
-         (dired-mode . diff-hl-dired-mode)))
+  :hook ((after-init . global-diff-hl-mode)
+         (dired-mode . diff-hl-dired-mode))
+  :commands diff-hl-magit-post-refresh
+  :config
+  (with-eval-after-load 'magit
+    (add-hook 'magit-post-refresh-hook #'diff-hl-magit-post-refresh)))
 
 (use-package git-timemachine
   :bind ("C-x v t" . git-timemachine-toggle))
