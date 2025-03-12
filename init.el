@@ -184,6 +184,7 @@
   (completion-category-overrides '((file (styles basic partial-completion))
                                    (eglot (styles fussy basic))))
   (fussy-filter-fn 'fussy-filter-default)
+  (fussy-score-fn 'fussy-hotfuzz-score)
   (fussy-use-cache t)
   :config
   (advice-add 'corfu--capf-wrapper :before 'fussy-wipe-cache)
