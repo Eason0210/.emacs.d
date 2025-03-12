@@ -126,6 +126,9 @@
 [submodule "highlight-quoted"]
 	path = lib/highlight-quoted
 	url = https://github.com/Fanael/highlight-quoted
+[submodule "hotfuzz"]
+	path = lib/hotfuzz
+	url = https://github.com/axelf4/hotfuzz
 [submodule "inheritenv"]
 	path = lib/inheritenv
 	url = https://github.com/purcell/inheritenv
