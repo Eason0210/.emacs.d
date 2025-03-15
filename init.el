@@ -376,23 +376,9 @@
   :bind (([f7] . sanityinc/split-window)
          :map ctl-x-4-map
          ("s" . window-swap-states)
-         ("t" . toggle-window-split))
+         ("t" . transpose-window-layout))
   :custom (split-width-threshold 140)
   :preface
-  (defun toggle-window-split ()
-    "Toggle window split from vertical to horizontal."
-    (interactive)
-    (if (> (length (window-list)) 2)
-        (error "Can't toggle with more than 2 windows")
-      (let ((was-full-height (window-full-height-p)))
-        (delete-other-windows)
-        (if was-full-height
-            (split-window-vertically)
-          (split-window-horizontally))
-        (save-selected-window
-          (other-window 1)
-          (switch-to-buffer (other-buffer))))))
-
   (defun sanityinc/split-window()
     "Split the window to see the most recent buffer in the other window.
 Call a second time to restore the original window configuration."
