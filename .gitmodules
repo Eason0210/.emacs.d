@@ -219,9 +219,6 @@
 [submodule "sis"]
 	path = lib/sis
 	url = https://github.com/laishulu/emacs-smart-input-source
-[submodule "svg-lib"]
-	path = lib/svg-lib
-	url = https://github.com/rougier/svg-lib
 [submodule "terminal-focus-reporting"]
 	path = lib/terminal-focus-reporting
 	url = https://github.com/veelenga/terminal-focus-reporting.el
