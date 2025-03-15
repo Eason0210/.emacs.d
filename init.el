@@ -445,6 +445,7 @@ Call a second time to restore the original window configuration."
   :config (savehist-mode))
 
 (use-package saveplace
+  :custom (save-place-autosave-interval (* 60 5))
   :config (save-place-mode))
 
 ;;; Editing utils
