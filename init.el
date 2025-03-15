@@ -152,7 +152,9 @@
 
 (use-package ibuffer
   :bind ("C-x C-b" . ibuffer)
-  :custom (ibuffer-filter-group-name-face 'font-lock-doc-face))
+  :custom
+  (ibuffer-filter-group-name-face 'font-lock-doc-face)
+  (ibuffer-human-readable-size t))
 
 ;;; A universal on-the-fly syntax checker
 
