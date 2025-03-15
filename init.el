@@ -453,6 +453,7 @@ Call a second time to restore the original window configuration."
 (use-package emacs
   :custom
   (blink-cursor-interval 0.4)
+  (delete-by-moving-to-trash t)
   (mouse-yank-at-point t)
   (scroll-preserve-screen-position 'always)
   (truncate-partial-width-windows nil)
