@@ -179,12 +179,22 @@
   (set-message-functions '(inhibit-message))
   :init (minibuffer-depth-indicate-mode))
 
-(use-package fussy
+(use-package hotfuzz
   :custom
-  (completion-styles '(fussy basic))
+  (completion-styles '(hotfuzz))
   (completion-category-defaults nil)
-  (completion-category-overrides '((file (styles basic partial-completion))
-                                   (eglot (styles fussy basic))))
+  (completion-category-overrides '((buffer (display-sort-function . identity))
+                                   (eglot (styles hotfuzz))))
+  :config
+  (with-eval-after-load 'consult
+    (defvar consult--tofu-char)
+    (defvar consult--tofu-range)
+    (setq consult--tofu-char #x100000
+          consult--tofu-range #x00fffe)))
+
+(use-package fussy
+  :disabled
+  :custom
   (fussy-filter-fn 'fussy-filter-default)
   (fussy-score-fn 'fussy-hotfuzz-score)
   (fussy-use-cache t)
