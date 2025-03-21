@@ -192,15 +192,6 @@
     (setq consult--tofu-char #x100000
           consult--tofu-range #x00fffe)))
 
-(use-package orderless
-  :disabled
-  :custom
-  (completion-styles '(orderless basic))
-  (completion-category-defaults nil)
-  (completion-category-overrides '((file (styles basic partial-completion))
-                                   (eglot (styles orderless))))
-  (orderless-component-separator #'orderless-escapable-split-on-space))
-
 (use-package vertico
   :demand t
   :bind (:map vertico-map

@@ -156,9 +156,6 @@
 [submodule "ns-auto-titlebar"]
 	path = lib/ns-auto-titlebar
 	url = https://github.com/purcell/ns-auto-titlebar
-[submodule "orderless"]
-	path = lib/orderless
-	url = https://github.com/oantolin/orderless
 [submodule "org-roam"]
 	load-path = .
 	load-path = extensions
