@@ -75,9 +75,6 @@
 	no-byte-compile = avy-embark-collect.el
 	path = lib/embark
 	url = https://github.com/oantolin/embark
-[submodule "envrc"]
-	path = lib/envrc
-	url = https://github.com/purcell/envrc
 [submodule "epkg"]
 	path = lib/epkg
 	url = https://github.com/emacscollective/epkg
@@ -122,9 +119,6 @@
 [submodule "hotfuzz"]
 	path = lib/hotfuzz
 	url = https://github.com/axelf4/hotfuzz
-[submodule "inheritenv"]
-	path = lib/inheritenv
-	url = https://github.com/purcell/inheritenv
 [submodule "llama"]
 	path = lib/llama
 	url = https://github.com/tarsius/llama

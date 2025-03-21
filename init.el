@@ -891,10 +891,6 @@ typical word processor."
   :custom (rust-mode-treesitter-derive (and (fboundp 'treesit-available-p)
                                             (treesit-available-p))))
 
-(use-package envrc
-  :bind-keymap ("C-c e" . envrc-command-map)
-  :hook (after-init . envrc-global-mode))
-
 (use-package reformatter
   :config
   (reformatter-define black :program "black" :args '("-") :group 'reformatter)
