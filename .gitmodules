@@ -84,9 +84,6 @@
 [submodule "exec-path-from-shell"]
 	path = lib/exec-path-from-shell
 	url = https://github.com/purcell/exec-path-from-shell
-[submodule "flx"]
-	path = lib/flx
-	url = https://github.com/lewang/flx
 [submodule "flyspell-correct"]
 	no-byte-compile = flyspell-correct-avy-menu.el
 	no-byte-compile = flyspell-correct-helm.el
@@ -95,9 +92,6 @@
 	no-byte-compile = flyspell-correct-popup.el
 	path = lib/flyspell-correct
 	url = https://github.com/d12frosted/flyspell-correct
-[submodule "fussy"]
-	path = lib/fussy
-	url = https://github.com/jojojames/fussy
 [submodule "gcmh"]
 	path = lib/gcmh
 	url = https://gitlab.com/koral/gcmh

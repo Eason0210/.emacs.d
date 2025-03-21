@@ -192,20 +192,6 @@
     (setq consult--tofu-char #x100000
           consult--tofu-range #x00fffe)))
 
-(use-package fussy
-  :disabled
-  :custom
-  (fussy-filter-fn 'fussy-filter-default)
-  (fussy-score-fn 'fussy-hotfuzz-score)
-  (fussy-use-cache t)
-  :config
-  (advice-add 'corfu--capf-wrapper :before 'fussy-wipe-cache)
-  (add-hook 'corfu-mode-hook
-            (lambda ()
-              (setq-local fussy-max-candidate-limit 5000
-                          fussy-default-regex-fn 'fussy-pattern-first-letter
-                          fussy-prefer-prefix nil))))
-
 (use-package orderless
   :disabled
   :custom
