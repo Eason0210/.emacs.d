@@ -194,9 +194,6 @@
 [submodule "rust-mode"]
 	path = lib/rust-mode
 	url = https://github.com/rust-lang/rust-mode
-[submodule "simple-httpd"]
-	path = lib/simple-httpd
-	url = https://github.com/skeeto/emacs-web-server
 [submodule "sis"]
 	path = lib/sis
 	url = https://github.com/laishulu/emacs-smart-input-source
@@ -221,9 +218,6 @@
 [submodule "vundo"]
 	path = lib/vundo
 	url = https://github.com/casouri/vundo
-[submodule "websocket"]
-	path = lib/websocket
-	url = https://github.com/ahyatt/emacs-websocket
 [submodule "with-editor"]
 	path = lib/with-editor
 	url = https://github.com/magit/with-editor
