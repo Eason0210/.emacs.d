@@ -351,22 +351,10 @@
 ;;; Working with Windows within frames
 
 (use-package window
-  :bind (([f7] . sanityinc/split-window)
-         :map ctl-x-4-map
-         ("s" . window-swap-states)
-         ("t" . transpose-window-layout))
-  :custom (split-width-threshold 140)
-  :preface
-  (defun sanityinc/split-window()
-    "Split the window to see the most recent buffer in the other window.
-Call a second time to restore the original window configuration."
-    (interactive)
-    (if (eq last-command 'sanityinc/split-window)
-        (progn
-          (jump-to-register :sanityinc/split-window)
-          (setq this-command 'sanityinc/unsplit-window))
-      (window-configuration-to-register :sanityinc/split-window)
-      (switch-to-buffer-other-window nil))))
+  :bind (:map ctl-x-4-map
+              ("s" . window-swap-states)
+              ("t" . transpose-window-layout))
+  :custom (split-width-threshold 140))
 
 (use-package winner
   :defer 0.5
