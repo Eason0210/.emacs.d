@@ -19,7 +19,7 @@ Emacs itself comes with support for many programming languages. This config adds
 LSP support is provided using the built-in package [[https://www.gnu.org/software/emacs/manual/html_mono/eglot.html][Eglot]].
 
 ** Supported Emacs versions
-Suggest to use Emacs 29 and higher version to get the full features.
+Suggest to use Emacs 30 and higher version to get the full features.
 
 ** Installation
 To install, clone this repo to ~$HOME/.emacs.d~, i.e. ensure that the ~init.el~ contained in this repo ends up at ~$HOME/.emacs.d/init.el~:
