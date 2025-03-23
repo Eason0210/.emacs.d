@@ -796,10 +796,6 @@ typical word processor."
   :mode (("\\.md\\.html\\'" . markdown-mode)
          ("README\\.md\\'" . gfm-mode)))
 
-(use-package ox-gfm
-  :after org
-  :custom (org-export-with-toc nil))
-
 (use-package verb
   :after org
   :bind (:map verb-response-body-mode-map
