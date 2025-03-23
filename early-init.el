@@ -20,6 +20,7 @@
 (setq tool-bar-mode nil)
 (setq menu-bar-mode nil)
 (set-scroll-bar-mode nil)
+(push '(fullscreen . maximized) initial-frame-alist)
 (when (featurep 'ns)
   (push '(ns-transparent-titlebar . t) default-frame-alist))
 
