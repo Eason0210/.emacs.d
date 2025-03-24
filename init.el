@@ -544,7 +544,6 @@
   :bind (("C-c l" . org-store-link)
          ("C-c c" . org-capture)
          :map org-mode-map
-         ("C-c I" . org-id-get-create)
          ("C-c v" . visible-mode)
          ("C-c e d" . org-pandoc-convert-to-docx)
          :map sanityinc/org-global-prefix-map
