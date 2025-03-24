@@ -543,7 +543,6 @@
 (use-package org
   :bind (("C-c l" . org-store-link)
          ("C-c c" . org-capture)
-         ("C-c i" . org-capture-inbox)
          :map org-mode-map
          ("C-c I" . org-id-get-create)
          ("C-c v" . visible-mode)
