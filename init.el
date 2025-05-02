@@ -882,7 +882,8 @@ typical word processor."
 (use-package apheleia
   :bind ("C-c f" . apheleia-format-buffer)
   :config
-  (setf (alist-get 'python-ts-mode apheleia-mode-alist) '(ruff-isort ruff)))
+  (setf (alist-get 'python-ts-mode apheleia-mode-alist) '(ruff-isort ruff))
+  (setf (alist-get 'haskell-mode apheleia-mode-alist) '(ormolu)))
 
 ;;; Tree-sitter support
 (use-package treesit
