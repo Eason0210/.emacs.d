@@ -489,6 +489,15 @@
   ([M-up] . move-dup-move-lines-up)
   ([M-down] . move-dup-move-lines-down))
 
+(use-package symbol-overlay
+  :diminish
+  :hook ((prog-mode html-mode conf-mode) . symbol-overlay-mode)
+  :bind (:map symbol-overlay-mode-map
+              ("M-i" . symbol-overlay-put)
+              ("M-I" . symbol-overlay-remove-all)
+              ("M-n" . symbol-overlay-jump-next)
+              ("M-p" . symbol-overlay-jump-prev)))
+
 ;;; Version control
 
 (use-package diff-hl
