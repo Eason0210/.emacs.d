@@ -984,8 +984,7 @@ typical word processor."
   :custom
   (flyspell-issue-message-flag nil)
   (ispell-program-name "enchant-2")
-  (ispell-dictionary "english")
-  (text-mode-ispell-word-completion nil))
+  (ispell-dictionary "english"))
 
 (use-package flyspell-correct
   :after flyspell
@@ -1023,6 +1022,9 @@ typical word processor."
   :hook ((Info-mode . variable-pitch-mode)
          (Info-mode . writeroom-mode))
   :custom-face (Info-quoted ((t (:inherit fixed-pitch)))))
+
+(use-package text-mode
+  :custom (text-mode-ispell-word-completion nil))
 
 ;;; Tequila worms
 
