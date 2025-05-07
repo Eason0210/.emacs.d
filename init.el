@@ -758,7 +758,6 @@ typical word processor."
           (setq-local show-trailing-whitespace nil)
           ;; (setq-local line-spacing 0.2)
           (setq-local electric-pair-mode nil)
-          (ignore-errors (flyspell-mode 1))
           (visual-line-mode 1))
       (kill-local-variable 'truncate-lines)
       (kill-local-variable 'word-wrap)
@@ -769,7 +768,6 @@ typical word processor."
       ;; (kill-local-variable 'line-spacing)
       (kill-local-variable 'electric-pair-mode)
       (buffer-face-mode -1)
-      (flyspell-mode -1)
       (visual-line-mode -1)
       (when (fboundp 'writeroom-mode)
         (writeroom-mode 0)))))
@@ -964,6 +962,14 @@ typical word processor."
   ([f6] . recompile)
   :custom (compilation-scroll-output 'first-error))
 
+;;; Spell checking support
+
+(use-package jinx
+  :diminish
+  :hook (emacs-startup . global-jinx-mode)
+  :bind ("M-$" . jinx-correct)
+  :custom (jinx-languages "en_US"))
+
 ;;; Miscellaneous config
 
 (use-package vundo
@@ -973,23 +979,6 @@ typical word processor."
 (use-package go-translate
   :bind ("C-c t" . gts-do-translate)
   :custom (gts-translate-list '(("en" "zh"))))
-
-(use-package flyspell
-  :diminish
-  :hook ((prog-mode . flyspell-prog-mode)
-         ((git-commit-mode markdown-mode) . flyspell-mode)
-         (flyspell-mode . (lambda ()
-                            (dolist (key '("C-;" "C-."))
-                              (unbind-key key flyspell-mode-map)))))
-  :custom
-  (flyspell-issue-message-flag nil)
-  (ispell-program-name "enchant-2")
-  (ispell-dictionary "english"))
-
-(use-package flyspell-correct
-  :after flyspell
-  :bind (:map flyspell-mode-map
-              ("C-," . flyspell-correct-wrapper)))
 
 (use-package sis
   :demand t

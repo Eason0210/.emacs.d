@@ -81,14 +81,6 @@
 [submodule "exec-path-from-shell"]
 	path = lib/exec-path-from-shell
 	url = https://github.com/purcell/exec-path-from-shell
-[submodule "flyspell-correct"]
-	no-byte-compile = flyspell-correct-avy-menu.el
-	no-byte-compile = flyspell-correct-helm.el
-	no-byte-compile = flyspell-correct-ido.el
-	no-byte-compile = flyspell-correct-ivy.el
-	no-byte-compile = flyspell-correct-popup.el
-	path = lib/flyspell-correct
-	url = https://github.com/d12frosted/flyspell-correct
 [submodule "gcmh"]
 	path = lib/gcmh
 	url = https://gitlab.com/koral/gcmh
