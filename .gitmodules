@@ -119,6 +119,9 @@
 [submodule "hotfuzz"]
 	path = lib/hotfuzz
 	url = https://github.com/axelf4/hotfuzz
+[submodule "jinx"]
+	path = lib/jinx
+	url = https://github.com/minad/jinx
 [submodule "llama"]
 	path = lib/llama
 	url = https://github.com/tarsius/llama
