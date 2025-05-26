@@ -205,6 +205,8 @@
 	path = lib/verb
 	url = https://github.com/federicotdn/verb
 [submodule "vertico"]
+	load-path = .
+	load-path = extensions
 	path = lib/vertico
 	url = https://github.com/minad/vertico
 [submodule "visual-fill-column"]

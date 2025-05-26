@@ -200,6 +200,9 @@
   :custom (vertico-cycle t)
   :config (vertico-mode))
 
+(use-package vertico-sort
+  :after vertico)
+
 (use-package marginalia
   :init (marginalia-mode))
 
