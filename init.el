@@ -360,7 +360,7 @@
          ("C-x w t" . transpose-window-layout)
          ("C-x w h" . flip-window-layout-horizontally)
          ("C-x w v" . flip-window-layout-vertically))
-  
+
   :custom (split-width-threshold 140))
 
 (use-package winner
@@ -616,7 +616,7 @@
    '(org-table ((t (:inherit fixed-pitch))))
    '(org-tag ((t (:inherit (shadow fixed-pitch) :weight bold :height 1.0))))
    '(org-verbatim ((t (:inherit (shadow fixed-pitch))))))
-  
+
   (advice-add 'org-babel-execute-src-block
               :before #'my/org-babel-execute-src-block)
   (add-hook 'org-after-todo-state-change-hook #'log-todo-next-creation-date)
@@ -630,7 +630,7 @@
     (when (and (string= (org-get-todo-state) "NEXT")
                (not (org-entry-get nil "ACTIVATED")))
       (org-entry-put nil "ACTIVATED" (format-time-string "[%Y-%m-%d]"))))
-  
+
   (defvar sanityinc/org-global-prefix-map (make-sparse-keymap)
     "A keymap for handy global access to org helpers, particularly clocking.")
 
