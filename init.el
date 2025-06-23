@@ -975,6 +975,18 @@ typical word processor."
   :bind ("M-$" . jinx-correct)
   :custom (jinx-languages "en_US"))
 
+;;; LLM client
+
+(use-package gptel
+  :defer t
+  :custom
+  (gptel-default-mode 'org-mode)
+  (gptel-model 'deepseek-reasoner)
+  :config
+  (setq gptel-backend (gptel-make-deepseek "DeepSeek"
+                        :stream t
+                        :key gptel-api-key)))
+
 ;;; Miscellaneous config
 
 (use-package vundo
