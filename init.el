@@ -813,6 +813,26 @@ typical word processor."
   :bind-keymap ("C-c C-r" . verb-command-map)
   :init (unbind-key "C-c C-r" org-mode-map))
 
+(use-package ox-latex
+  :defer t
+  :after org
+  :custom
+  (org-latex-compiler "xelatex")
+  (org-latex-default-class "ctexart")
+  (org-latex-toc-command "\\clearpage \\tableofcontents \\clearpage")
+  (org-latex-pdf-process
+   '("latexmk -f -pdf -xelatex -interaction=nonstopmode -output-directory=%o %f"))
+  :config
+  (add-to-list 'org-latex-classes
+               '("ctexart"
+                 "\\documentclass[UTF8, a4paper]{ctexart}
+\\CTEXsetup[format={\\raggedright\\Large\\bfseries}]{section}"
+                 ("\\section{%s}" . "\\section*{%s}")
+                 ("\\subsection{%s}" . "\\subsection*{%s}")
+                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+
 ;;; Programming languages support
 
 (use-package elisp-mode
