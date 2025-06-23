@@ -954,6 +954,7 @@ typical word processor."
   :custom
   (eglot-report-progress nil)
   (eglot-autoshutdown t)
+  (eglot-code-action-indications '(mode-line))
   :config
   (add-to-list 'eglot-ignored-server-capabilities
                :documentHighlightProvider)
