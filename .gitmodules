@@ -162,6 +162,9 @@
 [submodule "paredit"]
 	path = lib/paredit
 	url = https://paredit.org/cgit/paredit
+[submodule "pdd"]
+	path = lib/pdd
+	url = https://github.com/lorniu/pdd.el
 [submodule "powershell"]
 	path = lib/powershell
 	url = https://github.com/jschaf/powershell.el

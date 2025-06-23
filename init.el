@@ -982,8 +982,34 @@ typical word processor."
   :custom (vundo-roll-back-on-quit nil))
 
 (use-package go-translate
-  :bind ("C-c t" . gts-do-translate)
-  :custom (gts-translate-list '(("en" "zh"))))
+  :bind ("C-c s" . gt-translate)
+  :custom
+  (gt-langs '(en zh))
+  (gt-http-proxy
+   (lambda (request)
+     (when (string-match-p "\\(googleapis\\)\\.com" (oref request url))
+       "https://127.0.0.1:8889")))
+  :config
+  (setq gt-preset-translators
+        `((insert . ,(gt-translator
+                      :taker (gt-taker :langs '(en zh) :text 'sentence)
+                      :engines (gt-bing-engine)
+                      :render (gt-insert-render)))
+          (multi-engines . ,(gt-translator
+                             :taker   (list (gt-taker :pick nil :if 'selection)
+                                            (gt-taker :text 'paragraph
+                                                      :if '(Info-mode help-mode))
+                                            (gt-taker :text 'word))
+                             :engines (list (gt-youdao-dict-engine)
+                                            (gt-google-engine :if 'word)
+                                            (gt-bing-engine :if 'no-word))
+                             :render  (list (gt-overlay-render :if 'read-only)
+                                            (gt-buffer-render))))
+          (overlay . ,(gt-translator
+                       :taker (gt-taker :langs '(en zh) :text 'sentence)
+                       :engines (gt-bing-engine)
+                       :render (gt-overlay-render))))))
+
 
 (use-package sis
   :demand t
