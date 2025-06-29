@@ -741,6 +741,7 @@
   :custom
   (writeroom-fullscreen-effect 'maximized)
   (writeroom-mode-line-toggle-position 'mode-line-format)
+  :config (delete 'writeroom-set-menu-bar-lines writeroom-global-effects)
   :preface
   (define-minor-mode prose-mode
     "Set up a buffer for prose editing.
