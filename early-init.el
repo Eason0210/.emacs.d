@@ -115,7 +115,8 @@
     (set-fontset-font t 'han han-font)
     (dolist (charset '(kana hangul cjk-misc bopomofo))
       (set-fontset-font t charset cjk-font))
-    (set-fontset-font t 'symbol symbol-font)))
+    (set-fontset-font t 'symbol symbol-font)
+    (set-fontset-font t 'unicode symbol-font nil 'append)))
 
 (aquamacs-load-default-font)
 
