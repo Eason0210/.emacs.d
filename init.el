@@ -300,7 +300,9 @@
   :hook (eshell-mode . (lambda () (setq-local corfu-auto nil)))
   :init
   (global-corfu-mode)
-  (corfu-popupinfo-mode))
+  (corfu-popupinfo-mode)
+  :config
+  (assoc-delete-all 'inhibit-double-buffering corfu--frame-parameters))
 
 (use-package cape
   :after corfu
