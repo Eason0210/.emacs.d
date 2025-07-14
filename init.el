@@ -900,8 +900,10 @@ typical word processor."
 
 (use-package rust-mode
   :defer t
-  :custom (rust-mode-treesitter-derive (and (fboundp 'treesit-available-p)
-                                            (treesit-available-p))))
+  :custom
+  (rust-ts-flymake-command nil)
+  (rust-mode-treesitter-derive (and (fboundp 'treesit-available-p)
+                                    (treesit-available-p))))
 
 (use-package reformatter
   :config
