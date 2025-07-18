@@ -1066,7 +1066,7 @@ typical word processor."
   :bind ("C-x u" . vundo)
   :custom (vundo-roll-back-on-quit nil))
 
-(use-package go-translate
+(use-package gt
   :bind ("C-c s" . gt-translate)
   :custom
   (gt-langs '(en zh))
