@@ -281,7 +281,8 @@
   (setq embark-candidate-collectors
         (cl-substitute 'embark-sorted-minibuffer-candidates
                        'embark-minibuffer-candidates
-                       embark-candidate-collectors)))
+                       embark-candidate-collectors))
+  (delete 'embark-target-flymake-at-point embark-target-finders))
 
 (use-package corfu
   :custom
