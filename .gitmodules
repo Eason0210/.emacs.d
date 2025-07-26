@@ -93,12 +93,12 @@
 [submodule "git-timemachine"]
 	path = lib/git-timemachine
 	url = https://codeberg.org/pidu/git-timemachine
-[submodule "go-translate"]
-	path = lib/go-translate
-	url = https://github.com/lorniu/go-translate
 [submodule "gptel"]
 	path = lib/gptel
 	url = https://github.com/karthink/gptel
+[submodule "gt"]
+	path = lib/gt
+	url = https://github.com/lorniu/gt.el
 [submodule "haskell-mode"]
 	path = lib/haskell-mode
 	url = https://github.com/haskell/haskell-mode
