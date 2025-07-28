@@ -109,8 +109,7 @@
   :when (display-graphic-p)
   :diminish
   :custom
-  (auto-dark-dark-theme 'sanityinc-tomorrow-bright)
-  (auto-dark-light-theme 'sanityinc-tomorrow-day)
+  (auto-dark-themes '((sanityinc-tomorrow-bright) (sanityinc-tomorrow-day)))
   :hook (after-init . auto-dark-mode))
 
 (use-package ns-auto-titlebar
