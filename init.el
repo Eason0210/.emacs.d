@@ -1032,6 +1032,20 @@ typical word processor."
   (eldoc-box-body ((t (:inherit (variable-pitch)))))
   (eldoc-box-markdown-separator ((t (:inherit (fringe))))))
 
+;;; Find files/buffers and apply commands on project
+
+(use-package project
+  :bind (:map project-prefix-map
+              ("a" . eat-project-other-window)
+              ("m" . magit-project-status))
+  :custom
+  (project-switch-commands '((project-find-file "Find file")
+                             (project-find-regexp "Find regexp")
+                             (project-dired "Dired")
+                             (project-eshell "Eshell")
+                             (eat-project-other-window "Eat")
+                             (magit-project-status "Magit"))))
+
 ;;; Helpers for M-x compile
 
 (use-package compile
