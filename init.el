@@ -1041,6 +1041,7 @@ typical word processor."
   :custom
   (project-switch-commands '((project-find-file "Find file")
                              (project-find-regexp "Find regexp")
+                             (project-find-dir "Find directory")
                              (project-dired "Dired")
                              (project-eshell "Eshell")
                              (eat-project-other-window "Eat")
