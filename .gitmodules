@@ -204,6 +204,9 @@
 [submodule "treesit-fold"]
 	path = lib/treesit-fold
 	url = https://github.com/emacs-tree-sitter/treesit-fold
+[submodule "ultra-scroll"]
+	path = lib/ultra-scroll
+	url = https://github.com/jdtsmith/ultra-scroll
 [submodule "verb"]
 	path = lib/verb
 	url = https://github.com/federicotdn/verb
