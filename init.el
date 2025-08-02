@@ -461,6 +461,14 @@
 (use-package pixel-scroll
   :config (pixel-scroll-precision-mode t))
 
+(use-package ultra-scroll
+  :custom
+  (scroll-conservatively 3)
+  (scroll-margin 0)
+  (ultra-scroll-hide-cursor 0.5)
+  :config
+  (ultra-scroll-mode 1))
+
 (use-package delsel
   :config (delete-selection-mode))
 
