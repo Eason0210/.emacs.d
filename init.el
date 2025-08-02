@@ -1055,6 +1055,9 @@ typical word processor."
   ([f6] . recompile)
   :custom (compilation-scroll-output 'first-error))
 
+(use-package eshell
+  :custom (eshell-scroll-show-maximum-output nil))
+
 ;;; Spell checking support
 
 (use-package jinx
