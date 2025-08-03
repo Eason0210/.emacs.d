@@ -487,7 +487,9 @@
   :diminish
   :custom (beacon-size 20)
   :hook (after-init . beacon-mode)
-  :config (add-to-list 'beacon-dont-blink-commands 'pixel-scroll-precision))
+  :config
+  (add-to-list 'beacon-dont-blink-commands 'pixel-scroll-precision)
+  (add-to-list 'beacon-dont-blink-commands 'ultra-scroll))
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
