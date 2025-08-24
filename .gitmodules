@@ -28,6 +28,9 @@
 [submodule "compat"]
 	path = lib/compat
 	url = https://github.com/emacs-compat/compat
+[submodule "cond-let"]
+	path = lib/cond-let
+	url = https://github.com/tarsius/cond-let
 [submodule "consult"]
 	no-byte-compile	= consult-icomplete.el
 	no-byte-compile	= consult-selectrum.el
