@@ -814,7 +814,8 @@ typical word processor."
                  (window-height . fit-window-to-buffer))))
 
 (use-package denote
-  :hook (dired-mode . denote-dired-mode)
+  :hook ((text-mode . denote-fontify-links-mode-maybe)
+         (dired-mode . denote-dired-mode))
   :bind (("C-c n n" . denote)
          ("C-c n r" . denote-rename-file)
          ("C-c n l" . denote-link)
