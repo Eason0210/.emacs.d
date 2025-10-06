@@ -36,6 +36,9 @@
 	no-byte-compile	= consult-selectrum.el
 	path = lib/consult
 	url = https://github.com/minad/consult
+[submodule "consult-denote"]
+	path = lib/consult-denote
+	url = https://github.com/protesilaos/consult-denote
 [submodule "consult-eglot"]
 	path = lib/consult-eglot
 	url = https://github.com/mohkale/consult-eglot
