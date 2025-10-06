@@ -813,6 +813,17 @@ typical word processor."
                  (window-width . 0.33)
                  (window-height . fit-window-to-buffer))))
 
+(use-package denote
+  :hook (dired-mode . denote-dired-mode)
+  :bind (("C-c n n" . denote)
+         ("C-c n r" . denote-rename-file)
+         ("C-c n l" . denote-link)
+         ("C-c n b" . denote-backlinks)
+         ("C-c n d" . denote-dired)
+         ("C-c n g" . denote-grep))
+  :config
+  (denote-rename-buffer-mode 1))
+
 (use-package markdown-mode
   :bind (:map markdown-mode-map
               ("C-c v" . markdown-toggle-markup-hiding))
