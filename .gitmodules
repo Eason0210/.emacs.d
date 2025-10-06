@@ -53,6 +53,9 @@
 [submodule "dash"]
 	path = lib/dash
 	url = https://github.com/magnars/dash.el
+[submodule "denote"]
+	path = lib/denote
+	url = https://github.com/protesilaos/denote
 [submodule "diff-hl"]
 	path = lib/diff-hl
 	url = https://github.com/dgutov/diff-hl
