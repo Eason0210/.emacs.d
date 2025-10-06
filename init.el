@@ -819,10 +819,13 @@ typical word processor."
          ("C-c n r" . denote-rename-file)
          ("C-c n l" . denote-link)
          ("C-c n b" . denote-backlinks)
-         ("C-c n d" . denote-dired)
-         ("C-c n g" . denote-grep))
-  :config
-  (denote-rename-buffer-mode 1))
+         ("C-c n d" . denote-dired))
+  :config (denote-rename-buffer-mode 1))
+
+(use-package consult-denote
+  :bind (("C-c n f" . consult-denote-find)
+         ("C-c n g" . consult-denote-grep))
+  :config (consult-denote-mode 1))
 
 (use-package markdown-mode
   :bind (:map markdown-mode-map
