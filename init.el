@@ -826,6 +826,9 @@ typical word processor."
 (use-package consult-denote
   :bind (("C-c n f" . consult-denote-find)
          ("C-c n g" . consult-denote-grep))
+  :custom
+  (consult-denote-grep-command #'consult-ripgrep)
+  (consult-denote-find-command #'consult-fd)
   :config (consult-denote-mode 1))
 
 (use-package markdown-mode
