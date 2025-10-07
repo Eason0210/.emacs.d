@@ -174,7 +174,7 @@
   (read-buffer-completion-ignore-case t)
   (completion-ignore-case t)
   (enable-recursive-minibuffers t)
-  (inhibit-message-regexps '("^Saving file" "^Wrote"))
+  (inhibit-message-regexps '("^Saving file" "^Wrote" "^Indentation setup for shell"))
   (set-message-functions '(inhibit-message))
   :init (minibuffer-depth-indicate-mode))
 
