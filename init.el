@@ -20,8 +20,6 @@
   (setq inhibit-startup-screen t)
   (setq ring-bell-function #'ignore)
   (setq-default fill-column 80)
-  ;; Adjust garbage collection threshold for early startup (see use of gcmh below)
-  (setq gc-cons-threshold (* 128 1024 1024))
   ;; General performance tuning
   (setq jit-lock-defer-time 0)
   ;; Process performance tuning
