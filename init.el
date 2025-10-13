@@ -591,14 +591,11 @@
   (org-agenda-files (list "inbox.org" "agenda.org" "notes.org" "projects.org"))
   (org-capture-templates
    `(("i" "Inbox" entry  (file "") ; "" => `org-default-notes-file'
-      ,(concat "* TODO %?\n"
-               "/Entered on/ %U"))
+      ,(concat "* TODO %?\n" "%U"))
      ("m" "Meeting" entry  (file+headline "agenda.org" "Future")
-      ,(concat "* %? :meeting:\n"
-               "<%<%Y-%m-%d %a %H:00>>"))
+      ,(concat "* %? :meeting:\n" "<%<%Y-%m-%d %a %H:00>>"))
      ("n" "Note" entry  (file "notes.org")
-      ,(concat "* Note (%a)\n"
-               "/Entered on/ %U\n" "\n" "%?"))))
+      ,(concat "* Note (%a)\n" "%U\n" "\n" "%?"))))
   ;; (org-capture-mode-hook 'delete-other-windows)
   (org-todo-keywords
    '((sequence "TODO(t)" "NEXT(n)" "HOLD(h)" "|" "DONE(d!/!)")))
