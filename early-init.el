@@ -6,6 +6,11 @@
 
 (setq load-prefer-newer t)
 
+;; Tell Emacs to initialize Borg instead of Package
+(add-to-list 'load-path (expand-file-name "lib/borg" user-emacs-directory))
+(require 'borg)
+(borg-initialize)
+
 (setq package-enable-at-startup nil)
 
 ;; Prevent unwanted runtime compilation for Emacs with native-comp

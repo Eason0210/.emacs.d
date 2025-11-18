@@ -26,11 +26,6 @@
   (setq read-process-output-max (* 4 1024 1024))
   (setq process-adaptive-read-buffering nil))
 
-(eval-and-compile ; `borg'
-  (add-to-list 'load-path (expand-file-name "lib/borg" user-emacs-directory))
-  (require 'borg)
-  (borg-initialize))
-
 (eval-and-compile ; `use-package'
   (setq use-package-enable-imenu-support t)
   (setq use-package-expand-minimally t)
