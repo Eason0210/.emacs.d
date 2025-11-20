@@ -1054,7 +1054,8 @@ typical word processor."
                              (project-dired "Dired")
                              (project-eshell "Eshell")
                              (eat-project-other-window "Eat")
-                             (magit-project-status "Magit"))))
+                             (magit-project-status "Magit")))
+  (project-vc-extra-root-markers '("pyproject.toml")))
 
 ;;; Helpers for M-x compile
 
