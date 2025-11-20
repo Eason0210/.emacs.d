@@ -1133,7 +1133,7 @@ typical word processor."
   (when (eq system-type 'darwin)
     (sis-ism-lazyman-config
      "com.apple.keylayout.ABC"
-     "im.rime.inputmethod.Squirrel.Hans"))
+     "com.apple.inputmethod.SCIM.WBX"))
   (when (eq system-type 'gnu/linux)
     (sis-ism-lazyman-config "1" "2" 'fcitx5))
   (setq sis-other-cursor-color "orange")
