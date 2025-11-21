@@ -11,7 +11,9 @@ ${EMACS:=emacs} -nw --batch \
                               (url-show-status nil)
                               (user-emacs-directory default-directory)
                               (user-init-file (expand-file-name "init.el"))
-                              (load-path (delq default-directory load-path)))
-                           (load-file user-init-file)
+                              (user-early-init-file (expand-file-name "early-init.el"))
+                              (load-path (delq default-directory load-path)))                           
+                           (load-file user-early-init-file)
+			   (load-file user-init-file)
                            (run-hooks (quote after-init-hook))))'
 echo "Startup successful"
