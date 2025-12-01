@@ -1003,6 +1003,12 @@ typical word processor."
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
   (add-to-list 'auto-mode-alist '("\\.ya?ml\\'" . yaml-ts-mode)))
 
+(use-package indent-bars
+  :custom
+  (indent-bars-no-descend-lists t)
+  (indent-bars-treesit-support t)
+  :hook ((python-ts-mode python-mode) . indent-bars-mode))
+
 ;;; Languages Server Protocol(LSP)
 
 (use-package eglot
