@@ -117,6 +117,9 @@
 [submodule "hotfuzz"]
 	path = lib/hotfuzz
 	url = https://github.com/axelf4/hotfuzz
+[submodule "indent-bars"]
+	path = lib/indent-bars
+	url = https://github.com/jdtsmith/indent-bars
 [submodule "jinx"]
 	path = lib/jinx
 	url = https://github.com/minad/jinx
