@@ -342,13 +342,6 @@
 ;;; Working with Windows within frames
 
 (use-package window
-  :bind (("C-x w r" . rotate-windows)
-         ("C-x w C-r" . rotate-windows-back)
-         ("C-x w s" . window-swap-states)
-         ("C-x w t" . transpose-window-layout)
-         ("C-x w h" . flip-window-layout-horizontally)
-         ("C-x w v" . flip-window-layout-vertically))
-
   :custom (split-width-threshold 140))
 
 (use-package winner
