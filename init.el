@@ -1091,10 +1091,6 @@ typical word processor."
 
 ;;; Miscellaneous config
 
-(use-package vundo
-  :bind ("C-x u" . vundo)
-  :custom (vundo-roll-back-on-quit nil))
-
 (use-package gt
   :bind ("C-c s" . gt-translate)
   :custom
