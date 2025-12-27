@@ -492,6 +492,11 @@
               ("M-n" . symbol-overlay-jump-next)
               ("M-p" . symbol-overlay-jump-prev)))
 
+;; Unobtrusively remove trailing whitespace
+(use-package ws-butler
+  :diminish
+  :hook (emacs-startup . ws-butler-global-mode))
+
 ;;; Version control
 
 (use-package diff-hl

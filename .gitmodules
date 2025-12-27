@@ -233,6 +233,9 @@
 [submodule "writeroom-mode"]
 	path = lib/writeroom-mode
 	url = https://github.com/joostkremers/writeroom-mode
+[submodule "ws-butler"]
+	path = lib/ws-butler
+	url = https://github.com/lewang/ws-butler
 [submodule "yasnippet"]
 	path = lib/yasnippet
 	url = https://github.com/joaotavora/yasnippet
