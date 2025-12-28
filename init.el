@@ -415,13 +415,24 @@
           (or (not (boundp 'corfu--total)) (zerop corfu--total))
           (or (not (boundp 'yas--active-snippets))
               (not yas--active-snippets)))))
-  (display-fill-column-indicator-character ?\u254e)
-  :hook ((prog-mode . display-fill-column-indicator-mode)
-         ((prog-mode text-mode) . indicate-buffer-boundaries-left)
+  :hook (((prog-mode text-mode) . indicate-buffer-boundaries-left)
          (after-init . auto-save-visited-mode))
   :config
   (defun indicate-buffer-boundaries-left ()
     (setq indicate-buffer-boundaries 'left)))
+
+(use-package display-fill-column-indicator
+  :custom (display-fill-column-indicator-character ?\s)
+  :hook (prog-mode . display-fill-column-indicator-mode)
+  :hook ((emacs-startup text-scale-mode) . adjust-fill-column-indicator-stipple)
+  :config
+  (defun adjust-fill-column-indicator-stipple ()
+    "Adjust the fill-column-indicator face with stipple."
+    (let* ((w (window-font-width))
+           (stipple `(,w 1 ,(apply #'unibyte-string
+                                   (append (make-list (1- (/ (+ w 7) 8)) ?\0)
+                                           '(1))))))
+      (set-face-attribute 'fill-column-indicator nil :stipple stipple))))
 
 (use-package simple
   :bind
