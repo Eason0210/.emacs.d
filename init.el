@@ -434,6 +434,9 @@
                                            '(1))))))
       (set-face-attribute 'fill-column-indicator nil :stipple stipple))))
 
+(use-package repeat
+  :hook (emacs-startup . repeat-mode))
+
 (use-package simple
   :bind
   ("M-j" . join-line) ; M-^ is inconvenient, so also bind M-j
