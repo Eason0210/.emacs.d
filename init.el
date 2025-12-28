@@ -568,15 +568,8 @@
          :map org-mode-map
          ("C-c v" . visible-mode)
          ("C-c e d" . org-pandoc-convert-to-docx)
-         :map sanityinc/org-global-prefix-map
-         ("j" . org-clock-goto)
-         ("l" . org-clock-in-last)
-         ("i" . org-clock-in)
-         ("o" . org-clock-out)
-         ("b" . org-mark-ring-goto)
          :map org-src-mode-map
          ("C-c C-c" . org-edit-src-exit))
-  :bind-keymap ("C-c o" . sanityinc/org-global-prefix-map)
   :hook (org-mode . variable-pitch-mode)
   :custom
   (org-modules nil) ; Faster loading
@@ -637,9 +630,6 @@
     (when (and (string= (org-get-todo-state) "NEXT")
                (not (org-entry-get nil "ACTIVATED")))
       (org-entry-put nil "ACTIVATED" (format-time-string "[%Y-%m-%d]"))))
-
-  (defvar sanityinc/org-global-prefix-map (make-sparse-keymap)
-    "A keymap for handy global access to org helpers, particularly clocking.")
 
   (defun my/org-babel-execute-src-block (&optional _arg info _params)
     "Load language when needed"
