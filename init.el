@@ -1094,7 +1094,8 @@ typical word processor."
   :diminish
   :hook (emacs-startup . global-jinx-mode)
   :bind ("M-$" . jinx-correct)
-  :custom (jinx-languages "en_US"))
+  :custom (jinx-languages "en_US")
+  :config (add-to-list 'jinx-exclude-regexps '(t "\\cc")))
 
 ;;; LLM client
 
