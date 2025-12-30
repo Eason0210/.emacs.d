@@ -845,8 +845,7 @@ typical word processor."
 ;;; Programming languages support
 
 (use-package elisp-mode
-  :hook ((emacs-lisp-mode . (lambda () (setq mode-name "ELisp")))
-         (emacs-lisp-mode . sanityinc/maybe-set-bundled-elisp-readonly))
+  :hook (emacs-lisp-mode . sanityinc/maybe-set-bundled-elisp-readonly)
   :config
   (setq initial-scratch-message
         (concat ";; Happy hacking, " user-login-name " - Emacs ♥ you!\n\n"))
