@@ -62,9 +62,6 @@
 [submodule "diff-hl"]
 	path = lib/diff-hl
 	url = https://github.com/dgutov/diff-hl
-[submodule "diminish"]
-	path = lib/diminish
-	url = https://github.com/myrjola/diminish.el
 [submodule "diredfl"]
 	path = lib/diredfl
 	url = https://github.com/purcell/diredfl

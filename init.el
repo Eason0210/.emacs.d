@@ -93,7 +93,6 @@
 
 (use-package auto-dark
   :when (display-graphic-p)
-  :diminish
   :custom
   (auto-dark-themes '((sanityinc-tomorrow-bright) (sanityinc-tomorrow-day)))
   :hook (after-init . auto-dark-mode))
@@ -311,7 +310,6 @@
   :init (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
 (use-package yasnippet
-  :diminish yas-minor-mode
   :custom (yas-keymap-disable-hook
            (lambda () (and (frame-live-p corfu--frame)
                            (frame-visible-p corfu--frame))))
@@ -472,12 +470,10 @@
   :config (electric-indent-mode))
 
 (use-package autorevert
-  :diminish
   :custom (auto-revert-verbose nil)
   :config (global-auto-revert-mode))
 
 (use-package beacon
-  :diminish
   :custom (beacon-size 20)
   :hook (after-init . beacon-mode)
   :config
@@ -498,7 +494,6 @@
   ([M-down] . move-dup-move-lines-down))
 
 (use-package symbol-overlay
-  :diminish
   :hook ((prog-mode html-mode conf-mode) . symbol-overlay-mode)
   :bind (:map symbol-overlay-mode-map
               ("M-i" . symbol-overlay-put)
@@ -508,7 +503,6 @@
 
 ;; Unobtrusively remove trailing whitespace
 (use-package ws-butler
-  :diminish
   :hook (emacs-startup . ws-butler-global-mode))
 
 ;;; Version control
@@ -777,7 +771,6 @@ typical word processor."
 
 (use-package org-roam
   :if (file-exists-p "~/.org/org-roam")
-  :diminish
   :bind (("C-c n a" . org-id-get-create)
          ("C-c n l" . org-roam-buffer-toggle)
          ("C-c n f" . org-roam-node-find)
@@ -866,9 +859,9 @@ typical word processor."
       (view-mode 1))))
 
 (use-package paredit
-  :diminish paredit-mode " Par"
   :hook (emacs-lisp-mode . enable-paredit-mode)
   :config
+  (setq paredit-lighter " Par")
   (dolist (binding '("C-<left>" "C-<right>" "M-s" "M-?"))
     (define-key paredit-mode-map (read-kbd-macro binding) nil)))
 
@@ -1081,7 +1074,6 @@ typical word processor."
 ;;; Spell checking support
 
 (use-package jinx
-  :diminish
   :hook (emacs-startup . global-jinx-mode)
   :bind ("M-$" . jinx-correct)
   :custom (jinx-languages "en_US")
