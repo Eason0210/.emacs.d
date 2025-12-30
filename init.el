@@ -1139,6 +1139,17 @@ typical word processor."
   (sis-global-cursor-color-mode t)
   (sis-global-respect-mode t))
 
+;;; Minor modes for which mode line lighters are hidden
+(setq mode-line-collapse-minor-modes
+      '(auto-dark-mode
+        auto-revert-mode
+        beacon-mode
+        jinx-mode
+        symbol-overlay-mode
+        ws-butler-mode
+        yas-minor-mode
+        ))
+
 ;;; Built-in packages
 
 (use-package eldoc
