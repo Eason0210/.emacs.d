@@ -1140,7 +1140,8 @@ typical word processor."
 
 ;;; Minor modes for which mode line lighters are hidden
 (setq mode-line-collapse-minor-modes
-      '(auto-dark-mode
+      '(abbrev-mode
+        auto-dark-mode
         auto-revert-mode
         beacon-mode
         jinx-mode
