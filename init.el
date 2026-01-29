@@ -769,28 +769,6 @@ typical word processor."
       (when (fboundp 'writeroom-mode)
         (writeroom-mode 0)))))
 
-(use-package org-roam
-  :if (file-exists-p "~/.org/org-roam")
-  :bind (("C-c n a" . org-id-get-create)
-         ("C-c n l" . org-roam-buffer-toggle)
-         ("C-c n f" . org-roam-node-find)
-         ("C-c n i" . org-roam-node-insert)
-         ("C-c n c" . org-roam-capture)
-         ("C-c n r" . org-roam-ref-find)
-         ("C-c n R" . org-roam-ref-add)
-         ("C-c n s" . org-roam-db-sync))
-  :custom
-  (org-roam-directory (file-truename "~/.org/org-roam"))
-  (org-roam-db-gc-threshold most-positive-fixnum)
-  :config
-  (org-roam-db-autosync-enable)
-  (add-to-list 'display-buffer-alist
-               '("\\*org-roam\\*"
-                 (display-buffer-in-direction)
-                 (direction . right)
-                 (window-width . 0.33)
-                 (window-height . fit-window-to-buffer))))
-
 (use-package denote
   :hook ((text-mode . denote-fontify-links-mode-maybe)
          (dired-mode . denote-dired-mode))

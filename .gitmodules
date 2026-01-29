@@ -154,11 +154,6 @@
 [submodule "ns-auto-titlebar"]
 	path = lib/ns-auto-titlebar
 	url = https://github.com/purcell/ns-auto-titlebar
-[submodule "org-roam"]
-	load-path = .
-	load-path = extensions
-	path = lib/org-roam
-	url = https://github.com/org-roam/org-roam
 [submodule "ox-gfm"]
 	path = lib/ox-gfm
 	url = https://github.com/larstvei/ox-gfm
