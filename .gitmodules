@@ -221,9 +221,6 @@
 [submodule "visual-fill-column"]
 	path = lib/visual-fill-column
 	url = https://codeberg.org/joostkremers/visual-fill-column
-[submodule "vundo"]
-	path = lib/vundo
-	url = https://github.com/casouri/vundo
 [submodule "with-editor"]
 	path = lib/with-editor
 	url = https://github.com/magit/with-editor
