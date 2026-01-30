@@ -770,7 +770,7 @@ typical word processor."
         (writeroom-mode 0)))))
 
 (use-package denote
-  :hook ((text-mode . denote-fontify-links-mode-maybe)
+  :hook ((text-mode . denote-fontify-links-mode)
          (dired-mode . denote-dired-mode))
   :bind (("C-c n n" . denote)
          ("C-c n r" . denote-rename-file)
