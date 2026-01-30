@@ -1112,7 +1112,7 @@ typical word processor."
      "com.apple.inputmethod.SCIM.WBX"))
   (when (eq system-type 'gnu/linux)
     (sis-ism-lazyman-config "1" "2" 'fcitx5))
-  (setq sis-other-cursor-color "orange")
+  (setq sis-other-cursor-color "chartreuse")
   (sis-global-cursor-color-mode t)
   (sis-global-respect-mode t))
 
