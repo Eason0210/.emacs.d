@@ -1074,10 +1074,6 @@ typical word processor."
   :bind ("C-c s" . gt-translate)
   :custom
   (gt-langs '(en zh))
-  (gt-http-proxy
-   (lambda (request)
-     (when (string-match-p "\\(googleapis\\)\\.com" (oref request url))
-       "https://127.0.0.1:8889")))
   :config
   (setq gt-preset-translators
         `((insert . ,(gt-translator
@@ -1090,7 +1086,7 @@ typical word processor."
                                                       :if '(Info-mode help-mode))
                                             (gt-taker :text 'word))
                              :engines (list (gt-youdao-dict-engine)
-                                            (gt-google-engine :if 'word)
+                                            ;; (gt-google-engine :if 'word)
                                             (gt-bing-engine :if 'no-word))
                              :render  (list (gt-overlay-render :if 'read-only)
                                             (gt-buffer-render))))
