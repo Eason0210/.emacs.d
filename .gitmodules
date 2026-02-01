@@ -96,6 +96,9 @@
 [submodule "gptel"]
 	path = lib/gptel
 	url = https://github.com/karthink/gptel
+[submodule "gruber-darker-theme"]
+	path = lib/gruber-darker-theme
+	url = https://github.com/Eason0210/gruber-darker-theme
 [submodule "gt"]
 	path = lib/gt
 	url = https://github.com/lorniu/gt.el
