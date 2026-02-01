@@ -65,36 +65,11 @@
 
 ;;; Theme
 
-(use-package color-theme-sanityinc-tomorrow
-  :custom
-  (custom-safe-themes t)
-  (custom-enabled-themes '(sanityinc-tomorrow-day))
-  :hook (after-init . reapply-themes)
-  :config
-  (defun reapply-themes ()
-    "Forcibly load the themes listed in `custom-enabled-themes'."
-    (dolist (theme custom-enabled-themes)
-      (unless (custom-theme-p theme)
-        (load-theme theme)))
-    (custom-set-variables
-     `(custom-enabled-themes (quote ,custom-enabled-themes))))
-
-  (defun light ()
-    "Activate a light color theme."
-    (interactive)
-    (setq custom-enabled-themes '(sanityinc-tomorrow-day))
-    (reapply-themes))
-
-  (defun dark ()
-    "Activate a dark color theme."
-    (interactive)
-    (setq custom-enabled-themes '(sanityinc-tomorrow-bright))
-    (reapply-themes)))
-
 (use-package auto-dark
   :when (display-graphic-p)
   :custom
-  (auto-dark-themes '((sanityinc-tomorrow-bright) (sanityinc-tomorrow-day)))
+  (custom-safe-themes t)
+  (auto-dark-themes '((gruber-darker) (gruber-lighter)))
   :hook (after-init . auto-dark-mode))
 
 (use-package ns-auto-titlebar
