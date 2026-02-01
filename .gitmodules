@@ -99,6 +99,9 @@
 [submodule "gruber-darker-theme"]
 	path = lib/gruber-darker-theme
 	url = https://github.com/Eason0210/gruber-darker-theme
+[submodule "gruber-lighter-theme"]
+	path = lib/gruber-lighter-theme
+	url = https://github.com/Eason0210/gruber-lighter-theme
 [submodule "gt"]
 	path = lib/gt
 	url = https://github.com/lorniu/gt.el
