@@ -51,23 +51,23 @@
                                  (t 16))
   "Current font size.")
 
-(defvar aquamacs-font-weight "medium"
+(defvar aquamacs-font-weight "regular"
   "Current font weight.")
 
 (defvar aquamacs-fonts
-  `((default . ,(cond ((eq system-type 'darwin) "SF Mono")
+  `((default . ,(cond ((eq system-type 'darwin) "Monaco")
                       ((eq system-type 'windows-nt) "SF Mono")
                       (t "SF Mono")))
-    (fixed . ,(cond ((eq system-type 'darwin) "SF Mono")
+    (fixed . ,(cond ((eq system-type 'darwin) "Monaco")
                     ((eq system-type 'windows-nt) "SF Mono")
                     (t "SF Mono")))
     (fixed-serif . ,(cond ((eq system-type 'darwin) "New York")
                           ((eq system-type 'windows-nt) "SF Mono")
                           (t "SF Mono")))
-    (variable . ,(cond ((eq system-type 'darwin) "SF Pro")
+    (variable . ,(cond ((eq system-type 'darwin) "Helvetica Neue")
                        ((eq system-type 'windows-nt) "Helvetica Neue")
                        (t "SF Pro")))
-    (han . ,(cond ((eq system-type 'darwin) "PingFang SC")
+    (han . ,(cond ((eq system-type 'darwin) "FZLiuGongQuanKaiShuJF")
                   ((eq system-type 'windows-nt) "方正柳公权楷书 简繁")
                   (t "方正柳公权楷书 简繁")))
     (cjk . ,(cond ((eq system-type 'darwin) "PingFang SC")
