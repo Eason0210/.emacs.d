@@ -1006,11 +1006,6 @@ typical word processor."
   :after (consult eglot)
   :bind (:map eglot-mode-map ("M-g s" . consult-eglot-symbols)))
 
-(use-package breadcrumb
-  :custom
-  (breadcrumb-imenu-crumb-separator " › ")
-  :config (breadcrumb-mode))
-
 (use-package eldoc-box
   :bind ("C-;" . eldoc-box-help-at-point)
   :custom-face
