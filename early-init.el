@@ -56,13 +56,13 @@
 
 (defvar aquamacs-fonts
   `((default . ,(cond ((eq system-type 'darwin) "Monaco")
-                      ((eq system-type 'windows-nt) "SF Mono")
+                      ((eq system-type 'windows-nt) "Consolas")
                       (t "SF Mono")))
     (fixed . ,(cond ((eq system-type 'darwin) "Monaco")
-                    ((eq system-type 'windows-nt) "SF Mono")
+                    ((eq system-type 'windows-nt) "Consolas")
                     (t "SF Mono")))
     (fixed-serif . ,(cond ((eq system-type 'darwin) "New York")
-                          ((eq system-type 'windows-nt) "SF Mono")
+                          ((eq system-type 'windows-nt) "Consolas")
                           (t "SF Mono")))
     (variable . ,(cond ((eq system-type 'darwin) "Helvetica Neue")
                        ((eq system-type 'windows-nt) "Helvetica Neue")
