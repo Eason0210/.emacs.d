@@ -47,7 +47,7 @@
 
 ;;; Font setting
 (defvar aquamacs-font-size (cond ((eq system-type 'darwin) 15)
-                                 ((eq system-type 'windows-nt) 12)
+                                 ((eq system-type 'windows-nt) 13.5)
                                  (t 16))
   "Current font size.")
 
@@ -113,11 +113,11 @@
                                        aquamacs-font-size aquamacs-font-weight)))
         (han-font (aquamacs--get-font-family 'han))
         (cjk-font (aquamacs--get-font-family 'cjk))
-        (symbol-font (aquamacs--get-font-family 'symbol)))
+        (symbol-font (aquamacs--get-font-family 'symbol))
+        (scale-factor (if (eq system-type 'windows-nt) 1.1 1.2)))
     (set-frame-font default-font)
-    (unless (eq system-type 'darwin)
-      (add-to-list 'face-font-rescale-alist `(,han-font . 1.2))
-      (add-to-list 'face-font-rescale-alist `(,cjk-font . 1.2)))
+    (add-to-list 'face-font-rescale-alist `(,han-font . ,scale-factor))
+    (add-to-list 'face-font-rescale-alist `(,cjk-font . ,scale-factor))
     (set-fontset-font t 'han han-font)
     (dolist (charset '(kana hangul cjk-misc bopomofo))
       (set-fontset-font t charset cjk-font))
