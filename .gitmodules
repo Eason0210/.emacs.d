@@ -231,9 +231,6 @@
 [submodule "with-editor"]
 	path = lib/with-editor
 	url = https://github.com/magit/with-editor
-[submodule "writeroom-mode"]
-	path = lib/writeroom-mode
-	url = https://github.com/joostkremers/writeroom-mode
 [submodule "ws-butler"]
 	path = lib/ws-butler
 	url = https://github.com/lewang/ws-butler
