@@ -539,7 +539,8 @@
          ("C-c e d" . org-pandoc-convert-to-docx)
          :map org-src-mode-map
          ("C-c C-c" . org-edit-src-exit))
-  :hook (org-mode . variable-pitch-mode)
+  :hook (org-mode . prose-mode)
+  :hook (org-mode . mixed-pitch-mode)
   :custom
   (org-modules nil) ; Faster loading
   (org-log-done 'time)
@@ -573,19 +574,6 @@
   (org-archive-location "%s_archive::* Archive")
   :commands (org-get-todo-state org-entry-get org-entry-put)
   :config
-  (custom-theme-set-faces
-   'user
-   '(org-block ((t (:inherit fixed-pitch))))
-   '(org-code ((t (:inherit (shadow fixed-pitch)))))
-   '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
-   '(org-indent ((t (:inherit (org-hide fixed-pitch)))))
-   '(org-meta-line ((t (:inherit (font-lock-comment-face fixed-pitch)))))
-   '(org-property-value ((t (:inherit fixed-pitch))))
-   '(org-special-keyword ((t (:inherit (font-lock-comment-face fixed-pitch)))))
-   '(org-table ((t (:inherit fixed-pitch))))
-   '(org-tag ((t (:inherit (shadow fixed-pitch) :weight bold :height 1.0))))
-   '(org-verbatim ((t (:inherit (shadow fixed-pitch))))))
-
   (advice-add 'org-babel-execute-src-block
               :before #'my/org-babel-execute-src-block)
   (add-hook 'org-after-todo-state-change-hook #'log-todo-next-creation-date)
@@ -701,48 +689,47 @@
        (tags "CLOSED>=\"<today>\""
              ((org-agenda-overriding-header "Completed today"))))))))
 
-;; Writing mode similar to the famous Writeroom editor for macOS
-(use-package writeroom-mode
-  :hook (org-mode . prose-mode)
-  :custom
-  (writeroom-fullscreen-effect 'maximized)
-  (writeroom-mode-line-toggle-position 'mode-line-format)
-  :config (delete 'writeroom-set-menu-bar-lines writeroom-global-effects)
-  :preface
-  (define-minor-mode prose-mode
-    "Set up a buffer for prose editing.
+(define-minor-mode prose-mode
+  "Set up a buffer for prose editing.
 This enables or modifies a number of settings so that the
 experience of editing prose is a little more like that of a
 typical word processor."
-    :init-value nil :lighter " Prose" :keymap nil
-    (if prose-mode
-        (progn
-          (when (fboundp 'writeroom-mode)
-            (writeroom-mode 1))
-          (setq truncate-lines nil)
-          (setq word-wrap t)
-          (setq word-wrap-by-category t)
-          (setq cursor-type 'bar)
-          (when (eq major-mode 'org)
-            (kill-local-variable 'buffer-face-mode-face))
-          (buffer-face-mode 1)
-          (setq-local blink-cursor-interval 0.6)
-          (setq-local show-trailing-whitespace nil)
-          ;; (setq-local line-spacing 0.2)
-          (setq-local electric-pair-mode nil)
-          (visual-line-mode 1))
-      (kill-local-variable 'truncate-lines)
-      (kill-local-variable 'word-wrap)
-      (kill-local-variable 'word-wrap-by-category)
-      (kill-local-variable 'cursor-type)
-      (kill-local-variable 'blink-cursor-interval)
-      (kill-local-variable 'show-trailing-whitespace)
-      ;; (kill-local-variable 'line-spacing)
-      (kill-local-variable 'electric-pair-mode)
-      (buffer-face-mode -1)
-      (visual-line-mode -1)
-      (when (fboundp 'writeroom-mode)
-        (writeroom-mode 0)))))
+  :init-value nil :lighter " Prose" :keymap nil
+  (if prose-mode
+      (progn
+        (when (fboundp 'olivetti-mode)
+          (olivetti-mode 1))
+        (when (fboundp 'hide-mode-line-mode)
+          (hide-mode-line-mode 1))
+        (setq truncate-lines nil)
+        (setq word-wrap t)
+        (setq word-wrap-by-category t)
+        (setq cursor-type 'bar)
+        (setq-local blink-cursor-interval 0.6)
+        (setq-local show-trailing-whitespace nil)
+        (setq-local electric-pair-mode nil)
+        (visual-line-mode 1))
+    (kill-local-variable 'truncate-lines)
+    (kill-local-variable 'word-wrap)
+    (kill-local-variable 'word-wrap-by-category)
+    (kill-local-variable 'cursor-type)
+    (kill-local-variable 'blink-cursor-interval)
+    (kill-local-variable 'show-trailing-whitespace)
+    (kill-local-variable 'electric-pair-mode)
+    (visual-line-mode -1)
+    (when (fboundp 'hide-mode-line-mode)
+      (hide-mode-line-mode -1))
+    (when (fboundp 'olivetti-mode)
+      (olivetti-mode -1))))
+
+;; Mixing `variable-pitch' and `fixed-pitch' fonts in the same buffer
+(use-package mixed-pitch
+  :config
+  ;; Fix the `nerd-icons-corfu' display issue
+  (with-eval-after-load 'corfu
+    (define-advice corfu--make-buffer (:around (oldfun &rest args))
+      (let ((face-remapping-alist nil))
+        (apply oldfun args)))))
 
 (use-package denote
   :hook ((text-mode . denote-fontify-links-mode)
@@ -1106,8 +1093,8 @@ typical word processor."
   :config (temp-buffer-resize-mode))
 
 (use-package info
-  :hook ((Info-mode . variable-pitch-mode)
-         (Info-mode . writeroom-mode))
+  :hook ((Info-mode . mixed-pitch-mode)
+         (Info-mode . olivetti-mode))
   :custom-face (Info-quoted ((t (:inherit fixed-pitch)))))
 
 (use-package text-mode
