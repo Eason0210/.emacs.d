@@ -142,6 +142,9 @@
 [submodule "meson-mode"]
 	path = lib/meson-mode
 	url = https://github.com/wentasah/meson-mode
+[submodule "mixed-pitch"]
+	path = lib/mixed-pitch
+	url = https://gitlab.com/jabranham/mixed-pitch
 [submodule "move-dup"]
 	path = lib/move-dup
 	url = https://github.com/wyuenho/move-dup
