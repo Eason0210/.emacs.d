@@ -157,6 +157,9 @@
 [submodule "ns-auto-titlebar"]
 	path = lib/ns-auto-titlebar
 	url = https://github.com/purcell/ns-auto-titlebar
+[submodule "olivetti"]
+	path = lib/olivetti
+	url = https://github.com/rnkn/olivetti
 [submodule "ox-gfm"]
 	path = lib/ox-gfm
 	url = https://github.com/larstvei/ox-gfm
