@@ -377,6 +377,9 @@
   (create-lockfiles nil)
   (auto-save-default nil)
   (make-backup-files nil)
+  (window-divider-default-bottom-width 2)
+  (window-divider-default-right-width 2)
+  (window-divider-default-places t)
   (auto-save-visited-interval 1.1)
   (auto-save-visited-predicate
    (lambda ()
@@ -389,7 +392,8 @@
           (or (not (boundp 'yas--active-snippets))
               (not yas--active-snippets)))))
   :hook (((prog-mode text-mode) . indicate-buffer-boundaries-left)
-         (after-init . auto-save-visited-mode))
+         (after-init . auto-save-visited-mode)
+         (after-init . window-divider-mode))
   :config
   (defun indicate-buffer-boundaries-left ()
     (setq indicate-buffer-boundaries 'left)))
