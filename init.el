@@ -1033,29 +1033,31 @@ typical word processor."
 
 (use-package gt
   :bind ("C-c s" . gt-translate)
-  :custom
-  (gt-langs '(en zh))
+  :custom (gt-langs '(en zh))
   :config
   (setq gt-preset-translators
-        `((insert . ,(gt-translator
-                      :taker (gt-taker :langs '(en zh) :text 'sentence)
-                      :engines (gt-bing-engine)
-                      :render (gt-insert-render)))
-          (multi-engines . ,(gt-translator
-                             :taker   (list (gt-taker :pick nil :if 'selection)
-                                            (gt-taker :text 'paragraph
-                                                      :if '(Info-mode help-mode))
-                                            (gt-taker :text 'word))
-                             :engines (list (gt-youdao-dict-engine)
-                                            ;; (gt-google-engine :if 'word)
-                                            (gt-bing-engine :if 'no-word))
-                             :render  (list (gt-overlay-render :if 'read-only)
-                                            (gt-buffer-render))))
-          (overlay . ,(gt-translator
-                       :taker (gt-taker :langs '(en zh) :text 'sentence)
-                       :engines (gt-bing-engine)
-                       :render (gt-overlay-render))))))
-
+        `((default . ,(gt-translator
+                       :taker   (list (gt-taker :pick nil :if 'selection)
+                                      (gt-taker :text 'paragraph
+                                                :if '(Info-mode help-mode))
+                                      (gt-taker :text 'word))
+                       :engines (list (gt-youdao-dict-engine)
+                                      (gt-youdao-suggest-engine :if '(and word src:en)))
+                       :render  (list (gt-overlay-render :if 'read-only)
+                                      (gt-buffer-render))))
+          (youdao . ,(gt-translator
+                      :taker (gt-taker :text 'sentence)
+                      :engines (gt-youdao-dict-engine)
+                      :render (list (gt-buffer-render :if '(or read-only word))
+                                    (gt-insert-render))))
+          (osxdict . ,(gt-translator
+                       :taker (gt-taker :text 'word)
+                       :engines (gt-osxdict-engine)
+                       :render (gt-buffer-render)))
+          (startdict . ,(gt-translator
+                         :taker (gt-taker :text 'word)
+                         :engines (gt-stardict-engine)
+                         :render (gt-buffer-render))))))
 
 (use-package sis
   :demand t
