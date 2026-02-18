@@ -1039,7 +1039,7 @@ typical word processor."
         `((default . ,(gt-translator
                        :taker   (list (gt-taker :pick nil :if 'selection)
                                       (gt-taker :text 'paragraph
-                                                :if '(Info-mode help-mode))
+                                                :if '(Info-mode help-mode eww-mode))
                                       (gt-taker :text 'word))
                        :engines (list (gt-youdao-dict-engine)
                                       (gt-youdao-suggest-engine :if '(and word src:en)))
