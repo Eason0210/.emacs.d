@@ -743,6 +743,8 @@ typical word processor."
          ("C-c n l" . denote-link)
          ("C-c n b" . denote-backlinks)
          ("C-c n d" . denote-dired))
+  :custom
+  (denote-excluded-directories-regexp "data")
   :config (denote-rename-buffer-mode 1))
 
 (use-package consult-denote
