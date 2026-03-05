@@ -10,6 +10,9 @@
 [submodule "beacon"]
 	path = lib/beacon
 	url = https://github.com/Malabarba/beacon
+[submodule "beancount"]
+	path = lib/beancount
+	url = https://github.com/beancount/beancount-mode
 [submodule "borg"]
 	path = lib/borg
 	url = https://github.com/emacscollective/borg
