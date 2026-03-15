@@ -465,6 +465,17 @@
 (use-package highlight-escape-sequences
   :hook (after-init . hes-mode))
 
+(use-package multiple-cursors
+  :bind
+  ("C-S-c C-S-c" . 'mc/edit-lines)
+  ("C->" . 'mc/mark-next-like-this)
+  ("C-<" . 'mc/mark-previous-like-this)
+  ("C-c C-<" . 'mc/mark-all-like-this)
+  ("C-\"" . 'mc/skip-to-next-like-this)
+  (:map mc/keymap ("M-N" . 'mc/insert-numbers))
+  :config
+  (add-to-list 'mc/unsupported-minor-modes 'auto-save-visited-mode))
+
 (use-package move-dup
   :bind
   ("C-c d" . move-dup-duplicate-down)
