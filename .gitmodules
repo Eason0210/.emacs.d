@@ -154,6 +154,9 @@
 [submodule "mscl-mode"]
 	path = lib/mscl-mode
 	url = https://github.com/Eason0210/mscl-mode
+[submodule "multiple-cursors"]
+	path = lib/multiple-cursors
+	url = https://github.com/magnars/multiple-cursors.el
 [submodule "nerd-icons"]
 	path = lib/nerd-icons
 	url = https://github.com/rainstormstudio/nerd-icons.el
