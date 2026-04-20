@@ -143,13 +143,7 @@
   (completion-styles '(hotfuzz))
   (completion-category-defaults nil)
   (completion-category-overrides '((buffer (display-sort-function . identity))
-                                   (eglot-capf (styles hotfuzz))))
-  :config
-  (with-eval-after-load 'consult
-    (defvar consult--tofu-char)
-    (defvar consult--tofu-range)
-    (setq consult--tofu-char #x100000
-          consult--tofu-range #x00fffe)))
+                                   (eglot-capf (styles hotfuzz)))))
 
 (use-package vertico
   :demand t
