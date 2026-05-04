@@ -24,7 +24,11 @@
   (setq jit-lock-defer-time 0)
   ;; Process performance tuning
   (setq read-process-output-max (* 4 1024 1024))
-  (setq process-adaptive-read-buffering nil))
+  (setq process-adaptive-read-buffering nil)
+  ;; Disable bidirectional text scanning
+  (setq-default bidi-display-reordering 'left-to-right
+                bidi-paragraph-direction 'left-to-right)
+  (setq bidi-inhibit-bpa t))
 
 (eval-and-compile ; `use-package'
   (setq use-package-enable-imenu-support t)
