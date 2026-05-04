@@ -966,7 +966,8 @@ typical word processor."
   :custom
   (eglot-report-progress nil)
   (eglot-autoshutdown t)
-  (eglot-code-action-indications '(mode-line))
+  (eglot-code-action-indicator "✓")
+  (eglot-code-action-indications '(eldoc-hint mode-line))
   :config
   (add-to-list 'eglot-ignored-server-capabilities
                :documentHighlightProvider)
