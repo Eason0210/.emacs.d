@@ -1031,7 +1031,7 @@ typical word processor."
   :defer t
   :custom
   (gptel-default-mode 'org-mode)
-  (gptel-model 'deepseek-reasoner)
+  (gptel-model 'deepseek-v4-pro)
   :config
   (setq gptel-backend (gptel-make-deepseek "DeepSeek"
                         :stream t
