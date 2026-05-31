@@ -87,6 +87,9 @@
 [submodule "exec-path-from-shell"]
 	path = lib/exec-path-from-shell
 	url = https://github.com/purcell/exec-path-from-shell
+[submodule "ghostel"]
+	path = lib/ghostel
+	url = https://github.com/dakra/ghostel
 [submodule "git-link"]
 	path = lib/git-link
 	url = https://github.com/sshaw/git-link
