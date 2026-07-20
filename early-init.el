@@ -67,9 +67,13 @@
     (cjk . ,(cond ((eq system-type 'darwin) "FZLiuGongQuanKaiShuJF")
                   ((eq system-type 'windows-nt) "方正柳公权楷书 简繁")
                   (t "方正柳公权楷书 简繁")))
-    (symbol . ,(cond ((eq system-type 'darwin) "Apple Color Emoji")
-                     ((eq system-type 'windows-nt) "Segoe UI Emoji")
-                     (t "Noto Color Emoji"))))
+    (symbol . ,(cond ((eq system-type 'darwin) "Apple symbols")
+                     ((eq system-type 'windows-nt) "Segoe UI Symbol")
+                     (t "Noto Sans Symbols")))
+    (emoji . ,(cond ((eq system-type 'darwin) "Apple Color Emoji")
+                    ((eq system-type 'windows-nt) "Segoe UI Emoji")
+                    (t "Noto Color Emoji")))
+    (nerd . "FiraCode Nerd Font"))
   "Fonts to use.")
 
 (defun aquamacs--get-font-family (key)
@@ -108,13 +112,20 @@
                                        aquamacs-font-size aquamacs-font-weight)))
         (cjk-font (aquamacs--get-font-family 'cjk))
         (symbol-font (aquamacs--get-font-family 'symbol))
+        (emoji-font (aquamacs--get-font-family 'emoji))
+        (nerd-font (aquamacs--get-font-family 'nerd))
         (scale-factor (if (eq system-type 'windows-nt) 1.1 1.2)))
     (set-frame-font default-font)
     (add-to-list 'face-font-rescale-alist `(,cjk-font . ,scale-factor))
     (dolist (charset '(kana han hangul cjk-misc bopomofo))
       (set-fontset-font t charset cjk-font))
+    (setf use-default-font-for-symbols nil)
     (set-fontset-font t 'symbol symbol-font)
-    (set-fontset-font t 'unicode symbol-font nil 'append)))
+    (set-fontset-font t 'emoji emoji-font)
+    ;; PUA area font
+    (set-fontset-font t '(#xE000 . #xF8FF) nerd-font nil 'prepend)
+    ;; Dingbats area font
+    (set-fontset-font t '(#x2700 . #x27BF) nerd-font nil 'prepend)))
 
 (aquamacs-load-default-font)
 
