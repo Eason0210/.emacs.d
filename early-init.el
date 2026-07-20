@@ -73,7 +73,7 @@
     (emoji . ,(cond ((eq system-type 'darwin) "Apple Color Emoji")
                     ((eq system-type 'windows-nt) "Segoe UI Emoji")
                     (t "Noto Color Emoji")))
-    (nerd . "FiraCode Nerd Font"))
+    (nerd . "Symbols Nerd Font Mono"))
   "Fonts to use.")
 
 (defun aquamacs--get-font-family (key)
