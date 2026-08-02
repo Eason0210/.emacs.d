@@ -410,6 +410,10 @@
                                            '(1))))))
       (set-face-attribute 'fill-column-indicator nil :stipple stipple))))
 
+(use-package display-line-numbers
+  :custom (display-line-numbers-type 'relative)
+  :hook (emacs-startup . global-display-line-numbers-mode))
+
 (use-package repeat
   :hook (emacs-startup . repeat-mode))
 
