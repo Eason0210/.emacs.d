@@ -260,7 +260,8 @@
   (global-corfu-mode)
   (corfu-popupinfo-mode)
   :config
-  (assoc-delete-all 'inhibit-double-buffering corfu--frame-parameters))
+  (setq corfu--frame-parameters
+        (assoc-delete-all 'inhibit-double-buffering corfu--frame-parameters)))
 
 (use-package cape
   :after corfu
@@ -651,7 +652,40 @@
                                       " ")))
                   (special-mode))
                 (pop-to-buffer buffer)
-                (error "Convert failed with exit code %s" exit-code)))))))))
+                (error "Convert failed with exit code %s" exit-code))))))))
+  :preface
+  (define-minor-mode prose-mode
+    "Set up a buffer for prose editing.
+This enables or modifies a number of settings so that the
+experience of editing prose is a little more like that of a
+typical word processor."
+    :init-value nil :lighter " Prose" :keymap nil
+    (if prose-mode
+        (progn
+          (when (fboundp 'olivetti-mode)
+            (olivetti-mode 1))
+          (when (fboundp 'hide-mode-line-mode)
+            (hide-mode-line-mode 1))
+          (setq truncate-lines nil)
+          (setq word-wrap t)
+          (setq word-wrap-by-category t)
+          (setq cursor-type 'bar)
+          (setq-local blink-cursor-interval 0.6)
+          (setq-local show-trailing-whitespace nil)
+          (setq-local electric-pair-mode nil)
+          (visual-line-mode 1))
+      (kill-local-variable 'truncate-lines)
+      (kill-local-variable 'word-wrap)
+      (kill-local-variable 'word-wrap-by-category)
+      (kill-local-variable 'cursor-type)
+      (kill-local-variable 'blink-cursor-interval)
+      (kill-local-variable 'show-trailing-whitespace)
+      (kill-local-variable 'electric-pair-mode)
+      (visual-line-mode -1)
+      (when (fboundp 'hide-mode-line-mode)
+        (hide-mode-line-mode -1))
+      (when (fboundp 'olivetti-mode)
+        (olivetti-mode -1)))))
 
 (use-package org-refile
   :after org
@@ -701,39 +735,6 @@
                    (org-agenda-overriding-header "Inbox")))
        (tags "CLOSED>=\"<today>\""
              ((org-agenda-overriding-header "Completed today"))))))))
-
-(define-minor-mode prose-mode
-  "Set up a buffer for prose editing.
-This enables or modifies a number of settings so that the
-experience of editing prose is a little more like that of a
-typical word processor."
-  :init-value nil :lighter " Prose" :keymap nil
-  (if prose-mode
-      (progn
-        (when (fboundp 'olivetti-mode)
-          (olivetti-mode 1))
-        (when (fboundp 'hide-mode-line-mode)
-          (hide-mode-line-mode 1))
-        (setq truncate-lines nil)
-        (setq word-wrap t)
-        (setq word-wrap-by-category t)
-        (setq cursor-type 'bar)
-        (setq-local blink-cursor-interval 0.6)
-        (setq-local show-trailing-whitespace nil)
-        (setq-local electric-pair-mode nil)
-        (visual-line-mode 1))
-    (kill-local-variable 'truncate-lines)
-    (kill-local-variable 'word-wrap)
-    (kill-local-variable 'word-wrap-by-category)
-    (kill-local-variable 'cursor-type)
-    (kill-local-variable 'blink-cursor-interval)
-    (kill-local-variable 'show-trailing-whitespace)
-    (kill-local-variable 'electric-pair-mode)
-    (visual-line-mode -1)
-    (when (fboundp 'hide-mode-line-mode)
-      (hide-mode-line-mode -1))
-    (when (fboundp 'olivetti-mode)
-      (olivetti-mode -1))))
 
 ;; Mixing `variable-pitch' and `fixed-pitch' fonts in the same buffer
 (use-package mixed-pitch
@@ -887,7 +888,7 @@ typical word processor."
   (add-to-list 'c-default-style '(c++-mode . "linux-kernel"))
   (add-to-list 'c-default-style '(c-mode . "linux-kernel"))
   :preface
-  (defun c-lineup-arglist-tabs-only (ignored)
+  (defun c-lineup-arglist-tabs-only ()
     "Line up argument lists by tabs, not spaces"
     (let* ((anchor (c-langelem-pos c-syntactic-element))
            (column (c-langelem-2nd-pos c-syntactic-element))
@@ -1141,5 +1142,6 @@ typical word processor."
 ;; Local Variables:
 ;; indent-tabs-mode: nil
 ;; no-byte-compile: nil
+;; byte-compile-warnings: (not unresolved free-vars)
 ;; End:
 ;;; init.el ends here
