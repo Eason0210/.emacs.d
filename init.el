@@ -677,6 +677,7 @@ typical word processor."
           (setq-local blink-cursor-interval 0.6)
           (setq-local show-trailing-whitespace nil)
           (setq-local electric-pair-mode nil)
+          (indent-tabs-mode -1)
           (visual-line-mode 1))
       (kill-local-variable 'truncate-lines)
       (kill-local-variable 'word-wrap)
