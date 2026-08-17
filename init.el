@@ -400,14 +400,15 @@
 (use-package display-fill-column-indicator
   :custom (display-fill-column-indicator-character ?\s)
   :hook (prog-mode . display-fill-column-indicator-mode)
-  :hook ((emacs-startup text-scale-mode) . adjust-fill-column-indicator-stipple)
+  :hook ((emacs-startup text-scale-mode) . my-update-fill-column-indicator)
   :config
-  (defun adjust-fill-column-indicator-stipple ()
-    "Adjust the fill-column-indicator face with stipple."
+  (defun my-update-fill-column-indicator ()
+    "Adjust the stipple bitmap according to the current font size,
+ so that it renders as a thin vertical stipple line."
     (let* ((w (window-font-width))
+           (count (max 1 (1- (/ (+ w 7) 8))))
            (stipple `(,w 1 ,(apply #'unibyte-string
-                                   (append (make-list (1- (/ (+ w 7) 8)) ?\0)
-                                           '(1))))))
+                                   (append (make-list count ?\0) '(1))))))
       (set-face-attribute 'fill-column-indicator nil :stipple stipple))))
 
 (use-package display-line-numbers
