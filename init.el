@@ -591,6 +591,18 @@
   (org-todo-repeat-to-state "NEXT")
   (org-todo-keyword-faces '(("NEXT" :inherit warning)))
   (org-archive-location "%s_archive::* Archive")
+  (org-tag-alist (quote ((:startgroup)
+                         ("@office" . ?o)
+                         ("@home" . ?H)
+                         (:endgroup)
+                         ("WAITING" . ?w)
+                         ("HOLD" . ?h)
+                         ("PERSONAL" . ?P)
+                         ("WORK" . ?W)
+                         ("ORG" . ?O)
+                         ("NOTE" . ?n)
+                         ("CANCELLED" . ?c)
+                         ("FLAGGED" . ??))))
   :commands (org-get-todo-state org-entry-get org-entry-put)
   :config
   (advice-add 'org-babel-execute-src-block
