@@ -1096,6 +1096,13 @@ typical word processor."
   (sis-global-cursor-color-mode t)
   (sis-global-respect-mode t))
 
+(use-package telega
+  :custom
+  (telega-server-libs-prefix "~/.local")
+  (telega-avatar-workaround-gaps-for (when (display-graphic-p) '(return t)))
+  (telega-translate-to-language-by-default "zh")
+  (telega-chat-input-markups '("markdown2" "org")))
+
 ;;; Minor modes for which mode line lighters are hidden
 (setq mode-line-collapse-minor-modes
       '(abbrev-mode
