@@ -699,7 +699,12 @@ typical word processor."
   (org-refile-targets '((nil :maxlevel . 5) (org-agenda-files :maxlevel . 5)))
   (org-refile-use-outline-path t)
   (org-outline-path-complete-in-steps nil)
-  (org-refile-allow-creating-parent-nodes 'confirm))
+  (org-refile-allow-creating-parent-nodes 'confirm)
+  (org-refile-target-verify-function 'my-verify-refile-target)
+  :preface
+  (defun my-verify-refile-target ()
+    "Exclude todo keywords with a done state from refile targets"
+    (not (member (nth 2 (org-heading-components)) org-done-keywords))))
 
 (use-package org-agenda
   :bind ("C-c a" . org-agenda)
