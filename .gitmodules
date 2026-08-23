@@ -25,6 +25,9 @@
 [submodule "color-theme-sanityinc-tomorrow"]
 	path = lib/color-theme-sanityinc-tomorrow
 	url = https://github.com/purcell/color-theme-sanityinc-tomorrow
+[submodule "combobulate"]
+	path = lib/combobulate
+	url = https://github.com/mickeynp/combobulate
 [submodule "compat"]
 	path = lib/compat
 	url = https://github.com/emacs-compat/compat

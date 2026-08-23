@@ -965,6 +965,9 @@ typical word processor."
   (indent-bars-treesit-support t)
   :hook ((python-ts-mode python-mode) . indent-bars-mode))
 
+(use-package combobulate
+  :hook ((prog-mode . combobulate-mode)))
+
 ;;; Languages Server Protocol(LSP)
 
 (use-package eglot
