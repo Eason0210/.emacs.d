@@ -681,8 +681,7 @@ typical word processor."
         (progn
           (when (fboundp 'olivetti-mode)
             (olivetti-mode 1))
-          (when (fboundp 'hide-mode-line-mode)
-            (hide-mode-line-mode 1))
+          (mode-line-invisible-mode 1)
           (setq truncate-lines nil)
           (setq word-wrap t)
           (setq word-wrap-by-category t)
@@ -700,8 +699,7 @@ typical word processor."
       (kill-local-variable 'show-trailing-whitespace)
       (kill-local-variable 'electric-pair-mode)
       (visual-line-mode -1)
-      (when (fboundp 'hide-mode-line-mode)
-        (hide-mode-line-mode -1))
+      (mode-line-invisible-mode -1)
       (when (fboundp 'olivetti-mode)
         (olivetti-mode -1)))))
 
