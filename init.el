@@ -951,28 +951,10 @@ typical word processor."
 
 ;;; Tree-sitter support
 (use-package treesit
-  :when (and (fboundp 'treesit-available-p)
-             (treesit-available-p))
   :custom
-  (major-mode-remap-alist
-   '(;;(c-mode          . c-ts-mode)
-     ;;(c++-mode        . c++-ts-mode)
-     (csharp-mode     . csharp-ts-mode)
-     (conf-toml-mode  . toml-ts-mode)
-     (css-mode        . css-ts-mode)
-     (java-mode       . java-ts-mode)
-     (javascript-mode . js-ts-mode)
-     (js-json-mode    . json-ts-mode)
-     (python-mode     . python-ts-mode)
-     (ruby-mode       . ruby-ts-mode)))
+  (treesit-enabled-modes t)
   (c-ts-mode-indent-style 'linux)
-  (c-ts-mode-indent-offset 8)
-  :config
-  (add-to-list 'auto-mode-alist
-               '("\\(?:CMakeLists\\.txt\\|\\.cmake\\)\\'" . cmake-ts-mode))
-  (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
-  (add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
-  (add-to-list 'auto-mode-alist '("\\.ya?ml\\'" . yaml-ts-mode)))
+  (c-ts-indent-offset 8))
 
 (use-package indent-bars
   :custom
