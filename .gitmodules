@@ -172,6 +172,9 @@
 [submodule "ns-auto-titlebar"]
 	path = lib/ns-auto-titlebar
 	url = https://github.com/purcell/ns-auto-titlebar
+[submodule "ob-mermaid"]
+	path = lib/ob-mermaid
+	url = https://github.com/arnm/ob-mermaid
 [submodule "olivetti"]
 	path = lib/olivetti
 	url = https://github.com/rnkn/olivetti
