@@ -145,6 +145,9 @@
 [submodule "markdown-mode"]
 	path = lib/markdown-mode
 	url = https://github.com/jrblevin/markdown-mode
+[submodule "mermaid-mode"]
+	path = lib/mermaid-mode
+	url = https://github.com/abrochard/mermaid-mode
 [submodule "meson-mode"]
 	path = lib/meson-mode
 	url = https://github.com/wentasah/meson-mode
