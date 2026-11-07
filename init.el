@@ -831,6 +831,7 @@ typical word processor."
 
 (use-package elisp-mode
   :hook (emacs-lisp-mode . sanityinc/maybe-set-bundled-elisp-readonly)
+  :custom (elisp-fontify-semantically t)
   :config
   (setq initial-scratch-message
         (concat ";; Happy hacking, " user-login-name " - Emacs ♥ you!\n\n"))
