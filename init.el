@@ -1103,6 +1103,7 @@ typical word processor."
   (sis-global-respect-mode t))
 
 (use-package telega
+  :defer t
   :custom
   (telega-server-libs-prefix "~/.local")
   (telega-avatar-workaround-gaps-for (when (display-graphic-p) '(return t)))
