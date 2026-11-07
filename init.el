@@ -70,11 +70,17 @@
 ;;; Theme
 
 (use-package auto-dark
-  :when (display-graphic-p)
   :custom
   (custom-safe-themes t)
   (auto-dark-themes '((gruber-darker) (gruber-lighter)))
-  :hook (after-init . auto-dark-mode))
+  :hook (after-init . auto-dark-mode)
+  :config
+  (defun my/server-auto-dark (frame)
+    (with-selected-frame frame
+      (when (display-graphic-p)
+        (auto-dark-mode 1)
+        (remove-hook 'after-make-frame-functions #'my/server-auto-dark))))
+  (add-hook 'after-make-frame-functions #'my/server-auto-dark))
 
 (use-package ns-auto-titlebar
   :when (eq system-type 'darwin)
