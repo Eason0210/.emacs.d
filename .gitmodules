@@ -68,6 +68,9 @@
 [submodule "diredfl"]
 	path = lib/diredfl
 	url = https://github.com/purcell/diredfl
+[submodule "easysession"]
+	path = lib/easysession
+	url = https://github.com/jamescherti/easysession.el
 [submodule "eat"]
 	path = lib/eat
 	url = https://codeberg.org/akib/emacs-eat
