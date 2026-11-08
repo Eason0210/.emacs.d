@@ -1117,18 +1117,9 @@ typical word processor."
   (telega-translate-to-language-by-default "zh")
   (telega-chat-input-markups '("markdown2" "org")))
 
-;;; Minor modes for which mode line lighters are hidden
+;;; Minor modes for which mode line lighters are not hidden
 (setq mode-line-collapse-minor-modes
-      '(abbrev-mode
-        auto-dark-mode
-        auto-revert-mode
-        beacon-mode
-        jinx-mode
-        symbol-overlay-mode
-        ws-butler-mode
-        yas-minor-mode
-        easysession-save-mode
-        ))
+      '(not paredit-mode aggressive-indent-mode flymake-mode eldoc-mode))
 
 ;;; Built-in packages
 
