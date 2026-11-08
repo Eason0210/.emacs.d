@@ -353,7 +353,9 @@
   ("C-c s R" . easysession-reset)
   ("C-c s u" . easysession-unload)
   ("C-c s d" . easysession-delete)
-  :custom (easysession-save-interval (* 10 60))
+  :custom
+  (easysession-save-interval (* 10 60))
+  (enable-local-variables :safe)
   :config (easysession-setup))
 
 (use-package savehist
