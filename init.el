@@ -343,11 +343,18 @@
 
 ;;; Save and restore editor sessions between restarts
 
-(use-package desktop
-  :custom
-  (desktop-load-locked-desktop 'check-pid)
-  (desktop-globals-to-save nil)
-  :config (desktop-save-mode 1))
+(use-package easysession
+  :demand t
+  :bind
+  ("C-c s l" . easysession-switch-to)
+  ("C-c s s" . easysession-save)
+  ("C-c s L" . easysession-switch-to-and-restore-geometry)
+  ("C-c s r" . easysession-rename)
+  ("C-c s R" . easysession-reset)
+  ("C-c s u" . easysession-unload)
+  ("C-c s d" . easysession-delete)
+  :custom (easysession-save-interval (* 10 60))
+  :config (easysession-setup))
 
 (use-package savehist
   :custom (savehist-additional-variables
@@ -1059,7 +1066,7 @@ typical word processor."
 ;;; Miscellaneous config
 
 (use-package gt
-  :bind ("C-c s" . gt-translate)
+  :bind ("C-c t" . gt-translate)
   :custom (gt-langs '(en zh))
   :config
   (setq gt-preset-translators
@@ -1120,6 +1127,7 @@ typical word processor."
         symbol-overlay-mode
         ws-butler-mode
         yas-minor-mode
+        easysession-save-mode
         ))
 
 ;;; Built-in packages
